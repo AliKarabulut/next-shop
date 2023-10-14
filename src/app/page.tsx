@@ -1,8 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
+import RegisterForm from "@/components/register"
 
-export default function Home() {
-  return <main>
-    Home
-  </main>;
+
+const Home = () => {
+  return (
+    <main>
+      <RegisterForm/>
+    </main>
+  )
 }
+
+export default Home
