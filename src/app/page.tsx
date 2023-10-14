@@ -1,12 +1,5 @@
-import RegisterForm from "@/components/register"
-
-
 const Home = () => {
-  return (
-    <main>
-      <RegisterForm/>
-    </main>
-  )
-}
+  return <main></main>;
+};
 
-export default Home
+export default Home;
