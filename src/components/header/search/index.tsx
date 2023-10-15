@@ -1,9 +1,12 @@
-import React from "react";
-
+"use client"
+import { BsSearch } from "react-icons/bs";
 const Search = () => {
   return (
-    <form action="">
-      <input type="text" className="border-2 rounded-2xl py-1.5 pl-4 pr-16 border-yellow-500 focus:border-yellow-500 focus:outline-none" />
+    <form action="" className="flex items-center border-2 rounded-2xl border-yellow-500 overflow-hidden">
+      <input type="text" className="focus:border-none focus:outline-none text-sm w-full py-2.5 pl-4" />
+      <div className="h-10 w-14 bg-yellow-500 flex items-center justify-end pr-4">
+        <BsSearch className="text-xl" />
+      </div>
     </form>
   );
 };
