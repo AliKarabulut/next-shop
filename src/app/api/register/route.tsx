@@ -17,7 +17,8 @@ export const POST = async (request:NextRequest) => {
 
         return NextResponse.json(newUser);
 
-    } catch(err) {
+    } catch(err:any) {
+        if (err.code === 'P2002') return NextResponse.json({ message: "E-mail ile kayıt olunmuş" }, { status: 200 });
         return NextResponse.json({message: "POST Error", err}, {status: 500})
     }
 }
