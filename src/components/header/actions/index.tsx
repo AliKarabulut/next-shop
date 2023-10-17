@@ -7,14 +7,14 @@ import { IoIosGitCompare } from "react-icons/io";
 const ActionButtons = () => {
   return (
     <div className="flex gap-9">
+      <ActionIcon quantity={999}>
+        <IoIosGitCompare size={24} />
+      </ActionIcon>
       <ActionIcon>
         <BsHeart size={24} />
       </ActionIcon>
-      <ActionIcon number={4}>
+      <ActionIcon quantity={4} price={110.00}>
         <BsHandbag size={24} />
-      </ActionIcon>
-      <ActionIcon number={2}>
-        <IoIosGitCompare size={24} />
       </ActionIcon>
     </div>
   );

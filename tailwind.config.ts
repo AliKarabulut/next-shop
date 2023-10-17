@@ -10,62 +10,52 @@ const config: Config = {
       },
     },
     extend: {
-      // colors: {
-      //   white: "#ffffff",
-      //   "white-33": "#ffffff33",
-      //   "white-f2": "#fffffff2",
-
-      //   gray: {
-      //     50: '#fafafa',
-      //     100: "#f9f9f9",
-      //     200: "#f8f8f8",
-      //     300: "#eeeeee",
-      //     400: "#eaeaea",
-      //     500: "#e6e6e6",
-      //     600: "#dddddd",
-      //     700: "#888585",
-      //     800: "#333e48",
-      //     900: "#142688",
-      //     950: "#231f20",
-      //   },
-        
-      //   black: {
-      //     30: "#0000004d",
-      //     40: "#00000066",
-      //     70: "#1010104d",
-      //   },
-
-      //   yellow: {
-      //     500: "#fed700",
-      //     600: "#fdd700",
-      //     700: "#fbbc04",
-      //     800: "#f79e1b",
-      //     900: "#f48120",
-      //   },
-
-      //   red: {
-      //     500: "#dc3545",
-      //     700: "#eb001b",
-      //   },
-
-      //   blue: {
-      //     500: '#34bcec',
-      //     600: "#0062bd",
-      //     650: '#4285f4',
-      //     700: "#006fcf",
-      //     750: '#0081fb',
-      //     800: '#3086c8',
-      //     900: "#333e481a",
-      //   },
-
-      //   orange: {
-      //     500: "#ff5f00",
-      //   },
-
-      //   purple: {
-      //     600: "#5a31f4",
-      //   },
-      // },
+      colors: {
+       // White
+       white: "#ffffff",
+       whiteTransparent: "#ffffff33",
+       whiteLight: "#fffffff2",
+       
+       // Gray
+       grayLighter: "#f8f8f8",
+       grayLight: "#e6e6e6",
+       gray: "#dddddd",
+       grayDark: "#878787",
+       grayDarker: "#848484",
+       
+       // Yellow
+       yellow: "#fed700",
+       gold: "#fed700",
+       
+       // Green
+       green: "#4cd964",
+       
+       // Red
+       red: "#ff3b30",
+       redDark: "#dc3545",
+       
+       // Blue
+       blue: "#007aff",
+       blueTransparent: "#333e481a",
+       blueDark: "#333e48",
+       blueLight: "#34bcec",
+       blueGoogle: "#4285f4",
+       blueFacebook: "#3b5998",
+       blueTwitter: "#1da1f2",
+       blueLinkedIn: "#0077b5",
+       blueInstagram: "#c13584",
+       
+       // Purple
+       purple: "#5a31f4",
+       
+       // Black
+       blackTransparent: "#0000004d",
+       blackSemiTransparent: "#00000066",
+       black: "#000000",
+       
+       // Dark
+       dark: "#231f20",
+      },
     },
   },
   plugins: [],
