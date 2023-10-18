@@ -1,6 +1,6 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
-import { BsListTask } from "react-icons/bs";
+import { useState, useEffect } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { CategoryList } from "./categoryList";
 
 const DummyMenuContent = [
@@ -21,7 +21,6 @@ type MiniCategoryType = {
 
 const MiniCategory = ({ children }: MiniCategoryType) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const mobileMenu = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,24 +35,28 @@ const MiniCategory = ({ children }: MiniCategoryType) => {
     };
   }, []);
 
+  const clickHandler = () => {
+    setIsMenuOpen(!isMenuOpen);
+    document.body.classList.toggle("overflow-hidden", !isMenuOpen);
+  };
+
   return (
     <>
       <div id="mobile-menu-button" className="md:hidden">
-        <div onClick={(e) => setIsMenuOpen(true)}>
-          <BsListTask />
+        <div onClick={(e) => clickHandler()}>
+          <RxHamburgerMenu size={24} />
         </div>
       </div>
       <div
         id="mobile-menu"
-        className={`fixed left-0 top-0 z-50  h-full w-full  bg-white pt-16 backdrop-blur duration-150 md:hidden ${
+        className={` fixed left-0 top-0 z-50 h-full w-full bg-white p-8 duration-150 md:hidden ${
           isMenuOpen ? "translate-x-0" : "-translate-x-[48rem]"
         } `}
-        ref={mobileMenu}
       >
-        <div onClick={(e) => setIsMenuOpen(false)}>
-          <BsListTask />
+        <div className="flex items-center justify-between pb-8">
+          <RxHamburgerMenu size={24} onClick={() => clickHandler()} />
+          {children}
         </div>
-        {children}
         <div>
           {DummyMenuContent.map((el, index) => (
             <CategoryList key={index} {...el} />
