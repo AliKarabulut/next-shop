@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Search from "../search";
 import ActionButtons from "../actions";
 import CategoryMenu from "../category";
+import MiniCategory from "../category/miniCategory";
 
 const HeaderContainer = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -32,6 +33,7 @@ const HeaderContainer = () => {
     <div className={`w-full  ${!isScrollSmall ? "fixed top-[-150px] animate-open duration-300 shadow-md" : ""}`}>
       <div className={`container mx-auto flex flex-col gap-10 duration-300 transition-spacing ${!isScrollSmall ? "py-2.5" : "pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
+          <MiniCategory />
           <div className="text-3xl whitespace-nowrap">E commerce</div>
           <Search />
           <ActionButtons />
