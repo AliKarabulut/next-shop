@@ -12,22 +12,11 @@ type ActionIconProps = {
 
 const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIconProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const searchRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
 
   return (
     <div
-      ref={searchRef}
-      onClick={(e) => setIsOpen(prev=> !prev)}
+      onMouseEnter={(e) => setIsOpen(true)}
+      onMouseLeave={(e) => setIsOpen(false)}
       className={`actionIcon group relative cursor-pointer duration-300 flex gap-2 items-center ${{ ...{ className } }}`}
     >
       {children}
@@ -43,11 +32,13 @@ const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIc
       {dropDown && isOpen && (
         <div
           className="border-t-2 border-t-yellow border rounded-b-lg
-        text-blueDark  border-gray drop-shadow-lg w-fit bg-white 
+        text-blueDark  border-grayLighter drop-shadow-lg w-fit bg-white 
           absolute top-8 -left-9 before:content-[''] before:absolute
           before:-top-2 before:left-1/2 before:-translate-x-1/2 
           before:border-x-[6px] before:border-x-transparent 
-          before:border-b-[6px] before:border-b-yellow opacity-0 animate-opacityFast"
+          before:border-b-[6px] before:border-b-yellow opacity-0 animate-opacityFast
+          after:content-[''] after:absolute after:-top-4 after:w-full after:h-4 
+          after:left-1/2 after:-translate-x-1/2 "
         >
           {dropDown.map((item, index) => (
             <Link href={item.link} key={index} className="block border-b border-yellow last:border-none px-4 py-2 hover:bg-grayLight">
