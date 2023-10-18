@@ -1,6 +1,4 @@
-"use client";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
 
 type ActionIconProps = {
   children: React.ReactNode;
@@ -11,12 +9,10 @@ type ActionIconProps = {
 };
 
 const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIconProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  
 
   return (
     <div
-      onMouseEnter={(e) => setIsOpen(true)}
-      onMouseLeave={(e) => setIsOpen(false)}
       className={`actionIcon group relative cursor-pointer duration-300 flex gap-2 items-center ${{ ...{ className } }}`}
     >
       {children}
@@ -29,9 +25,9 @@ const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIc
         </div>
       )}
       {price && <div className="text-sm font-bold">${price}</div>}
-      {dropDown && isOpen && (
+      {dropDown && (
         <div
-          className="border-t-2 border-t-yellow border rounded-b-lg
+          className="hidden group-hover:block border-t-2 border-t-yellow border rounded-b-lg
         text-blueDark  border-grayLighter drop-shadow-lg w-fit bg-white 
           absolute top-8 -left-9 before:content-[''] before:absolute
           before:-top-2 before:left-1/2 before:-translate-x-1/2 
