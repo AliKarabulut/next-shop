@@ -10,9 +10,13 @@ const DummyDropDown = [
   { title: "Register", link: "/" },
 ];
 
-const ActionButtons = () => {
+type DropDownType = {
+  className?: string;
+};
+
+const ActionButtons = ({ className }: DropDownType) => {
   return (
-    <div className="flex gap-9">
+    <div className={`flex gap-9 ${className}`}>
       <ActionIcon dropDown={DummyDropDown}>
         <BiUser size={24} />
       </ActionIcon>

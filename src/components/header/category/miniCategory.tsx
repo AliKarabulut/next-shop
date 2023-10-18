@@ -15,7 +15,11 @@ const DummyMenuContent = [
   { name: "Game Consoles", isBold: false },
 ];
 
-const MiniCategory = () => {
+type MiniCategoryType = {
+  children?: React.ReactNode;
+};
+
+const MiniCategory = ({ children }: MiniCategoryType) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileMenu = useRef(null);
 
@@ -39,16 +43,17 @@ const MiniCategory = () => {
           <BsListTask />
         </div>
       </div>
-      {isMenuOpen && <div className="fixed left-0 top-0 h-full w-screen" onClick={(e) => setIsMenuOpen(false)} />}
-      {isMenuOpen && <div className="absolute bg-black bg-opacity-5 backdrop-blur-sm" />}
       <div
         id="mobile-menu"
-        className={`fixed left-0 top-0 z-50  h-full w-full max-w-xs bg-white pt-16 backdrop-blur duration-150 md:hidden ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-96"
+        className={`fixed left-0 top-0 z-50  h-full w-full  bg-white pt-16 backdrop-blur duration-150 md:hidden ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-[48rem]"
         } `}
         ref={mobileMenu}
       >
-        <BsListTask />
+        <div onClick={(e) => setIsMenuOpen(false)}>
+          <BsListTask />
+        </div>
+        {children}
         <div>
           {DummyMenuContent.map((el, index) => (
             <CategoryList key={index} {...el} />

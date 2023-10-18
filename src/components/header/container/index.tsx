@@ -33,13 +33,15 @@ const HeaderContainer = () => {
     <div className={`w-full  ${!isScrollSmall ? "fixed top-[-150px] animate-open duration-300 shadow-md" : ""}`}>
       <div className={`container mx-auto flex flex-col gap-10 duration-300 transition-spacing ${!isScrollSmall ? "py-2.5" : "pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
-          <MiniCategory />
+          <MiniCategory>
+            <ActionButtons />
+          </MiniCategory>
           <div className="text-3xl whitespace-nowrap">E commerce</div>
           <Search />
-          <ActionButtons />
+          <ActionButtons className="max-md:hidden" />
         </div>
         {isScrollSmall && (
-          <div className="flex justify-between gap-10">
+          <div className="flex justify-between gap-10 max-md:hidden">
             <CategoryMenu />
             <div className="text-sm font-semibold">Free Shipping on Orders $500+</div>
           </div>

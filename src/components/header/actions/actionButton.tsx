@@ -9,12 +9,8 @@ type ActionIconProps = {
 };
 
 const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIconProps) => {
-  
-
   return (
-    <div
-      className={`actionIcon group relative cursor-pointer duration-300 flex gap-2 items-center ${{ ...{ className } }}`}
-    >
+    <div className={`actionIcon group relative cursor-pointer duration-300 flex gap-2 items-center ${className}`}>
       {children}
       {quantity && (
         <div
