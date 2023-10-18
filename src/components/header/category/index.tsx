@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BsListTask } from "react-icons/bs";
 import { CategoryList } from "./categoryList";
 
@@ -28,7 +28,7 @@ const CategoryMenu = () => {
     <div
       onClick={toggleAccordion}
       ref={accordionRef}
-      className={`flex cursor-pointer relative w-64 items-center gap-2 px-5 py-2 transition-all bg-yellow  rounded-[10px]  ${
+      className={`flex cursor-pointer relative w-64 items-center gap-2 px-5 py-2 transition-all bg-yellow  rounded-[10px] opacity-0 animate-opacity ${
         isOpen ? "rounded-bl-none rounded-br-none" : ""
       }`}
     >
