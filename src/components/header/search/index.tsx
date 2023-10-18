@@ -26,7 +26,7 @@ const Search = () => {
         type="text"
         className="focus:border-none rounded-l-3xl focus:outline-none text-sm w-full py-2.5 pl-4 placeholder:text-gray-500"
         placeholder="Search"
-        onClick={(e) => setIsOpen(true)}
+        onClick={(e) => setIsOpen(prev=> !prev)}
       />
       <button
         className="h-10 w-14 bg-yellow flex items-center justify-end pr-4 cursor-pointer hover:bg-gray-800 duration-300 group rounded-r-2xl"

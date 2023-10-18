@@ -6,6 +6,6 @@
   @apply scale-95;
 }
 
-.actionIcon:active div:nth-child(2) {
+.actionIcon:active #quantity {
   @apply scale-0 ;
 }
