@@ -30,7 +30,7 @@ const HeaderContainer = () => {
 
   return (
     <div className={`w-full  ${!isScrollSmall ? "fixed top-[-150px] animate-open duration-300 shadow-md" : ""}`}>
-      <div className={`container mx-auto flex flex-col gap-10 ${!isScrollSmall ? "py-2.5" : "pt-8"}`}>
+      <div className={`container mx-auto flex flex-col gap-10 duration-300 ${!isScrollSmall ? "py-2.5" : "pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
           <div className="text-3xl whitespace-nowrap">E commerce</div>
           <Search />

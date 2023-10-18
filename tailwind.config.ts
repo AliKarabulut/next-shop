@@ -58,7 +58,8 @@ const config: Config = {
       },
       animation: {
         open: "open .5s ease forwards",
-        opacity: "opacity .5s ease forwards ",
+        opacityFast: "opacity .3s ease forwards ",
+        opacitySlow: "opacity .5s ease forwards ",
       },
       keyframes: {
         open: {
