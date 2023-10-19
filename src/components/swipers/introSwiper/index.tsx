@@ -3,8 +3,7 @@ import { Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 
 type SwiperProps = {
   slides?: {

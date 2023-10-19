@@ -11,13 +11,39 @@
 }
 
 .swiper-pagination-bullet {
-  @apply !h-2 !w-2  !rounded-full !bg-dark duration-500;
+  @apply h-2 w-2  rounded-full bg-grayDark duration-500;
 }
 
 .swiper-pagination-bullet-active {
-  @apply !bg-yellow !w-8 !rounded-lg;
+  @apply bg-yellow w-8;
 }
 
 .swiper-pagination {
-  @apply flex justify-center gap-1 my-2;
+  @apply flex justify-center gap-3 my-2 -mt-5 relative z-50;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  @apply w-14 h-14 cursor-pointer bg-blueDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  @apply content-[''] w-3 h-3 border-b-2 border-r-2 border-white -translate-x-0.5 -translate-y-0.5;
+}
+
+.swiper-button-next {
+  @apply -rotate-45 right-4;
+}
+.swiper-button-prev {
+  @apply rotate-[135deg] left-4;
+}
+
+.swiper-button-disabled {
+  @apply opacity-90 cursor-not-allowed bg-grayDarker;
+}
+
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+  @apply !opacity-100;
 }
