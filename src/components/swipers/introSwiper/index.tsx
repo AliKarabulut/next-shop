@@ -27,8 +27,8 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
   return (
     <div>
       <Swiper modules={[Pagination, Navigation]} slidesPerView={1} pagination={{ clickable: true }} navigation className="h-96">
-        <SwiperSlide className="bg-gradient-to-r  from-grayLighter to-grayLight"></SwiperSlide>
-        <SwiperSlide className="bg-gradient-to-r  from-grayLighter to-grayLight"></SwiperSlide>
+        <SwiperSlide className="bg-gradient-to-r from-grayLighter to-grayLight"></SwiperSlide>
+        <SwiperSlide className="bg-gradient-to-r from-grayLighter to-grayLight"></SwiperSlide>
         <SwiperSlide className="bg-gradient-to-r from-grayLighter to-grayLight"></SwiperSlide>
       </Swiper>
     </div>

@@ -7,5 +7,17 @@
 }
 
 .actionIcon:active #quantity {
-  @apply scale-0 ;
+  @apply scale-0;
+}
+
+.swiper-pagination-bullet {
+  @apply !h-2 !w-2  !rounded-full !bg-dark duration-500;
+}
+
+.swiper-pagination-bullet-active {
+  @apply !bg-yellow !w-8 !rounded-lg;
+}
+
+.swiper-pagination {
+  @apply flex justify-center gap-1 my-2;
 }
