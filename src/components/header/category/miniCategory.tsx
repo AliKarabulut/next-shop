@@ -43,7 +43,7 @@ const MiniCategory = ({ children }: MiniCategoryType) => {
   return (
     <>
       <div id="mobile-menu-button" className="md:hidden">
-        <div onClick={(e) => clickHandler()}>
+        <div onClick={() => clickHandler()}>
           <RxHamburgerMenu size={24} />
         </div>
       </div>

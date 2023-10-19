@@ -24,7 +24,7 @@ const CategoryMenu = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div
         onClick={toggleAccordion}
         className={`flex cursor-pointer w-64 items-center gap-2 px-5 py-2 transition-all bg-yellow  rounded-[10px] opacity-0 animate-opacitySlow ${
