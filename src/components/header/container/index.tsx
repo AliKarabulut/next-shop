@@ -5,6 +5,7 @@ import ActionButtons from "../actions";
 import CategoryMenu from "../category";
 import MiniCategory from "../category/miniCategory";
 
+
 const HeaderContainer = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isScrollSmall, setIsScrollSmall] = useState(true);
