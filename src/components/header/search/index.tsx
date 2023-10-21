@@ -3,7 +3,11 @@ import { BsSearch } from "react-icons/bs";
 import SearchBox from "./searchBox";
 import { useEffect, useRef, useState } from "react";
 
-const Search = () => {
+type SearchProps = {
+  className?: string;
+}
+
+const Search = ({className}:SearchProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const searchRef = useRef<HTMLFormElement | null>(null);
 
@@ -21,7 +25,7 @@ const Search = () => {
     event.preventDefault();
   };
   return (
-    <form ref={searchRef} onSubmit={submitHandler} className="max-md:absolute max-md:top-[3.5rem] z-50 left-0 flex items-center md:border-2 md:rounded-3xl border-yellow md:max-w-2xl w-full relative">
+    <form ref={searchRef} onSubmit={submitHandler} className={`max-md:absolute max-md:top-[3.5rem] z-50 left-0 flex items-center md:border-2 md:rounded-3xl border-yellow md:max-w-2xl w-full relative ${className} md:!flex`}>
       <input
         type="text"
         className="focus:border-none md:rounded-l-3xl focus:outline-none text-sm w-full py-4 md:py-2.5 pl-4"
