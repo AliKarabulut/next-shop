@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { BsXLg } from "react-icons/bs";
 import { CategoryList } from "./categoryList";
 
 const DummyMenuContent = [
@@ -42,20 +43,19 @@ const MiniCategory = ({ children }: MiniCategoryType) => {
 
   return (
     <>
-      <div id="mobile-menu-button" className="md:hidden">
-        <div onClick={() => clickHandler()}>
-          <RxHamburgerMenu size={24} />
-        </div>
+      <div className="md:hidden" onClick={() => clickHandler()}>
+        <RxHamburgerMenu className="text-3xl fill-black-70 cursor-pointer " />
       </div>
       <div
-        id="mobile-menu"
-        className={` fixed left-0 top-0 z-50 h-full w-full bg-white p-8 duration-150 md:hidden ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-[48rem]"
+        className={` fixed left-0 top-0 z-50 h-full w-full bg-white p-8 pt-5 duration-150 md:hidden ${
+          isMenuOpen ? "translate-x-0" : "translate-x-[48rem]"
         } `}
       >
         <div className="flex items-center justify-between pb-8">
-          <RxHamburgerMenu size={24} onClick={() => clickHandler()} />
           {children}
+          <div onClick={() => clickHandler()}>
+            <BsXLg className="text-2xl fill-black-70 cursor-pointer" />
+          </div>
         </div>
         <div>
           {DummyMenuContent.map((el, index) => (

@@ -8,7 +8,6 @@ import { BsSearch } from "react-icons/bs";
 const HeaderContainer = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isScrollSmall, setIsScrollSmall] = useState(true);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -34,10 +33,7 @@ const HeaderContainer = () => {
       <div className={`container mx-auto flex flex-col gap-10 md:duration-300 md:transition-spacing ${!isScrollSmall ? "py-2.5" : "md:pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
           <div className="text-3xl whitespace-nowrap">E commerce</div>
-          <div className="block md:hidden ml-auto" onClick={()=> setIsSearchOpen(!isSearchOpen)}>
-            <BsSearch/>
-          </div>
-          <Search className={isSearchOpen ? "block" : "hidden"}/>
+          <Search  />
           <ActionButtons className="max-md:hidden" />
           <MiniCategory>
             <ActionButtons />

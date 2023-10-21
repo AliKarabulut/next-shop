@@ -11,7 +11,7 @@
 }
 
 .swiper-pagination-bullet {
-  @apply h-2 w-2  rounded-full bg-grayDark duration-500;
+  @apply h-2 w-2 rounded-full bg-grayDark duration-500;
 }
 
 .swiper-pagination-bullet-active {
@@ -24,7 +24,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply w-10 h-10 md:w-14 md:h-14 cursor-pointer bg-blueDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
+  @apply w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-blueDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
 }
 
 .swiper-button-next:after,
