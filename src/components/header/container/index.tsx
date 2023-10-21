@@ -4,7 +4,7 @@ import Search from "../search";
 import ActionButtons from "../actions";
 import CategoryMenu from "../category";
 import MiniCategory from "../category/miniCategory";
-
+import { BsSearch } from "react-icons/bs";
 const HeaderContainer = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isScrollSmall, setIsScrollSmall] = useState(true);
@@ -27,8 +27,6 @@ const HeaderContainer = () => {
     } else if (scrollY > 156) {
       setIsScrollSmall(false);
     }
-
-    
   }, [scrollY]);
 
   return (
@@ -36,6 +34,9 @@ const HeaderContainer = () => {
       <div className={`container mx-auto flex flex-col gap-10 md:duration-300 md:transition-spacing ${!isScrollSmall ? "py-2.5" : "md:pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
           <div className="text-3xl whitespace-nowrap">E commerce</div>
+          <div className="blockmd:hidden" onClick={()=> setIsSearchOpen(!isSearchOpen)}>
+            <BsSearch />
+          </div>
           {isSearchOpen && <Search />}
           <ActionButtons className="max-md:hidden" />
           <MiniCategory>
