@@ -24,7 +24,7 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-blueDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
+  @apply opacity-0 duration-300 w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-blueDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
 }
 
 .swiper-button-next:after,
@@ -40,10 +40,14 @@
 }
 
 .swiper-button-disabled {
-  @apply opacity-90 cursor-not-allowed bg-grayDarker;
+  @apply cursor-not-allowed bg-grayDarker;
 }
 
 .swiper:hover .swiper-button-prev,
 .swiper:hover .swiper-button-next {
   @apply !opacity-100;
+}
+
+.swiper:hover .swiper-button-disabled {
+  @apply !opacity-90;
 }

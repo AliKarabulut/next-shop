@@ -1,20 +1,19 @@
 "use client";
-import { CategoryItem } from "./categoryItem";
+import {CategoryItem} from "./categoryItem";
 import { Scrollbar, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 
 import React from "react";
 
 const DummyMenuContent = [
-  { name: "Laptops & Computer", isBold: true },
-  { name: "Cameras", isBold: true },
-  { name: "Smartphones & Tablets", isBold: true },
-  { name: "Gaming", isBold: false },
-  { name: "TV & Audio", isBold: false },
-  { name: "Headphones", isBold: false },
-  { name: "Smartwatches", isBold: false },
+  { name: "Laptops & Computer", href: "/" },
+  { name: "Cameras", href: "/" },
+  { name: "Smartphones & Tablets", href: "/" },
+  { name: "Gaming", href: "/" },
+  { name: "TV & Audio", href: "/" },
+  { name: "Headphones", href: "/" },
+  { name: "Smartwatches", href: "/" },
 ];
 
 const CategoryList = () => {
@@ -33,7 +32,7 @@ const CategoryList = () => {
       >
         {DummyMenuContent.map((badge, index) => (
           <SwiperSlide className="!h-10 !flex !items-center !w-auto first:pl-0 first:pr-0" key={index}>
-            <CategoryItem name={badge.name} href="/" />
+            <CategoryItem name={badge.name} href={badge.href} />
           </SwiperSlide>
         ))}
       </Swiper>
