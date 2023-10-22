@@ -1,50 +1,44 @@
 "use client";
-import { useState, useRef } from "react";
-import { BsListTask } from "react-icons/bs";
-import { CategoryList } from "./categoryList";
+import { CategoryItem } from "./categoryItem";
+import { Scrollbar, Autoplay } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+
+import React from "react";
 
 const DummyMenuContent = [
-  { name: "Value of the Day", isBold: true },
-  { name: "Top 100 Offers", isBold: true },
-  { name: "New Arrivals", isBold: true },
-  { name: "Computers & Accessories", isBold: false },
-  { name: "Gadgets", isBold: false },
-  { name: "Cameras", isBold: false },
+  { name: "Laptops & Computer", isBold: true },
+  { name: "Cameras", isBold: true },
+  { name: "Smartphones & Tablets", isBold: true },
+  { name: "Gaming", isBold: false },
+  { name: "TV & Audio", isBold: false },
   { name: "Headphones", isBold: false },
   { name: "Smartwatches", isBold: false },
-  { name: "Game Consoles", isBold: false },
 ];
 
-const CategoryMenu = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(true);
-  const contentRef = useRef<HTMLDivElement | null>(null);
-
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
-
+const CategoryList = () => {
   return (
-    <div className="relative z-50">
-      <div
-        onClick={toggleAccordion}
-        className={`flex cursor-pointer w-64 items-center gap-2 px-5 py-2 transition-all bg-yellow  rounded-[10px] opacity-0 animate-opacitySlow ${
-          isOpen ? "rounded-bl-none rounded-br-none" : ""
-        }`}
+    <div>
+      <Swiper
+        modules={[Scrollbar, Autoplay]}
+        slidesPerView="auto"
+        autoplay={{
+          delay: 4000,
+          pauseOnMouseEnter: true,
+          waitForTransition: true,
+          disableOnInteraction: false,
+        }}
+        className="sm:!-mx-2"
       >
-        <BsListTask size={24} />
-        <div className="text-sm font-semibold">All Departments</div>
-      </div>
-      <div
-        className="overflow-hidden absolute  top-10 bg-white w-full left-0 duration-300"
-        style={{ maxHeight: isOpen ? (contentRef.current?.scrollHeight ? contentRef.current.scrollHeight + "px" : "296px") : 0 }}
-        ref={contentRef}
-      >
-        {DummyMenuContent.map((el, index) => (
-          <CategoryList key={index} {...el} />
+        {DummyMenuContent.map((badge, index) => (
+          <SwiperSlide className="!h-10 !flex !items-center !w-auto first:pl-0 first:pr-0" key={index}>
+            <CategoryItem name={badge.name} href="/" />
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </div>
   );
 };
 
-export default CategoryMenu;
+export default CategoryList;
