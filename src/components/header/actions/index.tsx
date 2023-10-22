@@ -16,18 +16,18 @@ type DropDownType = {
 
 const ActionButtons = ({ className }: DropDownType) => {
   return (
-    <div className={`flex gap-9 ${className}`}>
-      <ActionIcon dropDown={DummyDropDown}>
-        <BiUser size={24} />
-      </ActionIcon>
+    <div className={`flex gap-10 ${className}`}>
       <ActionIcon quantity={2}>
-        <IoIosGitCompare size={24} />
+        <IoIosGitCompare size={22} />
       </ActionIcon>
       <ActionIcon>
-        <BsHeart size={24} />
+        <BsHeart size={22} />
+      </ActionIcon>
+      <ActionIcon dropDown={DummyDropDown}>
+        <BiUser size={22} />
       </ActionIcon>
       <ActionIcon quantity={4} price={110.0}>
-        <BsHandbag size={24} />
+        <BsHandbag size={22} />
       </ActionIcon>
     </div>
   );

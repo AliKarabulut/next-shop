@@ -30,7 +30,7 @@ const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIc
           before:border-x-[6px] before:border-x-transparent 
           before:border-b-[6px] before:border-b-yellow opacity-0 animate-opacityFast
           after:content-[''] after:absolute after:-top-4 after:w-full after:h-4 
-          after:left-1/2 after:-translate-x-1/2 "
+          after:left-1/2 after:-translate-x-1/2 z-50"
         >
           {dropDown.map((item, index) => (
             <Link href={item.link} key={index} className="text-sm block border-b border-yellow last:border-none px-4 py-2 hover:bg-grayLight">
