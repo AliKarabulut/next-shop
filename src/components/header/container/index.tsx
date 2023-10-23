@@ -30,8 +30,8 @@ const HeaderContainer = () => {
   }, [scrollY]);
 
   return (
-    <div className={`w-full absolute bg-white max-md:py-2.5 z-50 ${!isScrollSmall ? "!fixed top-[-150px] animate-open shadow-md " : ""}`}>
-      <div className={`container mx-auto flex flex-col gap-4 ${!isScrollSmall ? "py-2.5" : "md:pt-8"}`}>
+    <div className={`w-full bg-white max-md:py-2.5 z-50 ${!isScrollSmall ? "!fixed top-[-150px] animate-open shadow-md " : ""}`}>
+      <div className={`container mx-auto flex flex-col gap-4 ${!isScrollSmall ? "md:py-2.5" : "md:pt-8"}`}>
         <div className="flex justify-between w-full items-center gap-10">
           <div className="text-3xl whitespace-nowrap">E commerce</div>
           <Search />
