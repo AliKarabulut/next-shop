@@ -1,5 +1,5 @@
 "use client";
-import {CategoryItem} from "./categoryItem";
+import { CategoryItem } from "./categoryItem";
 import { Scrollbar, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -18,25 +18,23 @@ const DummyMenuContent = [
 
 const CategoryList = () => {
   return (
-    <div>
-      <Swiper
-        modules={[Scrollbar, Autoplay]}
-        slidesPerView="auto"
-        autoplay={{
-          delay: 4000,
-          pauseOnMouseEnter: true,
-          waitForTransition: true,
-          disableOnInteraction: false,
-        }}
-        className="sm:!-mx-2"
-      >
-        {DummyMenuContent.map((badge, index) => (
-          <SwiperSlide className="!h-10 !flex !items-center !w-auto first:pl-0 first:pr-0" key={index}>
-            <CategoryItem name={badge.name} href={badge.href} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+    <Swiper
+      modules={[Scrollbar, Autoplay]}
+      slidesPerView="auto"
+      autoplay={{
+        delay: 4000,
+        pauseOnMouseEnter: true,
+        waitForTransition: true,
+        disableOnInteraction: false,
+      }}
+      className="sm:!-mx-2"
+    >
+      {DummyMenuContent.map((badge, index) => (
+        <SwiperSlide className="!h-10 !flex !items-center !w-auto first:pl-0 first:pr-0" key={index}>
+          <CategoryItem name={badge.name} href={badge.href} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
   );
 };
 
