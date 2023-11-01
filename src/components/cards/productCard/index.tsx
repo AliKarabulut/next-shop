@@ -27,7 +27,7 @@ const ProductCard = () => {
         </div>
       </div>
       <div>
-        <div className="capitalize font-normal text-base w-3/4 truncate mb-2">{DummyData.name}</div>
+        <div className="capitalize font-medium text-base w-3/4 truncate mb-2">{DummyData.name}</div>
         <div className="flex items-center justify-between">
           <div className="font-medium text-base">${DummyData.price}</div>
           <Star rate={4.3} />

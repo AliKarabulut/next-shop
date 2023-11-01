@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
-const SpecialOffer = () => {
-  return (
-    <div>SpecialOffer</div>
-  )
-}
+type SpecialOfferProps = {
+  className?: string;
+};
 
-export default SpecialOffer
+const SpecialOffer = ({ className }: SpecialOfferProps) => {
+  return <div className={`w-full border rounded-3xl  ${className}`}>SpecialOffer</div>;
+};
+
+export default SpecialOffer;
