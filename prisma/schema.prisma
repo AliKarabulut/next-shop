@@ -24,33 +24,68 @@ model User {
   updatedAt   DateTime @updatedAt
 }
 
-model Item {
-  id           String        @id @default(auto()) @map("id")
-  name         String
-  brand        String
-  description  String
-  price        Float
-  discount     Float
-  colorOptions ColorOption[]
-
+model Order {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt     DateTime       @default(now())
+  status        String
+  user          User           @relation(fields: [userId], references: [id])
+  userId        String         @db.ObjectId
+  orderProducts OrderProduct[]
+  Product       Product[]
 }
 
-model ColorOption {
-  id              String  @id @default(auto()) @map("id")
-  color           String 
-  quantity        Int 
-  discount        Float 
-  defaultPrice    Float 
-  discountedPrice Float 
-  deviceId        String 
-  itemId          String
-  item            Item    @relation(fields: [itemId], references: [id]) 
-  images          Image[] 
+model OrderProduct {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String  @db.ObjectId
+  productId String  @db.ObjectId
+  order     Order   @relation(fields: [orderId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+}
+
+model Product {
+  id            String         @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  brand         String
+  description   String
+  isMainProduct Boolean        @default(false)
+  price         Float
+  discount      Float
+  category      Category       @relation(fields: [categoryId], references: [id])
+  categoryId    String         @db.ObjectId
+  variations    Variation[]
+  Order         Order?         @relation(fields: [orderId], references: [id])
+  orderId       String?        @db.ObjectId
+  OrderProduct  OrderProduct[]
+}
+
+model Category {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  products Product[]
+}
+
+model Variation {
+  id        String            @id @default(auto()) @map("_id") @db.ObjectId
+  type      String
+  productId String            @db.ObjectId
+  product   Product           @relation(fields: [productId], references: [id])
+  options   VariationOption[]
+}
+
+model VariationOption {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  value       String
+  variationId String    @db.ObjectId
+  variation   Variation @relation(fields: [variationId], references: [id])
+  price       Float
+  discount    Float
+  quantity    Int
+  images      Image[]
 }
 
 model Image {
-  id            String      @id @default(auto()) @map("id")
-  urls          String[] 
-  colorOptionId String
-  colorOption   ColorOption @relation(fields: [colorOptionId], references: [id]) 
+  id                String          @id @default(auto()) @map("_id") @db.ObjectId
+  urls              String[]
+  variationOptionId String          @db.ObjectId
+  variationOption   VariationOption @relation(fields: [variationOptionId], references: [id])
 }
