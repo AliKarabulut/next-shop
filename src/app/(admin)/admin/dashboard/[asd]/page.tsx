@@ -1,7 +1,7 @@
 import LeftMenu from '@/components/admin/left-menu'
 import React from 'react'
 
-const Dashboard = () => {
+const Dashboards = () => {
   return (
     <main className='bg-admin-grey-100 w-full'>
         
@@ -9,4 +9,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Dashboards

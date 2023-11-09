@@ -1,20 +1,26 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BsDot } from "react-icons/bs";
 import ChevronDownIcon from "@/icons/admin/down";
 import ChevronUpIcon from "@/icons/admin/up";
 import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
 
 type IconButtonProps = {
   children: React.ReactNode;
   text: string;
-  subMenuItems?: React.ReactNode[];
+  subMenuItems?: { item: string; href: string }[];
+  href?: string;
 };
 
-const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems }) => {
-  const [isActive, setIsActive] = useState<boolean>(false);
-
+const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems, href }) => {
+  const segment = useSelectedLayoutSegment();
+  const [isActive, setIsActive] = useState<boolean>(segment === href || subMenuItems?.some((item) => item.href === segment) ? true : false);
   const contentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setIsActive(segment === href || subMenuItems?.some((item) => item.href === segment) ? true : false);
+  }, [segment]);
 
   return (
     <>
@@ -39,8 +45,14 @@ const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems })
               className="duration-300 overflow-hidden flex flex-col "
             >
               {subMenuItems.map((subMenuItem, subIndex) => (
-                <Link href="/admin/dashboard" key={subIndex} className="flex gap-2 items-center cursor-pointer py-3 rounded-lg group">
-                  <BsDot /> <span className="group-hover:text-admin-secondary-main">{subMenuItem}</span>
+                <Link
+                  href={subMenuItem.href}
+                  key={subIndex}
+                  className={`flex gap-2 items-center cursor-pointer py-3 rounded-lg group ${
+                    subMenuItem.href === segment && "text-admin-secondary-main"
+                  }`}
+                >
+                  <BsDot /> <span className="group-hover:text-admin-secondary-main">{subMenuItem.item}</span>
                 </Link>
               ))}
             </div>
@@ -48,11 +60,10 @@ const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems })
         </>
       ) : (
         <Link
-          href="/admin/dashboard"
+          href={href || "#"}
           className={`flex gap-4 px-6 py-3 mb-2 group select-none text-sm transition-all rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
             isActive && "text-admin-secondary-main bg-admin-secondary-light"
           }`}
-          onClick={() => setIsActive(!isActive)}
         >
           {children}
           <span className={` group-hover:text-admin-secondary-main ${isActive ? "font-medium" : "font-normal"}`}>{text}</span>
