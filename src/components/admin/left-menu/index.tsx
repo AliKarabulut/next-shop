@@ -5,9 +5,9 @@ import BasketIcon from "@/icons/admin/basket";
 import MailIcon from "@/icons/admin/mail";
 
 const list = [
-  { item: "Product", href: "product" },
-  { item: "Category", href: "category" },
-  { item: "Brand", href: "brand" },
+  { item: "New Prouct", href: "new-product" },
+  { item: "Edit Product", href: "edit-product" },
+  { item: "Products", href: "products" },
 ];
 
 const LeftMenu: React.FC = () => {
