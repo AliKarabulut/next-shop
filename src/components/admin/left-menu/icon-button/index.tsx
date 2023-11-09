@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
-import { BsDot } from "react-icons/bs";
 import ChevronDownIcon from "@/icons/admin/down";
 import ChevronUpIcon from "@/icons/admin/up";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
+import DotIcon from "@/icons/admin/dot";
 
 type IconButtonProps = {
   children: React.ReactNode;
@@ -36,13 +36,12 @@ const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems, h
             <span className={` group-hover:text-admin-secondary-main ${isActive ? "font-medium" : "font-normal"}`}>{text}</span>
             {isActive ? <ChevronUpIcon className="ml-auto" /> : <ChevronDownIcon className="ml-auto" />}
           </div>
-
           <div className="flex h-fit gap-3 select-none text-sm">
             <div className="w-px h-auto ml-8 bg-admin-primary-light" />
             <div
               style={{ maxHeight: isActive ? contentRef?.current?.scrollHeight + "px" : 0 }}
               ref={contentRef}
-              className="duration-300 overflow-hidden flex flex-col "
+              className="duration-300 overflow-hidden flex flex-col w-full "
             >
               {subMenuItems.map((subMenuItem, subIndex) => (
                 <Link
@@ -52,7 +51,8 @@ const IconButton: React.FC<IconButtonProps> = ({ children, text, subMenuItems, h
                     subMenuItem.href === segment && "text-admin-secondary-main"
                   }`}
                 >
-                  <BsDot /> <span className="group-hover:text-admin-secondary-main">{subMenuItem.item}</span>
+                  <DotIcon className={subMenuItem.href === segment ? "scale-150" : ""} />
+                  <span className="group-hover:text-admin-secondary-main">{subMenuItem.item}</span>
                 </Link>
               ))}
             </div>
