@@ -1,4 +1,3 @@
-import LeftMenu from '@/components/admin/left-menu'
 import React from 'react'
 
 const Dashboard = () => {

@@ -12,7 +12,7 @@ const list = [
 
 const LeftMenu: React.FC = () => {
   return (
-    <nav className="max-w-[16rem] w-full px-4 py-6 bg-white h-[calc(100vh-80px)]">
+    <nav className="w-64 flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)]">
       <IconButton text="Order" href="order">
         <TruckDeliveryIcon />
       </IconButton>
