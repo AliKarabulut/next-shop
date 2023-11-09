@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import TruckDeliveryIcon from "@/icons/admin/truck";
 import IconButton from "./icon-button";
-import { TbBasket } from "react-icons/tb";
+
 import BasketIcon from "@/icons/admin/basket";
+import MailIcon from "@/icons/admin/mail";
 interface MenuItem {
   title?: string;
   subMenuItems?: MenuItem[];
@@ -16,8 +17,14 @@ const list: string[] = ["Products", "Product Details", "Add Product", "Edit Prod
 const LeftMenu: React.FC<LeftMenuProps> = () => {
   return (
     <div className="w-64 px-4 py-6">
+      <IconButton text="Order">
+        <TruckDeliveryIcon />
+      </IconButton>
       <IconButton text="E-commerce" subMenuItems={list}>
         <BasketIcon />
+      </IconButton>
+      <IconButton text="Mail">
+        <MailIcon />
       </IconButton>
     </div>
   );
