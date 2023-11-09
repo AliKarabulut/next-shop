@@ -1,23 +1,25 @@
-type DotIconProps = {
+type MenuIconProps = {
   className?: string;
 };
 
-const DotIcon: React.FC<DotIconProps> = ({ className }) => (
+const MenuIcon: React.FC<MenuIconProps> = ({ className }) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"
-    width="8"
-    height="8"
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
-    strokeWidth="2"
+    strokeWidth="1.5"
     stroke="currentColor"
     fill="none"
     strokeLinecap="round"
     strokeLinejoin="round"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-    <path d="M12 7a5 5 0 1 1 -4.995 5.217l-.005 -.217l.005 -.217a5 5 0 0 1 4.995 -4.783z" stroke-width="0" fill="currentColor"></path>
+    <path d="M4 6l16 0"></path>
+    <path d="M4 12l16 0"></path>
+    <path d="M4 18l16 0"></path>
   </svg>
 );
 
-export default DotIcon;
+export default MenuIcon;
