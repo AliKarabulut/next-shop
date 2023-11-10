@@ -1,6 +1,6 @@
 import MenuIcon from "@/icons/admin/menu";
-import IconButton from "../left-menu/icon-button";
 import SettingsIcon from "@/icons/admin/settings";
+import IconButton from "@/ui/icon-button";
 
 const Header: React.FC = () => {
   return (

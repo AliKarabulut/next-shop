@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
   useEffect(() => {
     setIsActive(segment === href || subMenuItems?.some((item) => item.href === segment) ? true : false);
   }, [segment]);
-
+  
   return (
     <>
       {subMenuItems ? (
@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
             onClick={() => setIsActive(!isActive)}
           >
             {children}
-            <span className={` group-hover:text-admin-secondary-main ${isActive ? "font-medium" : "font-normal"}`}>{text}</span>
+            <span className={`group-hover:text-admin-secondary-main ${isActive ? "font-medium" : "font-normal"}`}>{text}</span>
             {isActive ? <ChevronUpIcon className="ml-auto" /> : <ChevronDownIcon className="ml-auto" />}
           </div>
           <div className="flex h-fit gap-3 select-none text-sm">
@@ -45,7 +45,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
             >
               {subMenuItems.map((subMenuItem, subIndex) => (
                 <Link
-                  href={subMenuItem.href}
+                  href={`/admin/dashboard/${subMenuItem.href}`}
                   key={subIndex}
                   className={`flex gap-2 items-center cursor-pointer py-3 rounded-lg group ${
                     subMenuItem.href === segment && "text-admin-secondary-main"
@@ -60,7 +60,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
         </>
       ) : (
         <Link
-          href={href || "#"}
+          href={`/admin/dashboard/${href}`}
           className={`flex gap-4 px-6 py-3 mb-2 group select-none text-sm transition-all rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
             isActive && "text-admin-secondary-main bg-admin-secondary-light"
           }`}

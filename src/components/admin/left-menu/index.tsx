@@ -1,8 +1,7 @@
 import TruckDeliveryIcon from "@/icons/admin/truck";
-import IconButton from "./button";
-
 import BasketIcon from "@/icons/admin/basket";
 import MailIcon from "@/icons/admin/mail";
+import Button from "@/ui/button";
 
 const list = [
   { item: "New Prouct", href: "new-product" },
@@ -13,15 +12,15 @@ const list = [
 const LeftMenu: React.FC = () => {
   return (
     <nav className="w-64 flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)]">
-      <IconButton text="Order" href="order">
+      <Button text="Order" href="order">
         <TruckDeliveryIcon />
-      </IconButton>
-      <IconButton text="E-commerce" subMenuItems={list}>
+      </Button>
+      <Button text="E-commerce" subMenuItems={list}>
         <BasketIcon />
-      </IconButton>
-      <IconButton text="Mail" href="mail">
+      </Button>
+      <Button text="Mail" href="mail">
         <MailIcon />
-      </IconButton>
+      </Button>
     </nav>
   );
 };
