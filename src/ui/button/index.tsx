@@ -45,27 +45,23 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
             </span>
             {!isNarrowed && (isActive ? <ChevronUpIcon className="ml-auto " /> : <ChevronDownIcon className="ml-auto" />)}
           </div>
-          <div className={`flex select-none text-sm overflow-hidden duration-300 ${!isNarrowed ? "w-56 gap-3 " : "w-11 gap-2"}`}>
+          <div className={`flex select-none text-sm overflow-hidden duration-300 ${!isNarrowed ? "w-56 gap-3 " : "w-11 "}`}>
             <div className={`w-px h-auto mb-2 bg-admin-primary-light duration-300 flex-shrink-0 ${isNarrowed ? "ml-2" : "ml-8"}`} />
             <div
               style={{ maxHeight: isActive ? contentRef?.current?.scrollHeight + "px" : 0 }}
               ref={contentRef}
-              className={`flex flex-col duration-300`}
+              className={`flex flex-col duration-300 w-full`}
             >
               {subMenuItems.map((subMenuItem, subIndex) => (
                 <Link
                   href={`/admin/dashboard/${subMenuItem.href}`}
                   key={subIndex}
-                  className={`flex items-center cursor-pointer py-3 rounded-lg group whitespace-nowrap ${
+                  className={`flex items-center cursor-pointer py-3 rounded-lg group whitespace-nowrap group${
                     subMenuItem.href === segment && "text-admin-secondary-main"
                   }`}
                 >
-                  <DotIcon className={`${subMenuItem.href === segment ? "scale-150" : ""} ${isNarrowed ? "w-0" : "w-1 pr-2"} duration-300`} />
-                  <span
-                    className={`group-hover:text-admin-secondary-main duration-300 ${
-                      isNarrowed ? "w-[1ch] overflow-hidden tracking-widest" : "w-40"
-                    }`}
-                  >
+                 {!isNarrowed ?  <DotIcon className={`${subMenuItem.href === segment ? "scale-150" : ""} duration-300 flex-shrink-0`} /> : <span className="px-2 duration-300 group-hover:text-admin-secondary-main">{subMenuItem.item.charAt(0)}</span>}
+                  <span className={`group-hover:text-admin-secondary-main duration-300 ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-40 pl-3"}`}>
                     {subMenuItem.item}
                   </span>
                 </Link>
