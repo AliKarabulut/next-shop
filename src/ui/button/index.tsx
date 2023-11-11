@@ -30,40 +30,40 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
       {subMenuItems ? (
         <>
           <div
-            className={`overflow-hidden w-fit flex py-3 mb-2 group select-none text-sm transition-all rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
+            className={`flex py-3 gap-4 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
               isActive ? "text-admin-secondary-main bg-admin-secondary-light" : ""
-            } ${!isNarrowed ? "gap-4 px-6" : "px-3"}`}
+            } ${!isNarrowed ? "px-6 w-56" : "px-3 w-11"}`}
             onClick={() => setIsActive(!isActive)}
           >
             {children}
             <span
-              className={`group-hover:text-admin-secondary-main duration-150 ${isActive ? "font-medium" : "font-normal"} ${
-                isNarrowed ? "opacity-0 -translate-x-2 w-0 whitespace-nowrap" : ""
-              }`}
+              className={`group-hover:text-admin-secondary-main duration-300 ease-linear whitespace-nowrap ${
+                isActive ? "font-medium" : "font-normal"
+              } ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-32"}`}
             >
               {text}
             </span>
-            {!isNarrowed && (isActive ? <ChevronUpIcon className="ml-auto" /> : <ChevronDownIcon className="ml-auto" />)}
+            {!isNarrowed && (isActive ? <ChevronUpIcon className="ml-auto " /> : <ChevronDownIcon className="ml-auto" />)}
           </div>
-          <div className="flex h-fit gap-3 select-none text-sm overflow-hidden ">
-            <div className={`w-px h-auto mb-2 bg-admin-primary-light  ${isNarrowed ? "ml-2" : "ml-8"}`} />
+          <div className={`flex select-none text-sm overflow-hidden duration-300 ${!isNarrowed ? "w-56 gap-3 " : "w-11 gap-2"}`}>
+            <div className={`w-px h-auto mb-2 bg-admin-primary-light duration-300 flex-shrink-0 ${isNarrowed ? "ml-2" : "ml-8"}`} />
             <div
               style={{ maxHeight: isActive ? contentRef?.current?.scrollHeight + "px" : 0 }}
               ref={contentRef}
-              className={`duration-300 flex flex-col ${isNarrowed ? " -translate-x-2 w-fit whitespace-nowrap" : ""}`}
+              className={`flex flex-col duration-300`}
             >
               {subMenuItems.map((subMenuItem, subIndex) => (
                 <Link
                   href={`/admin/dashboard/${subMenuItem.href}`}
                   key={subIndex}
-                  className={`flex gap-2 items-center cursor-pointer py-3 rounded-lg group ${
+                  className={`flex items-center cursor-pointer py-3 rounded-lg group whitespace-nowrap ${
                     subMenuItem.href === segment && "text-admin-secondary-main"
                   }`}
                 >
-                  <DotIcon className={`${subMenuItem.href === segment ? "scale-150" : ""} ${isNarrowed ? "hidden" : ""}`} />
+                  <DotIcon className={`${subMenuItem.href === segment ? "scale-150" : ""} ${isNarrowed ? "w-0" : "w-1 pr-2"} duration-300`} />
                   <span
-                    className={`group-hover:text-admin-secondary-main transition-[width] duration-300 ${
-                      isNarrowed ? "w-[1ch] ml-1 tracking-widest overflow-hidden" : "w-auto"
+                    className={`group-hover:text-admin-secondary-main duration-300 ${
+                      isNarrowed ? "w-[1ch] overflow-hidden tracking-widest" : "w-40"
                     }`}
                   >
                     {subMenuItem.item}
@@ -76,16 +76,15 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
       ) : (
         <Link
           href={`/admin/dashboard/${href}`}
-          className={`flex w-fit py-3 mb-2 group select-none text-sm transition-all rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
+          className={`flex py-3 gap-4 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
             isActive ? "text-admin-secondary-main bg-admin-secondary-light" : ""
-          } ${!isNarrowed ? "gap-4 px-6" : "px-3"}
-          `}
+          } ${!isNarrowed ? "px-6 w-56" : "px-3 w-11"}`}
         >
           {children}
           <span
-            className={` group-hover:text-admin-secondary-main duration-150 ${isActive ? "font-medium" : "font-normal"} ${
-              isNarrowed ? "opacity-0 -translate-x-2 w-0 whitespace-nowrap" : ""
-            }`}
+            className={`group-hover:text-admin-secondary-main duration-300 ease-linear whitespace-nowrap ${
+              isActive ? "font-medium" : "font-normal"
+            } ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-32"}`}
           >
             {text}
           </span>

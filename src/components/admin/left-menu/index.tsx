@@ -13,13 +13,13 @@ const LeftMenu: React.FC = () => {
   return (
     <nav className="flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)]">
       <Button text="Order" href="order">
-        <TruckDeliveryIcon />
+        <TruckDeliveryIcon className="flex-shrink-0" />
       </Button>
       <Button text="E-commerce" subMenuItems={list}>
-        <BasketIcon />
+        <BasketIcon className="flex-shrink-0" />
       </Button>
       <Button text="Mail" href="mail">
-        <MailIcon />
+        <MailIcon className="flex-shrink-0" />
       </Button>
     </nav>
   );
