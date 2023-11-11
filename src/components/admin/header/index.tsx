@@ -14,13 +14,13 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="h-20 px-6 py-4 bg-white flex justify-between items-center">
-      <div className="flex items-center">
+    <header className="h-20 px-6 py-4 bg-white flex justify-between items-center gap-4">
+      <div className="flex items-center w-full sm:w-fit ">
         <h1 className="w-48">Admin</h1>
         <IconButton onClick={toggleExpanded} className="max-sm:hidden">
           <MenuIcon />
         </IconButton>
-        <IconButton onClick={()=> dispatch(narrowedAction.click())} className="block sm:hidden">
+        <IconButton onClick={()=> dispatch(narrowedAction.click())} className="block sm:hidden ml-auto">
           <MenuIcon />
         </IconButton>
       </div>
