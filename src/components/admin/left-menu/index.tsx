@@ -9,9 +9,15 @@ const list = [
   { item: "Products", href: "products" },
 ];
 
+const list2 = [
+  { item: "New Prouct", href: "new-products" },
+  { item: "Edit Product", href: "edit-products" },
+  { item: "Products", href: "productss" },
+];
+
 const LeftMenu: React.FC = () => {
   return (
-    <nav className="flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)]">
+    <nav className="flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)] group/item">
       <Button text="Order" href="order">
         <TruckDeliveryIcon className="flex-shrink-0" />
       </Button>
@@ -20,6 +26,9 @@ const LeftMenu: React.FC = () => {
       </Button>
       <Button text="Mail" href="mail">
         <MailIcon className="flex-shrink-0" />
+      </Button>
+      <Button text="E-commerce" subMenuItems={list2}>
+        <BasketIcon className="flex-shrink-0" />
       </Button>
     </nav>
   );

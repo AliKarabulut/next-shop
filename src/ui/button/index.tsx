@@ -30,22 +30,22 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
       {subMenuItems ? (
         <>
           <div
-            className={`flex py-3 gap-4 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
-              isActive ? "text-admin-secondary-main bg-admin-secondary-light" : ""
+            className={`flex py-3 gap-4 group-hover/item:w-56 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
+              isActive || subMenuItems?.some((item) => item.href === segment) ? "text-admin-secondary-main bg-admin-secondary-light" : ""
             } ${!isNarrowed ? "px-6 w-56" : "px-3 w-11"}`}
             onClick={() => setIsActive(!isActive)}
           >
             {children}
             <span
-              className={`group-hover:text-admin-secondary-main duration-300 ease-linear whitespace-nowrap ${
+              className={`group-hover/itemr:text-admin-secondary-main group-hover/item:opacity-100 group-hover/item:w-32 duration-300 ease-linear whitespace-nowrap ${
                 isActive ? "font-medium" : "font-normal"
               } ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-32"}`}
             >
               {text}
             </span>
-            {!isNarrowed && (isActive ? <ChevronUpIcon className="ml-auto " /> : <ChevronDownIcon className="ml-auto" />)}
+            {isActive ? <ChevronUpIcon className="ml-auto flex-shrink-0" /> : <ChevronDownIcon className="ml-auto" />}
           </div>
-          <div className={`flex select-none text-sm overflow-hidden duration-300 ${!isNarrowed ? "w-56 gap-3 " : "w-11 "}`}>
+          <div className={`flex select-none text-sm overflow-hidden duration-300  group-hover/item:w-56 group-hover/item:w-gap-3 ${!isNarrowed ? "w-56 gap-3 " : "w-11 "}`}>
             <div className={`w-px h-auto mb-2 bg-admin-primary-light duration-300 flex-shrink-0 ${isNarrowed ? "ml-2" : "ml-8"}`} />
             <div
               style={{ maxHeight: isActive ? contentRef?.current?.scrollHeight + "px" : 0 }}
@@ -56,12 +56,23 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
                 <Link
                   href={`/admin/dashboard/${subMenuItem.href}`}
                   key={subIndex}
-                  className={`flex items-center cursor-pointer py-3 rounded-lg group whitespace-nowrap group${
+                  className={`flex items-center cursor-pointer py-3 rounded-lg whitespace-nowrap group ${
                     subMenuItem.href === segment && "text-admin-secondary-main"
                   }`}
                 >
-                 {!isNarrowed ?  <DotIcon className={`${subMenuItem.href === segment ? "scale-150" : ""} duration-300 flex-shrink-0`} /> : <span className="px-2 duration-300 group-hover:text-admin-secondary-main">{subMenuItem.item.charAt(0)}</span>}
-                  <span className={`group-hover:text-admin-secondary-main duration-300 ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-40 pl-3"}`}>
+                  <DotIcon className={`duration-300 flex-shrink-0 group-hover/item:block ${subMenuItem.href === segment ? "scale-150 text-admin-secondary-main" : ""} ${isNarrowed ? "hidden" : "block"}`} />
+                  <span
+                    className={`px-2 duration-300 group-hover:text-admin-secondary-main group-hover/item:hidden ${
+                      subMenuItem.href === segment ? "scale-125 text-admin-secondary-main" : ""
+                    } ${isNarrowed ? "block" : "hidden"}`}
+                  >
+                    {subMenuItem.item.charAt(0)}
+                  </span>
+                  <span
+                    className={`group-hover:text-admin-secondary-main group-hover/item:w-40 group-hover/item:pl-3 group-hover/item:opacity-100  ${
+                      isNarrowed ? "opacity-0 overflow-hidden w-0 duration-75" : "w-40 pl-3 duration-300"
+                    } ${subMenuItem.href === segment ? " text-admin-secondary-main" : ""}`}
+                  >
                     {subMenuItem.item}
                   </span>
                 </Link>
@@ -72,13 +83,13 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
       ) : (
         <Link
           href={`/admin/dashboard/${href}`}
-          className={`flex py-3 gap-4 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
+          className={`flex py-3 gap-4 group-hover/item:w-56 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
             isActive ? "text-admin-secondary-main bg-admin-secondary-light" : ""
           } ${!isNarrowed ? "px-6 w-56" : "px-3 w-11"}`}
         >
           {children}
           <span
-            className={`group-hover:text-admin-secondary-main duration-300 ease-linear whitespace-nowrap ${
+            className={`group-hover:text-admin-secondary-main group-hover/item:opacity-100 group-hover/item:w-32 duration-300 ease-linear whitespace-nowrap ${
               isActive ? "font-medium" : "font-normal"
             } ${isNarrowed ? "opacity-0 overflow-hidden w-0" : "w-32"}`}
           >
