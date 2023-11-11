@@ -10,7 +10,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <Header />
         <div className="flex">
           <LeftMenu />
-          <main className="bg-admin-grey-100 w-full h-screen rounded-lg">{children}</main>
+          <main className="bg-admin-grey-100 w-full rounded-lg">{children}</main>
         </div>
       </main>
     </StoreProvider>
