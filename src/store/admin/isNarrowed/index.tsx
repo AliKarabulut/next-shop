@@ -4,6 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isNarrowed: false,
   isClicked: false,
+  isMobile: false,
 };
 
 const narrowed = createSlice({
@@ -21,7 +22,11 @@ const narrowed = createSlice({
         },
         click(state) {
             state.isClicked = !state.isClicked
+        },
+        mobileToggle(state) {
+            state.isMobile = !state.isMobile
         }
+
     }
 })
 export const narrowedAction = narrowed.actions

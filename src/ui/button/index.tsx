@@ -22,11 +22,17 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
   const contentRef = useRef<HTMLDivElement | null>(null);
   const isNarrowed = useSelector((state: any) => state.isNarrowed.isNarrowed);
   const isClicked = useSelector((state: any) => state.isNarrowed.isClicked);
+  const isMobile = useSelector((state: any) => state.isNarrowed.isMobile);
   const dispatch = useDispatch();
 
   useEffect(() => {
     setIsActive(segment === href || subMenuItems?.some((item) => item.href === segment) ? true : false);
   }, [segment]);
+
+  const linkClickHandler = () => {
+    isClicked && dispatch(narrowedAction.offNarrowed());
+    isMobile && dispatch(narrowedAction.mobileToggle());
+  };
 
   return (
     <>
@@ -62,7 +68,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
                   className={`flex items-center cursor-pointer py-3 rounded-lg whitespace-nowrap group ${
                     subMenuItem.href === segment && "text-admin-secondary-main"
                   }`}
-                  onClick={() => isClicked && dispatch(narrowedAction.offNarrowed())}
+                  onClick={() => linkClickHandler()}
                 >
                   <DotIcon
                     className={`duration-300 flex-shrink-0   ${subMenuItem.href === segment ? "scale-150 text-admin-secondary-main" : ""} ${
@@ -94,7 +100,7 @@ const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) =
           className={`flex py-3 gap-4 overflow-hidden mb-2 group select-none text-sm duration-300 rounded-lg hover:bg-admin-secondary-light cursor-pointer items-center ${
             isActive ? "text-admin-secondary-main bg-admin-secondary-light" : ""
           } ${!isNarrowed ? "px-6 w-56" : "px-3 w-11"}`}
-          onClick={() => isClicked && dispatch(narrowedAction.offNarrowed())}
+          onClick={() => linkClickHandler()}
         >
           {children}
           <span

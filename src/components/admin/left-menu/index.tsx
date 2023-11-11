@@ -19,12 +19,12 @@ const list2 = [
 ];
 
 const LeftMenu: React.FC = () => {
-  const isNarrowed = useSelector((state: any) => state.isNarrowed.isNarrowed);
+  const isMobile = useSelector((state: any) => state.isNarrowed.isMobile);
   const isClicked = useSelector((state: any) => state.isNarrowed.isClicked);
   const dispatch = useDispatch();
 
   return (
-    <nav className={`flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)] max-sm:absolute z-10 top-20 left-0 ${isClicked ? "max-sm:translate-x-0" : "max-sm:-translate-x-72"} `}
+    <nav className={`flex-shrink-0 px-4 py-6 bg-white h-[calc(100vh-80px)] max-sm:absolute z-10 top-20 left-0 duration-300 ${isMobile ? "max-sm:translate-x-0" : "max-sm:-translate-x-72 "} `}
     onMouseEnter={() => isClicked && dispatch(narrowedAction.onNarrowed())}
     onMouseLeave={() => isClicked && dispatch(narrowedAction.offNarrowed())}
     >

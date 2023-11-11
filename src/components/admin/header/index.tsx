@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         <IconButton onClick={toggleExpanded} className="max-sm:hidden">
           <MenuIcon />
         </IconButton>
-        <IconButton onClick={()=> dispatch(narrowedAction.click())} className="block sm:hidden ml-auto">
+        <IconButton onClick={()=> dispatch(narrowedAction.mobileToggle())} className="block sm:hidden ml-auto">
           <MenuIcon />
         </IconButton>
       </div>
