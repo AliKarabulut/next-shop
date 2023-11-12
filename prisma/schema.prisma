@@ -11,17 +11,19 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  email       String   @unique
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  email       String     @unique
   password    String
   firstName   String
   lastName    String
-  role        String?  @default("USER")
+  role        String?    @default("USER")
   address     String?
   phoneNumber String?
   orders      Order[]
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  Comment     Comment[]
+  Question    Question[]
 }
 
 model Order {
@@ -52,6 +54,9 @@ model Product {
   variations   Variation[]
   OrderProduct OrderProduct[]
   features     Feature[]
+  Comment      Comment[]
+  Question     Question[]
+  Coupon       Coupon[]
 }
 
 model Feature {
@@ -92,13 +97,31 @@ model Option {
   variation   Variation  @relation(fields: [variationId], references: [id])
   discounts   Discount[]
   images      Image[]
+  rate        Float?     @default(0.0)
+  quantity    Int?       @default(0)
+  Comment     Comment[]
+  Coupon      Coupon[]
 }
 
 model Image {
   id       String   @id @default(auto()) @map("_id") @db.ObjectId
   urls     String[]
+  main     Boolean  @default(false)
   optionId String   @db.ObjectId
   option   Option   @relation(fields: [optionId], references: [id])
+}
+
+model Comment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  optionId  String   @db.ObjectId
+  option    Option   @relation(fields: [optionId], references: [id])
+  content   String
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  Product   Product? @relation(fields: [productId], references: [id])
+  productId String?  @db.ObjectId
 }
 
 model Discount {
@@ -118,4 +141,20 @@ model Coupon {
   endDate    DateTime
   categoryId String?   @db.ObjectId
   category   Category? @relation(fields: [categoryId], references: [id])
+  optionId   String?   @db.ObjectId
+  option     Option?   @relation(fields: [optionId], references: [id])
+  productId  String?   @db.ObjectId
+  product    Product?  @relation(fields: [productId], references: [id])
+}
+
+model Question {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id])
+  productId String   @db.ObjectId
+  product   Product  @relation(fields: [productId], references: [id])
+  content   String
+  answer    String?
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
