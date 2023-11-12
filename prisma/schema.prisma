@@ -42,17 +42,23 @@ model OrderProduct {
 }
 
 model Product {
-  id            String         @id @default(auto()) @map("_id") @db.ObjectId
-  name          String
-  brand         String
-  description   String
-  isMainProduct Boolean        @default(false)
-  price         Float
-  discount      Float
-  category      Category       @relation(fields: [categoryId], references: [id])
-  categoryId    String         @db.ObjectId
-  variations    Variation[]
-  OrderProduct  OrderProduct[]
+  id           String         @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  brand        String
+  description  String
+  price        Float
+  category     Category       @relation(fields: [categoryId], references: [id])
+  categoryId   String         @db.ObjectId
+  variations   Variation[]
+  OrderProduct OrderProduct[]
+  features     Feature[]
+}
+model Feature {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  value     String
+  productId String  @db.ObjectId
+  product   Product @relation(fields: [productId], references: [id])
 }
 
 model Category {
@@ -70,12 +76,12 @@ model Variation {
 }
 
 model VariationOption {
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
   value       String
-  variationId String    @db.ObjectId
-  variation   Variation @relation(fields: [variationId], references: [id])
+  variationId String     @db.ObjectId
+  variation   Variation  @relation(fields: [variationId], references: [id])
   price       Float
-  discount    Float
+  discount    Discount[]
   quantity    Int
   images      Image[]
 }
@@ -84,5 +90,14 @@ model Image {
   id                String          @id @default(auto()) @map("_id") @db.ObjectId
   urls              String[]
   variationOptionId String          @db.ObjectId
+  variationOption   VariationOption @relation(fields: [variationOptionId], references: [id])
+}
+
+model Discount {
+  id                String          @id @default(auto()) @map("_id") @db.ObjectId
+  variationOptionId String          @db.ObjectId
+  rate              Float
+  startDate         DateTime
+  endDate           DateTime
   variationOption   VariationOption @relation(fields: [variationOptionId], references: [id])
 }
