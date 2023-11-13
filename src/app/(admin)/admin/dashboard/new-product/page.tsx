@@ -1,5 +1,6 @@
 "use client";
 
+import AsyncInput from "@/ui/input";
 import { useEffect, useState } from "react";
 import { addCategory, getCategories } from "@/services/category-services";
 
@@ -13,11 +14,6 @@ type Product = {
   features: string[];
 };
 
-type Category = {
-  name: string;
-  id: string;
-};
-
 const NewProduct = () => {
   const [product, setProduct] = useState<Product>({
     name: "",
@@ -29,32 +25,21 @@ const NewProduct = () => {
     features: [],
   });
 
-  const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      const res = await getCategories();
-      setCategories(res);
-    };
-    fetchCategories();
-  }, []);
-
   const stateHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
+    if (e?.target) {
+      setProduct({ ...product, [e.target.name]: e.target.value });
+    } else {
+      setProduct({ ...product, [e.name]: e.value });
+    }
   };
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
-  const [newCategory, setNewCategory] = useState("");
-
-  const addNewCategory = async (newCategory: string) => {
-    const res = await addCategory(newCategory);
-    if (res.name) {
-      setCategories([...categories, { name: res.name, id: res.id }]);
-    }
-  };
+  useEffect(() => {
+    console.log("product.categoryId", product.categoryId);
+  }, [product.categoryId]);
 
   return (
     <main>
@@ -81,21 +66,7 @@ const NewProduct = () => {
             <div>
               <label htmlFor="category">Kategori</label>
               <div>
-                <div>
-                  {categories?.map((category) => (
-                    <div key={category.id}>
-                      <input type="radio" name="category" id={category.id} value={category.id} onChange={stateHandler} />
-                      <label htmlFor={category.id}>{category.name}</label>
-                    </div>
-                  ))}
-                </div>
-                <div>
-                  <div>Yeni kategori</div>
-                  <input type="text" value={newCategory} onChange={(e) => setNewCategory(e.target.value)} />
-                  <button type="button" onClick={() => addNewCategory(newCategory)}>
-                    Ekle
-                  </button>
-                </div>
+                <AsyncInput fetchFunction={getCategories} name="categoryId" label="Kategori" onChange={stateHandler} type="single" />
               </div>
             </div>
           </div>
