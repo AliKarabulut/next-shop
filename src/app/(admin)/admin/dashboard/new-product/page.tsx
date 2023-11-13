@@ -26,11 +26,11 @@ const NewProduct = () => {
   });
 
   const stateHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    if (e?.target) {
-      setProduct({ ...product, [e.target.name]: e.target.value });
-    } else {
-      setProduct({ ...product, [e.name]: e.value });
-    }
+    setProduct({ ...product, [e.target.name]: e.target.value });
+  };
+
+  const categoryHandler = (e: { name: string; value: string }) => {
+    setProduct({ ...product, [e.name]: e.value });
   };
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -66,7 +66,7 @@ const NewProduct = () => {
             <div>
               <label htmlFor="category">Kategori</label>
               <div>
-                <AsyncInput fetchFunction={getCategories} name="categoryId" label="Kategori" onChange={stateHandler} type="single" />
+                <AsyncInput fetchFunction={getCategories} name="categoryId" label="Kategori" onChange={categoryHandler} type="single" />
               </div>
             </div>
           </div>
