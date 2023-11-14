@@ -4,6 +4,7 @@ import AsyncInput from "@/ui/input/async-input";
 import { useEffect, useState } from "react";
 import { addCategory, getCategories } from "@/services/category-services";
 import Input from "@/ui/input/input";
+import TextArea from "@/ui/input/textarea";
 
 type Product = {
   name: string;
@@ -55,8 +56,7 @@ const NewProduct = () => {
               <Input label="Marka" type="text" name="brand" onChange={stateHandler} />
             </div>
             <div>
-              <label htmlFor="description">Açıklama</label>
-              <textarea name="description" id="description" value={product.description} onChange={stateHandler} />
+              <TextArea label="Açıklama" name="description" onChange={stateHandler} />
             </div>
             <div>
               <Input label="Fiyat" type="number" name="price" onChange={stateHandler} />
