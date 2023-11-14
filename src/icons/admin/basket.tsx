@@ -2,7 +2,7 @@ type BasketIconProps = {
   className?: string;
 };
 
-const BasketIcon: React.FC<BasketIconProps> = ({ className }) => (
+const BasketIcon = ({ className }: BasketIconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     {...{ className }}

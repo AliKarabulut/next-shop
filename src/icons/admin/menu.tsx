@@ -2,7 +2,7 @@ type MenuIconProps = {
   className?: string;
 };
 
-const MenuIcon: React.FC<MenuIconProps> = ({ className }) => (
+const MenuIcon = ({ className }: MenuIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"

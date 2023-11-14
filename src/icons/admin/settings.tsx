@@ -2,7 +2,7 @@ type SettingsIconProps = {
   className?: string;
 };
 
-const SettingsIcon: React.FC<SettingsIconProps> = ({ className }) => (
+const SettingsIcon = ({ className }: SettingsIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"

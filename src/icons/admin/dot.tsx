@@ -2,7 +2,7 @@ type DotIconProps = {
   className?: string;
 };
 
-const DotIcon: React.FC<DotIconProps> = ({ className }) => (
+const DotIcon = ({ className }: DotIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"

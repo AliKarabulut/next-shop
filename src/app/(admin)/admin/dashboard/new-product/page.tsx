@@ -64,7 +64,7 @@ const NewProduct = () => {
               <input type="number" name="price" id="price" value={product.price} onChange={stateHandler} />
             </div>
             <div>
-              <label htmlFor="category">Kategori</label>
+              
               <div>
                 <AsyncInput fetchFunction={getCategories} name="categoryId" label="Kategori" onChange={categoryHandler} type="single" />
               </div>

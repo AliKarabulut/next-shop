@@ -2,7 +2,7 @@ type TruckDeliveryIconProps = {
   className?: string;
 };
 
-const TruckDeliveryIcon: React.FC<TruckDeliveryIconProps> = ({ className }) => (
+const TruckDeliveryIcon = ({ className }: TruckDeliveryIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"

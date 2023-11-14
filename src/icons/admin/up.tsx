@@ -2,7 +2,7 @@ type ChevronUpIconProps = {
   className?: string;
 };
 
-const ChevronUpIcon: React.FC<ChevronUpIconProps> = ({ className }) => (
+const ChevronUpIcon = ({ className }: ChevronUpIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"

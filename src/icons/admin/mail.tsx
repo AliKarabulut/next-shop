@@ -2,7 +2,7 @@ type MailIconProps = {
   className?: string;
 };
 
-const MailIcon: React.FC<MailIconProps> = ({ className }) => (
+const MailIcon = ({ className }: MailIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"
