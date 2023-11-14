@@ -47,8 +47,8 @@ const NewProduct = () => {
     <main>
       <form action="" onSubmit={submitHandler}>
         <div className="w-full">
-          <h3 className="text-admin-primary-800 text-lg text-center">Ürün Bilgileri</h3>
-          <div className="grid grid-cols-3 gap-4">
+          <h3 className="text-admin-primary-800 text-lg text-center mb-8">Ürün Bilgileri</h3>
+          <div className="grid grid-cols-3 gap-x-4 gap-y-16">
             <div>
               <Input label="Ürün Adı" type="text" name="name" onChange={stateHandler} />
             </div>
