@@ -1,8 +1,9 @@
 "use client";
 
-import AsyncInput from "@/ui/input";
+import AsyncInput from "@/ui/input/async-input";
 import { useEffect, useState } from "react";
 import { addCategory, getCategories } from "@/services/category-services";
+import Input from "@/ui/input/input";
 
 type Product = {
   name: string;
@@ -25,8 +26,8 @@ const NewProduct = () => {
     features: [],
   });
 
-  const stateHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
+  const stateHandler = (e: any) => {
+    setProduct({ ...product, [e.name]: e.data });
   };
 
   const categoryHandler = (e: { name: string; data: { id: string; name: string } }) => {
@@ -37,6 +38,10 @@ const NewProduct = () => {
     e.preventDefault();
   };
 
+  useEffect(() => {
+    console.log(product);
+  }, [product]);
+
   return (
     <main>
       <form action="" onSubmit={submitHandler}>
@@ -44,20 +49,17 @@ const NewProduct = () => {
           <h3 className="text-admin-primary-800 text-lg text-center">Ürün Bilgileri</h3>
           <div className="grid grid-cols-3 gap-4">
             <div>
-              <label htmlFor="name">Ürün Adı</label>
-              <input type="text" name="name" id="name" value={product.name} onChange={stateHandler} />
+              <Input label="Ürün Adı" type="text" name="name" onChange={stateHandler} />
             </div>
             <div>
-              <label htmlFor="brand">Marka</label>
-              <input type="text" name="brand" id="brand" value={product.brand} onChange={stateHandler} />
+              <Input label="Marka" type="text" name="brand" onChange={stateHandler} />
             </div>
             <div>
               <label htmlFor="description">Açıklama</label>
               <textarea name="description" id="description" value={product.description} onChange={stateHandler} />
             </div>
             <div>
-              <label htmlFor="price">Fiyat</label>
-              <input type="number" name="price" id="price" value={product.price} onChange={stateHandler} />
+              <Input label="Fiyat" type="number" name="price" onChange={stateHandler} />
             </div>
             <div>
               <div>

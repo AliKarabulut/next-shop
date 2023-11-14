@@ -82,7 +82,7 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
 
   return (
     <div className="w-fit" ref={inputRef}>
-      <div className="relative w-fit  gap-2  flex items-center">
+      <div className="relative w-fit flex items-center">
         <label
           htmlFor={name}
           className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
