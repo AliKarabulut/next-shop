@@ -12,10 +12,9 @@ export const POST = async (request: NextRequest) => {
       },
     });
 
-    return NextResponse.json(category);
+    return NextResponse.json(category, { status: 200 });
   } catch (err: any) {
-    if (err.code === "P2002") return NextResponse.json({ message: "E-mail ile kayıt olunmuş" }, { status: 200 });
-    return NextResponse.json({ message: "POST Error", err }, { status: 500 });
+    return NextResponse.json({ message: "Kategori eklenirken bir sorun oluştu" }, { status: 500 });
   }
 };
 

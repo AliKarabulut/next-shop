@@ -29,8 +29,8 @@ const NewProduct = () => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
 
-  const categoryHandler = (e: { name: string; value: string }) => {
-    setProduct({ ...product, [e.name]: e.value });
+  const categoryHandler = (e: { name: string; data: { id: string; name: string } }) => {
+    setProduct({ ...product, [e.name]: e.data.id });
   };
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
@@ -64,9 +64,15 @@ const NewProduct = () => {
               <input type="number" name="price" id="price" value={product.price} onChange={stateHandler} />
             </div>
             <div>
-              
               <div>
-                <AsyncInput fetchFunction={getCategories} name="categoryId" label="Kategori" onChange={categoryHandler} type="single" />
+                <AsyncInput
+                  fetchFunction={getCategories}
+                  postFunction={addCategory}
+                  name="categoryId"
+                  label="Kategori"
+                  onChange={categoryHandler}
+                  type="single"
+                />
               </div>
             </div>
           </div>
