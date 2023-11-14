@@ -37,10 +37,6 @@ const NewProduct = () => {
     e.preventDefault();
   };
 
-  useEffect(() => {
-    console.log("product.categoryId", product.categoryId);
-  }, [product.categoryId]);
-
   return (
     <main>
       <form action="" onSubmit={submitHandler}>

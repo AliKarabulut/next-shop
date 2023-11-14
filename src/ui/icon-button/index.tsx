@@ -9,7 +9,6 @@ type IconButtonProps = {
 };
 
 const IconButton: React.FC<IconButtonProps> = ({ children, href, className, disabled, ...props }) => {
-  console.log(disabled);
   return (
     <>
       {href ? (
