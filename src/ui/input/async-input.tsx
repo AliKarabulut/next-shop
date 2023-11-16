@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef, FC } from "react";
+import { useState, useEffect, useRef } from "react";
 import IconButton from "@/ui/icon-button";
 import DatabasePlusIcon from "@/icons/admin/database-plus";
 
@@ -8,8 +8,8 @@ type InputProps = {
   label: string;
   name: string;
   onChange: (e: any) => void;
-  fetchFunction: () => Promise<any>;
-  postFunction: (name: string) => Promise<any>;
+  fetchFunction?: () => Promise<any>;
+  postFunction?: (name: string) => Promise<any>;
 };
 
 const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: InputProps) => {
@@ -18,41 +18,67 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
   const [error, setError] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
   const [open, setOpen] = useState<boolean>(false);
-  const [isMatching, setIsMatching] = useState<any>(true);
-
+  const [filteredData, setFilteredData] = useState<any[]>([]);
+  const [selected, setSelected] = useState<number>(0);
   const inputRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (!open) return;
+      switch (event.key) {
+        case "ArrowUp":
+          setSelected((prev) => (prev > 0 ? prev - 1 : prev));
+          break;
+        case "ArrowDown":
+          setSelected((prev) => (prev < data.length - 1 ? prev + 1 : prev));
+          break;
+        case "Enter":
+          onChange({ name: name, data: data[selected] });
+          setInputValue(data[selected].name);
+          setOpen(false);
+          break;
+        default:
+          break;
+      }
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
       if (inputRef.current && !inputRef?.current.contains(event.target as Node)) {
         setOpen(false);
       }
-    }
+    };
 
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [data, selected]);
 
-  const clickHandler = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const clickHandler = () => {
     setOpen(true);
     fetchData();
   };
 
+  const timerId = useRef<NodeJS.Timeout | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (loading) return;
     const inputValue = e.target.value;
     setInputValue(inputValue);
-    const matchingData = data.find((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
-    setIsMatching(!!matchingData);
-    if (matchingData) {
-      onChange({ name: name, data: matchingData });
+    if (timerId.current) {
+      clearTimeout(timerId.current);
     }
+    timerId.current = setTimeout(() => {
+      setFilteredData(data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase())));
+    }, 200);
   };
 
   const fetchData = async () => {
+    if (!fetchFunction) return;
+
     if (data.length === 0) {
       setLoading(true);
       const response = await fetchFunction();
@@ -62,11 +88,14 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
       } else {
         setError("");
         setData(response);
+        setFilteredData(response);
       }
     }
   };
 
   const postData = async () => {
+    if (!postFunction) return;
+
     setLoading(true);
     const response = await postFunction(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
     if (response.message) {
@@ -75,11 +104,13 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
       setError("");
       setData([...data, response]);
       onChange({ name: name, data: response });
-      setIsMatching(true);
     }
     setLoading(false);
   };
 
+  useEffect(() => {
+    itemRefs.current[selected]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [selected]);
   return (
     <div ref={inputRef}>
       <div className="relative flex items-center">
@@ -102,32 +133,34 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
           style={{ caretColor: "#697586" }}
           autoComplete="off"
         />
-        {!isMatching && (
+        {!filteredData && (
           <IconButton onClick={postData} disabled={loading}>
             <DatabasePlusIcon />
           </IconButton>
         )}
-        {loading && isMatching && (
+        {loading && filteredData && (
           <div className="w-5 h-5 rounded-full animate-spin border border-solid border-admin-grey-700 border-t-transparent shadow-sm absolute right-3" />
         )}
         {error && <div>{error}</div>}
       </div>
-      {open && !loading && isMatching && (
+      {open && !loading && filteredData.length > 0 && (
         <div
           onClick={() => setOpen(false)}
           className="input-scroolbar rounded-xl cursor-pointer bg-white w-full mt-2 px-2 shadow-md py-2 overflow-y-auto max-h-[13.5rem] "
+          style={{ scrollPadding: "8px" }}
         >
-          {data
-            ?.filter((e) => e.name.toLowerCase().includes(inputValue.toLowerCase()))
-            .map((item) => (
-              <div
-                key={item.id}
-                onClick={() => setInputValue(item.name)}
-                className="hover:bg-admin-grey-100 px-2 py-2 transition-all rounded-md text-admin-grey-700 hover:text-admin-grey-900 w-full"
-              >
-                {item.name}
-              </div>
-            ))}
+          {filteredData.map((item, index) => (
+            <div
+              ref={(el) => (itemRefs.current[index] = el)}
+              key={item.id}
+              onClick={() => setInputValue(item.name)}
+              className={`hover:bg-admin-grey-100 px-2 py-2 transition-all rounded-md text-admin-grey-700 hover:text-admin-grey-900 w-full ${
+                selected == index ? "!bg-admin-grey-100" : ""
+              }`}
+            >
+              {item.name}
+            </div>
+          ))}
         </div>
       )}
     </div>
