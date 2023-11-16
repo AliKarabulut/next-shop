@@ -81,8 +81,8 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
   };
 
   return (
-    <div className="w-fit" ref={inputRef}>
-      <div className="relative w-fit flex items-center">
+    <div ref={inputRef}>
+      <div className="relative flex items-center">
         <label
           htmlFor={name}
           className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
@@ -96,7 +96,7 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
           value={inputValue}
           onChange={handleChange}
           onClick={clickHandler}
-          className={`rounded-xl pl-3 pr-8 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
+          className={`rounded-xl w-full pl-3 pr-8 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
             open ? "cursor-text" : "cursor-pointer"
           }`}
           style={{ caretColor: "#697586" }}

@@ -37,27 +37,25 @@ const Input = ({ label, name, onChange, type = "text" }: InputProps) => {
   };
 
   return (
-    <div className="w-fit" ref={inputRef}>
-      <div className="relative w-fit gap-2 flex items-center">
-        <label
-          htmlFor={name}
-          className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
-        >
-          {label}
-        </label>
-        <input
-          type={type}
-          name={name}
-          id={name}
-          onChange={handleChange}
-          onClick={clickHandler}
-          className={`rounded-xl px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
-            open ? "cursor-text" : "cursor-pointer"
-          }`}
-          style={{ caretColor: "#697586" }}
-          autoComplete="off"
-        />
-      </div>
+    <div className="relative" ref={inputRef}>
+      <label
+        htmlFor={name}
+        className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
+      >
+        {label}
+      </label>
+      <input
+        type={type}
+        name={name}
+        id={name}
+        onChange={handleChange}
+        onClick={clickHandler}
+        className={`rounded-xl w-full px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
+          open ? "cursor-text" : "cursor-pointer"
+        }`}
+        style={{ caretColor: "#697586" }}
+        autoComplete="off"
+      />
     </div>
   );
 };

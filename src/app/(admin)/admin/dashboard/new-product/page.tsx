@@ -48,31 +48,19 @@ const NewProduct = () => {
       <form action="" onSubmit={submitHandler}>
         <div className="w-full">
           <h3 className="text-admin-primary-800 text-lg text-center mb-8">Ürün Bilgileri</h3>
-          <div className="grid grid-cols-3 gap-x-4 gap-y-16">
-            <div>
-              <Input label="Ürün Adı" type="text" name="name" onChange={stateHandler} />
-            </div>
-            <div>
-              <Input label="Marka" type="text" name="brand" onChange={stateHandler} />
-            </div>
-            <div>
-              <TextArea label="Açıklama" name="description" onChange={stateHandler} />
-            </div>
-            <div>
-              <Input label="Fiyat" type="number" name="price" onChange={stateHandler} />
-            </div>
-            <div>
-              <div>
-                <AsyncInput
-                  fetchFunction={getCategories}
-                  postFunction={addCategory}
-                  name="categoryId"
-                  label="Kategori"
-                  onChange={categoryHandler}
-                  type="single"
-                />
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-16">
+            <Input label="Ürün Adı" type="text" name="name" onChange={stateHandler} />
+            <Input label="Marka" type="text" name="brand" onChange={stateHandler} />
+            <TextArea label="Açıklama" name="description" onChange={stateHandler} />
+            <Input label="Fiyat" type="number" name="price" onChange={stateHandler} />
+            <AsyncInput
+              fetchFunction={getCategories}
+              postFunction={addCategory}
+              name="categoryId"
+              label="Kategori"
+              onChange={categoryHandler}
+              type="single"
+            />
           </div>
         </div>
       </form>

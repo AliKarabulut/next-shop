@@ -36,26 +36,24 @@ const TextArea = ({ label, name, onChange }: TextAreaProps) => {
   };
 
   return (
-    <div className="w-fit" ref={textAreaRef}>
-      <div className="relative w-fit gap-2 flex items-center">
-        <label
-          htmlFor={name}
-          className={`absolute text-admin-grey-500 transition-all ${open || textAreaValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
-        >
-          {label}
-        </label>
-        <textarea
-          name={name}
-          id={name}
-          onChange={handleChange}
-          onClick={clickHandler}
-          className={`rounded-xl px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
-            open ? "cursor-text" : "cursor-pointer"
-          }`}
-          style={{ caretColor: "#697586" }}
-          autoComplete="off"
-        />
-      </div>
+    <div className="relative flex items-center" ref={textAreaRef}>
+      <label
+        htmlFor={name}
+        className={`absolute text-admin-grey-500 transition-all ${open || textAreaValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
+      >
+        {label}
+      </label>
+      <textarea
+        name={name}
+        id={name}
+        onChange={handleChange}
+        onClick={clickHandler}
+        className={`rounded-xl px-3 w-full py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
+          open ? "cursor-text" : "cursor-pointer"
+        }`}
+        style={{ caretColor: "#697586" }}
+        autoComplete="off"
+      />
     </div>
   );
 };
