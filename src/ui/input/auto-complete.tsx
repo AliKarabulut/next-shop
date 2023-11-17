@@ -12,17 +12,16 @@ type InputProps = {
   ifNot?: string;
 };
 
-const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps) => {
+const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProps) => {
   const [data, setData] = useState<{ id: string; name: string }[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string>("");
-  const [inputValue, setInputValue] = useState<string>("");
-  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [filteredData, setFilteredData] = useState<any[]>([]);
-  const [isMatching, setIsMatching] = useState<any>(true);
+  const [inputValue, setInputValue] = useState<string>("");
+  const [error, setError] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selected, setSelected] = useState<number>(0);
   const inputRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const loading = isOpen && data.length === 0;
 
   useEffect(() => {
     if (selected > filteredData.length) setSelected(filteredData.length - 1);
@@ -85,8 +84,6 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps)
       clearTimeout(timerId.current);
     }
     timerId.current = setTimeout(() => {
-      const matchingData = data.find((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
-      setIsMatching(!!matchingData);
       setFilteredData(data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase())));
     }, 200);
   };
@@ -95,9 +92,7 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps)
     if (!fetchFunction) return;
 
     if (data.length === 0) {
-      setLoading(true);
       const response = await fetchFunction();
-      setLoading(false);
       if (response.message) {
         setError(response.message);
       } else {
@@ -110,7 +105,7 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps)
 
   return (
     <div ref={inputRef}>
-      <div className="relative flex items-center">
+      <div className="relative flex items-center overflow-hidden rounded-xl">
         <label
           htmlFor={name}
           className={`absolute text-admin-grey-500 transition-all ${isOpen || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
@@ -124,23 +119,22 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps)
           value={inputValue}
           onChange={handleChange}
           onClick={clickHandler}
-          className={`rounded-xl w-full pl-3 pr-8 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
+          className={` w-full pl-3 pr-8 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
             isOpen ? "cursor-text" : "cursor-pointer"
           }`}
           style={{ caretColor: "#697586" }}
           autoComplete="off"
         />
-        {!isMatching && ifNot && (
-          <IconButton href={ifNot}>
+        {filteredData.length === 0 && inputValue && ifNot && (
+          <IconButton href={ifNot} className="absolute right-0 rounded-none h-full !w-12">
             <DatabasePlusIcon />
           </IconButton>
         )}
         {loading && (
           <div className="w-5 h-5 rounded-full animate-spin border border-solid border-admin-grey-700 border-t-transparent shadow-sm absolute right-3" />
         )}
-        {error && <div>{error}</div>}
       </div>
-      {isOpen && !loading && filteredData.length > 0 && (
+      {isOpen && !loading && (
         <div
           onClick={() => setIsOpen(false)}
           className="input-scroolbar rounded-xl cursor-pointer bg-white w-full mt-2 px-2 shadow-md py-2 overflow-y-auto max-h-[13.5rem]"
@@ -158,10 +152,12 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps)
               {item.name}
             </div>
           ))}
+          {filteredData.length === 0 && <div className="px-2 py-2 rounded-md text-admin-grey-700/50 w-full ">No match found</div>}
+          {error && <div className="px-2 py-2 rounded-md text-admin-grey-700 w-full ">{error}</div>}
         </div>
       )}
     </div>
   );
 };
 
-export default AsyncInput;
+export default AutoComplete;
