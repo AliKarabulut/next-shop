@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MouseEventHandler } from "react";
 import IconButton from "@/ui/icon-button";
 import DatabasePlusIcon from "@/icons/admin/database-plus";
 
@@ -47,9 +47,7 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
       }
     };
 
-    if (filteredData.length > 0) {
-      itemRefs.current[selected]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-    }
+    itemRefs.current[selected]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
 
     document.addEventListener("keydown", handleKeyDown);
 
@@ -72,7 +70,13 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
 
   const clickHandler = () => {
     setIsOpen(true);
-    fetchData();
+    if (data.length === 0) fetchData();
+  };
+
+  const menuClickHandler = (item: MouseEventHandler<HTMLDivElement>) => {
+    setInputValue(item.name);
+    setIsOpen(false);
+    onChange({ name: name, data: item });
   };
 
   const timerId = useRef<NodeJS.Timeout | null>(null);
@@ -84,7 +88,9 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
       clearTimeout(timerId.current);
     }
     timerId.current = setTimeout(() => {
-      setFilteredData(data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase())));
+      const filteredData = data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
+      setFilteredData(filteredData);
+      filteredData.length > 0 && onChange({ name: name, data: filteredData[0] });
     }, 200);
   };
 
@@ -136,7 +142,6 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
       </div>
       {isOpen && !loading && (
         <div
-          onClick={() => setIsOpen(false)}
           className="input-scroolbar rounded-xl cursor-pointer bg-white w-full mt-2 px-2 shadow-md py-2 overflow-y-auto max-h-[13.5rem]"
           style={{ scrollPadding: "8px" }}
         >
@@ -144,7 +149,7 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
             <div
               ref={(el) => (itemRefs.current[index] = el)}
               key={item.id}
-              onClick={() => setInputValue(item.name)}
+              onClick={() => menuClickHandler(item)}
               className={`hover:bg-admin-grey-100 px-2 py-2 transition-all rounded-md text-admin-grey-700 hover:text-admin-grey-900 w-full ${
                 selected == index ? "!bg-admin-grey-100" : ""
               }`}

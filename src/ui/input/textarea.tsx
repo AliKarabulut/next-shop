@@ -12,24 +12,6 @@ const TextArea = ({ label, name, onChange }: TextAreaProps) => {
   const [textAreaValue, setTextAreaValue] = useState<string>("");
   const textAreaRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (textAreaRef.current && !textAreaRef?.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  const clickHandler = (e: React.MouseEvent<HTMLTextAreaElement, MouseEvent>) => {
-    setOpen(true);
-  };
-
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTextAreaValue(e.target.value);
     onChange({ name: name, data: e.target.value });
@@ -47,10 +29,9 @@ const TextArea = ({ label, name, onChange }: TextAreaProps) => {
         name={name}
         id={name}
         onChange={handleChange}
-        onClick={clickHandler}
-        className={`rounded-xl px-3 w-full py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
-          open ? "cursor-text" : "cursor-pointer"
-        }`}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        className={`rounded-xl px-3 w-full py-2 outline-none hover:shadow-md cursor-pointer focus:cursor-text shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md `}
         style={{ caretColor: "#697586" }}
         autoComplete="off"
       />
