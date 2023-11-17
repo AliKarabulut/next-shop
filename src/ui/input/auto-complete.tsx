@@ -9,57 +9,70 @@ type InputProps = {
   name: string;
   onChange: (e: any) => void;
   fetchFunction?: () => Promise<any>;
-  postFunction?: (name: string) => Promise<any>;
+  ifNot?: string;
 };
 
-const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: InputProps) => {
+const AsyncInput = ({ label, name, onChange, fetchFunction, ifNot }: InputProps) => {
   const [data, setData] = useState<{ id: string; name: string }[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const [inputValue, setInputValue] = useState<string>("");
-  const [open, setOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const [filteredData, setFilteredData] = useState<any[]>([]);
+  const [isMatching, setIsMatching] = useState<any>(true);
   const [selected, setSelected] = useState<number>(0);
   const inputRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    if (selected > filteredData.length) setSelected(filteredData.length - 1);
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (!open) return;
+      if (!isOpen) return;
       switch (event.key) {
         case "ArrowUp":
           setSelected((prev) => (prev > 0 ? prev - 1 : prev));
           break;
         case "ArrowDown":
-          setSelected((prev) => (prev < data.length - 1 ? prev + 1 : prev));
+          setSelected((prev) => (prev < filteredData.length - 1 ? prev + 1 : prev));
           break;
         case "Enter":
-          onChange({ name: name, data: data[selected] });
-          setInputValue(data[selected].name);
-          setOpen(false);
+          onChange({ name: name, data: filteredData[selected] });
+          setInputValue(filteredData[selected].name);
+          const inputElement = inputRef.current?.querySelector("input");
+          inputElement?.blur();
+          setIsOpen(false);
           break;
         default:
           break;
       }
     };
 
-    const handleClickOutside = (event: MouseEvent) => {
-      if (inputRef.current && !inputRef?.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    };
+    if (filteredData.length > 0) {
+      itemRefs.current[selected]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
 
-    document.addEventListener("mousedown", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [data, selected]);
+  }, [selected, filteredData]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (inputRef.current && !inputRef?.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const clickHandler = () => {
-    setOpen(true);
+    setIsOpen(true);
     fetchData();
   };
 
@@ -72,6 +85,8 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
       clearTimeout(timerId.current);
     }
     timerId.current = setTimeout(() => {
+      const matchingData = data.find((item) => item.name.toLowerCase().includes(inputValue.toLowerCase()));
+      setIsMatching(!!matchingData);
       setFilteredData(data.filter((item) => item.name.toLowerCase().includes(inputValue.toLowerCase())));
     }, 200);
   };
@@ -93,30 +108,12 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
     }
   };
 
-  const postData = async () => {
-    if (!postFunction) return;
-
-    setLoading(true);
-    const response = await postFunction(inputValue.charAt(0).toUpperCase() + inputValue.slice(1));
-    if (response.message) {
-      setError(response.message);
-    } else {
-      setError("");
-      setData([...data, response]);
-      onChange({ name: name, data: response });
-    }
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    itemRefs.current[selected]?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }, [selected]);
   return (
     <div ref={inputRef}>
       <div className="relative flex items-center">
         <label
           htmlFor={name}
-          className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
+          className={`absolute text-admin-grey-500 transition-all ${isOpen || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
         >
           {label}
         </label>
@@ -128,25 +125,25 @@ const AsyncInput = ({ label, name, onChange, fetchFunction, postFunction }: Inpu
           onChange={handleChange}
           onClick={clickHandler}
           className={`rounded-xl w-full pl-3 pr-8 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
-            open ? "cursor-text" : "cursor-pointer"
+            isOpen ? "cursor-text" : "cursor-pointer"
           }`}
           style={{ caretColor: "#697586" }}
           autoComplete="off"
         />
-        {!filteredData && (
-          <IconButton onClick={postData} disabled={loading}>
+        {!isMatching && ifNot && (
+          <IconButton href={ifNot}>
             <DatabasePlusIcon />
           </IconButton>
         )}
-        {loading && filteredData && (
+        {loading && (
           <div className="w-5 h-5 rounded-full animate-spin border border-solid border-admin-grey-700 border-t-transparent shadow-sm absolute right-3" />
         )}
         {error && <div>{error}</div>}
       </div>
-      {open && !loading && filteredData.length > 0 && (
+      {isOpen && !loading && filteredData.length > 0 && (
         <div
-          onClick={() => setOpen(false)}
-          className="input-scroolbar rounded-xl cursor-pointer bg-white w-full mt-2 px-2 shadow-md py-2 overflow-y-auto max-h-[13.5rem] "
+          onClick={() => setIsOpen(false)}
+          className="input-scroolbar rounded-xl cursor-pointer bg-white w-full mt-2 px-2 shadow-md py-2 overflow-y-auto max-h-[13.5rem]"
           style={{ scrollPadding: "8px" }}
         >
           {filteredData.map((item, index) => (

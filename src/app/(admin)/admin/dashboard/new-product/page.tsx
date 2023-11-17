@@ -1,8 +1,8 @@
 "use client";
 
-import AsyncInput from "@/ui/input/async-input";
+import AutoComplete from "@/ui/input/auto-complete";
 import { useEffect, useState } from "react";
-import { addCategory, getCategories } from "@/services/category-services";
+import { getCategories } from "@/services/category-services";
 import Input from "@/ui/input/input";
 import TextArea from "@/ui/input/textarea";
 
@@ -53,9 +53,9 @@ const NewProduct = () => {
             <Input label="Marka" type="text" name="brand" onChange={stateHandler} />
             <TextArea label="Açıklama" name="description" onChange={stateHandler} />
             <Input label="Fiyat" type="number" name="price" onChange={stateHandler} />
-            <AsyncInput
+            <AutoComplete
               fetchFunction={getCategories}
-              postFunction={addCategory}
+              ifNot="/admin/dashboard/new-category"
               name="categoryId"
               label="Kategori"
               onChange={categoryHandler}
