@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getCategories } from "@/services/category-services";
 import Input from "@/ui/input/input";
 import TextArea from "@/ui/input/textarea";
+import UploadImage from "@/components/admin/upload-image";
 
 type Product = {
   name: string;
@@ -63,6 +64,7 @@ const NewProduct = () => {
             />
           </div>
         </div>
+        <UploadImage />
       </form>
     </main>
   );

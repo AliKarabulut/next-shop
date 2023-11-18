@@ -5,10 +5,12 @@ type InputProps = {
   type?: "number" | "text" | "password" | "email";
   label: string;
   name: string;
-  onChange: (e: any) => void;
+  inputClassName?: string;
+  labelClassName?: string;
+  onChange?: (e: any) => void;
 };
 
-const Input = ({ label, name, onChange, type = "text" }: InputProps) => {
+const Input = ({ label, name, onChange, inputClassName, labelClassName, type = "text" }: InputProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const inputRef = useRef<HTMLDivElement>(null);
@@ -33,14 +35,14 @@ const Input = ({ label, name, onChange, type = "text" }: InputProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
-    onChange({ name: name, data: e.target.value });
+    if (onChange) onChange({ name: name, data: e.target.value });
   };
 
   return (
     <div className="relative" ref={inputRef}>
       <label
         htmlFor={name}
-        className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"}`}
+        className={`absolute text-admin-grey-500 transition-all ${open || inputValue ? "-top-5 text-xs " : "pl-3 text-base top-2"} ${labelClassName}`}
       >
         {label}
       </label>
@@ -52,7 +54,7 @@ const Input = ({ label, name, onChange, type = "text" }: InputProps) => {
         onClick={clickHandler}
         className={`rounded-xl w-full px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
           open ? "cursor-text" : "cursor-pointer"
-        }`}
+        } ${inputClassName}`}
         style={{ caretColor: "#697586" }}
         autoComplete="off"
       />
