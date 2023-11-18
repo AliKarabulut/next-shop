@@ -19,6 +19,7 @@ const AdminHome = () => {
               label="Email"
               name="email"
               type="email"
+              capitalize={false}
               inputClassName="border border-admin-grey-500/20 border-admin-primary-200/70 hover:shadow-purple/20"
             />
           </div>
@@ -27,6 +28,7 @@ const AdminHome = () => {
               label="Password"
               name="password"
               type="password"
+              capitalize={false}
               inputClassName="border border-admin-grey-500/20 border-admin-primary-200/70 hover:shadow-purple/20"
             />
           </div>

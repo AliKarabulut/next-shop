@@ -5,12 +5,13 @@ type InputProps = {
   type?: "number" | "text" | "password" | "email";
   label: string;
   name: string;
+  capitalize?: boolean;
   inputClassName?: string;
   labelClassName?: string;
   onChange?: (e: any) => void;
 };
 
-const Input = ({ label, name, onChange, inputClassName, labelClassName, type = "text" }: InputProps) => {
+const Input = ({ label, name, onChange, capitalize = true, inputClassName, labelClassName, type = "text" }: InputProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const inputRef = useRef<HTMLDivElement>(null);
@@ -52,9 +53,9 @@ const Input = ({ label, name, onChange, inputClassName, labelClassName, type = "
         id={name}
         onChange={handleChange}
         onClick={clickHandler}
-        className={`rounded-xl w-full px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base capitalize focus:shadow-md ${
+        className={`rounded-xl w-full px-3 py-2 outline-none hover:shadow-md shadow-admin-secondary-dark transition-all text-base focus:shadow-md ${
           open ? "cursor-text" : "cursor-pointer"
-        } ${inputClassName}`}
+        } ${capitalize ? "capitalize" : ""} ${inputClassName}`}
         style={{ caretColor: "#697586" }}
         autoComplete="off"
       />
