@@ -70,12 +70,15 @@ model Feature {
 }
 
 model Category {
-  id        String      @id @default(auto()) @map("_id") @db.ObjectId
-  name      String      @unique
-  products  Product[]
-  Variation Variation[]
-  Feature   Feature[]
-  Coupon    Coupon[]
+  id            String      @id @default(auto()) @map("_id") @db.ObjectId
+  name          String      @unique
+  products      Product[]
+  Variation     Variation[]
+  Feature       Feature[]
+  Coupon        Coupon[]
+  parentId      String?     @db.ObjectId
+  parent        Category?   @relation("CategoryToCategory", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  subcategories Category[]  @relation("CategoryToCategory")
 }
 
 model Variation {

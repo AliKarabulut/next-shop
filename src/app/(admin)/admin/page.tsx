@@ -12,7 +12,7 @@ const AdminHome = () => {
   return (
     <div className="flex items-center justify-center h-screen p-4 bg-admin-primary-light/50">
       <form onSubmit={handleFormSubmit} className="flex flex-col gap-10 max-w-md w-full px-6 py-12 rounded-xl bg-white shadow-lg shadow-purple/20">
-        <h1 className="text-[22px] text-center font-medium text-admin-secondary-main -mt-4">Sign in</h1>
+        <h1 className="text-[22px] text-center font-medium text-blueFacebook -mt-4">Sign in</h1>
         <div className="flex flex-col gap-8">
           <div>
             <Input
