@@ -28,6 +28,7 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (!isOpen) return;
+      const inputElement = inputRef.current?.querySelector("input");
       switch (event.key) {
         case "ArrowUp":
           setSelected((prev) => (prev > 0 ? prev - 1 : prev));
@@ -38,7 +39,10 @@ const AutoComplete = ({ label, name, onChange, fetchFunction, ifNot }: InputProp
         case "Enter":
           onChange({ name: name, data: filteredData[selected] });
           setInputValue(filteredData[selected].name);
-          const inputElement = inputRef.current?.querySelector("input");
+          inputElement?.blur();
+          setIsOpen(false);
+          break;
+        case "Escape":
           inputElement?.blur();
           setIsOpen(false);
           break;

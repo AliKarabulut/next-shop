@@ -112,6 +112,7 @@ model Image {
   main     Boolean  @default(false)
   optionId String   @db.ObjectId
   option   Option   @relation(fields: [optionId], references: [id])
+  Slider   Slider[]
 }
 
 model Comment {
@@ -160,4 +161,11 @@ model Question {
   answer    String?
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())
+}
+
+model Slider {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  description String
+  imageId     String @db.ObjectId
+  image       Image  @relation(fields: [imageId], references: [id])
 }
