@@ -8,10 +8,11 @@ type InputProps = {
   capitalize?: boolean;
   inputClassName?: string;
   labelClassName?: string;
+  value?: string;
   onChange?: (e: any) => void;
 };
 
-const Input = ({ label, name, onChange, capitalize = true, inputClassName, labelClassName, type = "text" }: InputProps) => {
+const Input = ({ label, name, onChange, capitalize = true, inputClassName, labelClassName, value, type = "text" }: InputProps) => {
   const [open, setOpen] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string>("");
   const inputRef = useRef<HTMLDivElement>(null);
@@ -48,6 +49,7 @@ const Input = ({ label, name, onChange, capitalize = true, inputClassName, label
         {label}
       </label>
       <input
+        value={value}
         type={type}
         name={name}
         id={name}

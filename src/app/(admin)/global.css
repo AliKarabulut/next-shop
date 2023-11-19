@@ -14,3 +14,11 @@
   background: #697586;
   border-radius: 8px;
 }
+
+.ql-toolbar {
+  @apply !border-0 !border-b;
+}
+
+.ql-container {
+  @apply !border-0;
+}

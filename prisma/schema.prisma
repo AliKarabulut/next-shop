@@ -106,13 +106,21 @@ model Option {
   Coupon      Coupon[]
 }
 
+model Slider {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  description String @unique
+  imageId     String @unique @db.ObjectId
+  image       Image  @relation(fields: [imageId], references: [id])
+}
+
 model Image {
   id       String   @id @default(auto()) @map("_id") @db.ObjectId
   urls     String[]
   main     Boolean  @default(false)
-  optionId String   @db.ObjectId
-  option   Option   @relation(fields: [optionId], references: [id])
-  Slider   Slider[]
+  optionId String?  @db.ObjectId
+  option   Option?  @relation(fields: [optionId], references: [id])
+  sliderId String?  @db.ObjectId
+  slider   Slider?
 }
 
 model Comment {
@@ -161,11 +169,4 @@ model Question {
   answer    String?
   approved  Boolean  @default(false)
   createdAt DateTime @default(now())
-}
-
-model Slider {
-  id          String @id @default(auto()) @map("_id") @db.ObjectId
-  description String
-  imageId     String @db.ObjectId
-  image       Image  @relation(fields: [imageId], references: [id])
 }
