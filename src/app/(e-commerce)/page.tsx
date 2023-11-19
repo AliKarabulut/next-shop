@@ -1,10 +1,17 @@
 import ProductCard from "@/components/cards/productCard";
 import SpecialOffer from "@/components/cards/specialOffer";
 import IntroSwiper from "@/components/swipers/introSwiper";
-import { getSliders } from "@/services/slider-services";
+import prisma from "@/libs/prismadb";
+
+const getData = async () => {
+  const sliders = await prisma.slider.findMany({
+    include: { image: true },
+  });
+  return sliders;
+};
 
 const Home = async () => {
-  const sliders = await getSliders();
+  const sliders = await getData();
 
   return (
     <main>

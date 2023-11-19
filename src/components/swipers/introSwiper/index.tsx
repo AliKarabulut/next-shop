@@ -6,17 +6,15 @@ import "swiper/css";
 
 type SwiperProps = {
   slides?: {
-    title?: string;
-    description?: string;
-    boldText?: string;
-    price: string;
-    link?: {
-      url: string;
-      name: string;
-    };
-    image?: {
-      src: string;
-      bg: string;
+    id: string;
+    description: string;
+    imageId: string;
+    image: {
+      id: string;
+      urls: string[];
+      main: boolean;
+      optionId: string | null;
+      sliderId: string | null;
     };
   }[];
 };
