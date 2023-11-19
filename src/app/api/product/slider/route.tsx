@@ -16,6 +16,14 @@ export const POST = async (request: NextRequest) => {
       return NextResponse.json({ message: "Description must be entered" }, { status: 400 });
     }
 
+    const existingSlider = await prisma.slider.findUnique({
+      where: { description },
+    });
+
+    if (existingSlider) {
+      return NextResponse.json({ message: "A slider with this description already exists" }, { status: 400 });
+    }
+
     if (!file.type.startsWith("image/")) {
       return NextResponse.json({ message: "The file must be an image" }, { status: 400 });
     }
@@ -27,7 +35,8 @@ export const POST = async (request: NextRequest) => {
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
 
-    const path = `public/images/slider/${file.name}`;
+    const fileName = file.name.replace(/ /g, "-");
+    const path = `public/images/slider/${fileName}`;
 
     await writeFile(path, buffer);
     const newImage = await prisma.image.create({
@@ -47,5 +56,17 @@ export const POST = async (request: NextRequest) => {
     return NextResponse.json(newSlider, { status: 200 });
   } catch (err: any) {
     return NextResponse.json({ message: "There was a problem creating the slider" }, { status: 500 });
+  }
+};
+
+export const GET = async (request: NextRequest) => {
+  try {
+    const sliders = await prisma.slider.findMany({
+      include: { image: true },
+    });
+
+    return NextResponse.json(sliders);
+  } catch (err: any) {
+    return NextResponse.json({ message: "There was a problem fetching sliders" }, { status: 500 });
   }
 };

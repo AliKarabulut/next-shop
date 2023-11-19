@@ -1,31 +1,16 @@
 import axios from "axios";
 
 export const getCategories = async (): Promise<any> => {
-  try {
-    const response = await axios.get("/api/get-category");
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-    throw error;
-  }
+  const response = await axios.get(`${process.env.SITE_URL}/api/product/get-category`);
+  return response.data;
 };
 
 export const addCategory = async (name: string): Promise<any> => {
-  try {
-    const response = await axios.post("/api/create-category", { name });
-    return response.data;
-  } catch (error) {
-    console.error("Error adding category:", error);
-    throw error;
-  }
+  const response = await axios.post(`${process.env.SITE_URL}/api/product/create-category`, { name });
+  return response.data;
 };
 
 export const getVariatonOptions = async (id: string): Promise<any> => {
-  try {
-    const response = await axios.get("/api/get-variation-options", { params: { id } });
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching variation options:", error);
-    throw error;
-  }
+  const response = await axios.get(`${process.env.SITE_URL}/api/product/get-variation-options`, { params: { id } });
+  return response.data;
 };
