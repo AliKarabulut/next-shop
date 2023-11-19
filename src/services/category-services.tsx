@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const getCategories = async (): Promise<any> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/product/get-category`);
   return response.json();

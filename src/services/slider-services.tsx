@@ -1,5 +1,3 @@
-import { METHODS } from "http";
-
 export const getSliders = async (): Promise<any> => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/product/slider`);
   return response.json();
