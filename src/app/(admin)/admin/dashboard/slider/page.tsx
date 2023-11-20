@@ -1,49 +1,22 @@
 "use client";
-import dynamic from "next/dynamic";
-import React, { useState } from "react";
-import "react-quill/dist/quill.snow.css";
-const DynamicQuill = dynamic(() => import("react-quill"), { ssr: false });
 import { addSlider } from "@/services/slider-services";
+import Quill from "@/components/admin/react-quill";
 
 const Slider = () => {
-  const [value, setValue] = useState("asdasd");
-  const [file, setFile] = useState<File | null>(null);
-  const modules = {
-    toolbar: [
-      ["bold", "italic", "underline", "strike"],
-      ["blockquote", "code-block"],
-
-      [{ header: 1 }, { header: 2 }],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ script: "sub" }, { script: "super" }],
-      [{ indent: "-1" }, { indent: "+1" }],
-      [{ direction: "rtl" }],
-
-      [{ size: ["small", false, "large", "huge"] }],
-      [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-      [{ color: [] }, { background: [] }],
-      [{ align: [] }],
-    ],
-  };
-
-  const submitHandler = (event: any) => {
+  const submitHandler = async (event: any) => {
     event.preventDefault();
-    if (!file) return;
     const data = new FormData();
-    data.set("file", file);
-    data.set("description", value);
-    const res = addSlider(data);
-    console.log(res);
+    data.set("file", event.target.file.files[0]);
+    data.set("description", event.target.description.value);
+    const response = await addSlider(data);
+    console.log(response);
   };
 
   return (
     <div>
-      <div className="min-h-[85px] h-full  mt-5">
-        <DynamicQuill theme="snow" value={value} onChange={setValue} modules={modules} className="bg-white rounded-lg" />
-      </div>
       <form onSubmit={submitHandler}>
-        <input type="file" name="file" onChange={(e: any) => setFile(e.target.files?.[0])} />
+        <Quill />
+        <input type="file" name="file" />
         <button type="submit">Kaydet</button>
       </form>
     </div>

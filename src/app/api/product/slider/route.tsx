@@ -46,14 +46,21 @@ export const POST = async (request: NextRequest) => {
       },
     });
 
+    const lastSlider = await prisma.slider.findFirst({
+      orderBy: {
+        order: "desc",
+      },
+    });
+
     const newSlider = await prisma.slider.create({
       data: {
         description,
         imageId: newImage.id,
+        order: lastSlider ? lastSlider.order + 1 : 0,
       },
     });
 
-    return NextResponse.json(newSlider, { status: 200 });
+    return NextResponse.json({ message: "Slider added successfully", newSlider }, { status: 200 });
   } catch (err: any) {
     return NextResponse.json({ message: "There was a problem creating the slider" }, { status: 500 });
   }
