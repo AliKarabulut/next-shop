@@ -3,6 +3,7 @@ import { addSlider } from "@/services/slider-services";
 import Quill from "@/components/admin/react-quill";
 import FileInput from "@/ui/input/file-input";
 import { quillCssConverter } from "@/utils/quill-css-converter";
+import IconButton from "@/ui/icon-button";
 
 const Slider = () => {
   const submitHandler = async (event: any) => {
@@ -12,6 +13,7 @@ const Slider = () => {
     data.set("file", event.target.file.files[0]);
     data.set("description", description);
     const response = await addSlider(data);
+    
   };
 
   return (
@@ -21,7 +23,7 @@ const Slider = () => {
           <Quill />
           <FileInput name="file" />
         </div>
-        <button type="submit">Upload</button>
+        <IconButton label="Upload" className="bg-white opacity-100 shadow-md mt-4"></IconButton>
       </form>
     </div>
   );
