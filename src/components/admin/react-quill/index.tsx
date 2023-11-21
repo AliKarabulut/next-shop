@@ -1,11 +1,13 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "react-quill/dist/quill.snow.css";
+import DOMPurify from "dompurify";
 const DynamicQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 const Quill = () => {
   const [value, setValue] = useState("");
+  const [content, setContent] = useState("");
 
   const modules = useMemo(
     () => ({
@@ -26,10 +28,16 @@ const Quill = () => {
     []
   );
 
+  useEffect(() => {
+    const sanitizedHTML = DOMPurify.sanitize(value);
+    setContent(sanitizedHTML);
+  }, [value]);
+
   return (
     <div className="min-h-[85px] h-full mt-5">
       <DynamicQuill theme="snow" value={value} onChange={setValue} modules={modules} className="bg-white rounded-lg" />
-      <input type="text" name="description" className="invisible" value={value} readOnly/>
+      <input type="text" name="description" className="invisible" value={value} readOnly />
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 };

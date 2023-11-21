@@ -9,7 +9,6 @@ const Slider = () => {
     data.set("file", event.target.file.files[0]);
     data.set("description", event.target.description.value);
     const response = await addSlider(data);
-    console.log(response);
   };
 
   return (

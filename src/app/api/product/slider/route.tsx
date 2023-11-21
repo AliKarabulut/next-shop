@@ -28,7 +28,7 @@ export const POST = async (request: NextRequest) => {
       return NextResponse.json({ message: "The file must be an image" }, { status: 400 });
     }
 
-    if (file.size > 3 * 1024 * 1024) {
+    if (file.size > 1 * 1024 * 1024) {
       return NextResponse.json({ message: "The image must be smaller than 3MB " }, { status: 400 });
     }
 
