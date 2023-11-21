@@ -4,7 +4,7 @@ import { narrowedAction } from "@/store/admin/isNarrowed";
 import TruckDeliveryIcon from "@/icons/admin/truck";
 import BasketIcon from "@/icons/admin/basket";
 import MailIcon from "@/icons/admin/mail";
-import Button from "@/ui/button";
+import Button from "@/components/admin/left-menu/button";
 import HandMoveIcon from "@/icons/admin/hand-move";
 
 const list = [
