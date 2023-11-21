@@ -1,6 +1,7 @@
 "use client";
 import { addSlider } from "@/services/slider-services";
 import Quill from "@/components/admin/react-quill";
+import FileInput from "@/ui/input/file-input";
 
 const Slider = () => {
   const submitHandler = async (event: any) => {
@@ -14,9 +15,11 @@ const Slider = () => {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <Quill />
-        <input type="file" name="file" />
-        <button type="submit">Kaydet</button>
+        <div className="flex flex-col mt-5 gap-4 ">
+          <Quill />
+          <FileInput name="file" />
+        </div>
+        <button type="submit">Upload</button>
       </form>
     </div>
   );
