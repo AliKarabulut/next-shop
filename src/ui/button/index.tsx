@@ -14,15 +14,16 @@ type ButtonProps = {
   text: string;
   subMenuItems?: { item: string; href: string }[];
   href?: string;
+  isNarrowed: boolean;
+  isMobile: boolean;
 };
 
-const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href }) => {
+const Button: React.FC<ButtonProps> = ({ children, text, subMenuItems, href, isNarrowed, isMobile }) => {
   const segment = useSelectedLayoutSegment();
   const [isActive, setIsActive] = useState<boolean>(segment === href || subMenuItems?.some((item) => item.href === segment) ? true : false);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const isNarrowed = useSelector((state: any) => state.isNarrowed.isNarrowed);
+
   const isClicked = useSelector((state: any) => state.isNarrowed.isClicked);
-  const isMobile = useSelector((state: any) => state.isNarrowed.isMobile);
   const dispatch = useDispatch();
 
   useEffect(() => {

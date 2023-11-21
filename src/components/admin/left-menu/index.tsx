@@ -16,6 +16,7 @@ const list = [
 const LeftMenu: React.FC = () => {
   const isMobile = useSelector((state: any) => state.isNarrowed.isMobile);
   const isClicked = useSelector((state: any) => state.isNarrowed.isClicked);
+  const isNarrowed = useSelector((state: any) => state.isNarrowed.isNarrowed);
   const dispatch = useDispatch();
 
   return (
@@ -26,17 +27,17 @@ const LeftMenu: React.FC = () => {
       onMouseEnter={() => isClicked && dispatch(narrowedAction.onNarrowed())}
       onMouseLeave={() => isClicked && dispatch(narrowedAction.offNarrowed())}
     >
-      <Button text="Order" href="order">
+      <Button text="Order" href="order" isMobile={isMobile} isNarrowed={isNarrowed}>
         <TruckDeliveryIcon className="flex-shrink-0" />
       </Button>
-      <Button text="E-commerce" subMenuItems={list}>
+      <Button text="E-commerce" subMenuItems={list} isMobile={isMobile} isNarrowed={isNarrowed}>
         <BasketIcon className="flex-shrink-0" />
       </Button>
-      <Button text="Mail" href="mail">
+      <Button text="Mail" href="mail" isMobile={isMobile} isNarrowed={isNarrowed}>
         <MailIcon className="flex-shrink-0" />
       </Button>
-      <Button text="Slider" href="slider">
-        <HandMoveIcon className="flex-shrink-0"/>
+      <Button text="Slider" href="slider" isMobile={isMobile} isNarrowed={isNarrowed}>
+        <HandMoveIcon className="flex-shrink-0" />
       </Button>
     </nav>
   );
