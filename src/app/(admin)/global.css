@@ -22,3 +22,15 @@
 .ql-container {
   @apply !border-0;
 }
+
+.swiper-pagination-bullet {
+  @apply h-2 w-2 rounded-full bg-admin-primary-200 duration-500;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-admin-primary-main w-8;
+}
+
+.swiper-pagination {
+  @apply flex justify-center gap-3 my-2 -mt-2 relative z-50;
+}
