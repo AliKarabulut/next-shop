@@ -45,7 +45,7 @@ const FileInput = ({ name, onImages, isMultiple = false }: FileInputProps) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
       setImages((prevImages) => [...prevImages, ...files]);
-      if (isMultiple && onImages) onImages(files);
+      if (onImages) onImages(files);
     }
   }, []);
 
@@ -68,7 +68,7 @@ const FileInput = ({ name, onImages, isMultiple = false }: FileInputProps) => {
   }, []);
 
   return (
-    <div className="bg-white max-w-md shadow-lg px-6 py-3 rounded-2xl relative overflow-hidden">
+    <div className="bg-white max-w-md w-full shadow-lg px-6 py-3 rounded-2xl relative overflow-hidden">
       <div className="relative">
         {images.length === 0 && (
           <div className="w-full flex items-center justify-center flex-col text-center my-4 h-52 rounded-[40px] border-2 border-dashed border-admin-secondary-main">
@@ -122,7 +122,7 @@ const FileInput = ({ name, onImages, isMultiple = false }: FileInputProps) => {
             navigation
             className="h-[15rem]"
           >
-            {Array.from(images).map((file: File, index: number) => (
+            {Array.from(images).map((file, index) => (
               <SwiperSlide key={index} className="relative">
                 <Image fill src={URL.createObjectURL(file)} alt="product image" className="object-contain pb-4" />
               </SwiperSlide>

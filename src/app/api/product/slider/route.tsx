@@ -36,12 +36,13 @@ export const POST = async (request: NextRequest) => {
     const buffer = Buffer.from(bytes);
 
     const fileName = file.name.replace(/ /g, "-");
-    const path = `public/images/slider/${fileName}`;
+    const publicPath = `public/images/slider/${fileName}`;
+    const dbPath = `images/slider/${fileName}`;
 
-    await writeFile(path, buffer);
+    await writeFile(publicPath, buffer);
     const newImage = await prisma.image.create({
       data: {
-        urls: [path],
+        urls: [dbPath],
         main: true,
       },
     });

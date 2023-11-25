@@ -28,10 +28,9 @@ const Quill = () => {
   }, [value]);
 
   return (
-    <div className="max-w-2xl min-h-[114px] h-full">
+    <div className="max-w-3xl w-full min-h-[114px] h-full">
       <DynamicQuill theme="snow" value={value} onChange={setValue} modules={modules} className="bg-white rounded-lg" />
       <input type="text" name="description" className="invisible" value={value} readOnly />
-      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 };
