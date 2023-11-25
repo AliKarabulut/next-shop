@@ -6,7 +6,7 @@ export const POST = async (request: NextRequest) => {
   try {
     const data = await request.formData();
     const description = data.get("description") as string;
-    const file: File | null = data.get("file") as unknown as File;
+    const file = data.get("file") as File;
 
     if (!file) {
       return NextResponse.json({ message: "An image must be selected" }, { status: 400 });
