@@ -7,12 +7,9 @@ type ToastPromiseProps = {
 };
 
 export const ToastPromise = async ({ url, data }: ToastPromiseProps) => {
-  try {
-    const response = await axios.post(url, data);
-    toast.success(response.data.message);
-    return response.data;
-  } catch (err: any) {
-    toast.error(err.response.data.message);
-    return err.response.data;
-  }
+  return toast.promise(axios.post(url, data), {
+    loading: "Loading",
+    success: (response) => `${response.data.message}`,
+    error: (err) => `${err.response.data.message}`,
+  });
 };
