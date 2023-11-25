@@ -8,7 +8,7 @@ type ToastPromiseProps = {
 
 export const ToastPromise = async ({ url, data }: ToastPromiseProps) => {
   return toast.promise(axios.post(url, data), {
-    loading: "Loading",
+    loading: "Uploading...",
     success: (response) => `${response.data.message}`,
     error: (err) => `${err.response.data.message}`,
   });
