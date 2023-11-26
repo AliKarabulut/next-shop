@@ -22,7 +22,7 @@ const Slider = () => {
   return (
     <div>
       <form onSubmit={submitHandler}>
-        <div className="flex justify-between mt-5 gap-4 w-full">
+        <div className="flex justify-between max-xl:flex-col mt-5 gap-4 w-full">
           <Quill />
           <FileInput name="file" onImages={setImages} />
         </div>

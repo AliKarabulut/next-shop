@@ -30,7 +30,7 @@ const IntroSwiper = ({ slides = [], demo = false, description, image }: SwiperPr
         slides.map((slide, index) => (
           <SwiperSlide key={index} className="bg-gradient-to-r from-grayLighter to-grayLight flex justify-between">
             <div dangerouslySetInnerHTML={{ __html: slide.description }} />
-            <div className="relative">
+            <div className="relative h-full max-w-lg  w-full">
               {slide.image.urls[0] && <Image src={`/${slide.image.urls[0]}`} alt={`Slide image ${index}`} layout="fill" />}
             </div>
           </SwiperSlide>
