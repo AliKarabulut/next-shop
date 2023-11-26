@@ -1,11 +1,10 @@
 "use client";
 import { addSlider } from "@/services/slider-services";
 import Quill from "@/components/admin/react-quill";
-import FileInput from "@/ui/input/file-input";
 import { quillCssConverter } from "@/utils/quill-css-converter";
 import IconButton from "@/ui/icon-button";
-import IntroSwiper from "@/components/swipers/introSwiper";
-import { useEffect, useState } from "react";
+import DemoSwiper from "@/components/swipers/demo-swiper";
+import { useState } from "react";
 
 const Slider = () => {
   const [images, setImages] = useState<File[]>([]);
@@ -19,18 +18,16 @@ const Slider = () => {
     data.set("description", description);
     const response = await addSlider(data);
   };
+
   return (
-    <div>
+    <div className="mt-8">
+      <DemoSwiper name="file" />
       <form onSubmit={submitHandler}>
         <div className="flex justify-between max-xl:flex-col mt-5 gap-4 w-full">
           <Quill />
-          <FileInput name="file" onImages={setImages} />
         </div>
         <IconButton label="Upload" type="submit" className="bg-white opacity-100 shadow-md mt-4"></IconButton>
       </form>
-      <div className="container !px-0 mx-auto mt-8">
-        <IntroSwiper demo={true} image={images} />
-      </div>
     </div>
   );
 };

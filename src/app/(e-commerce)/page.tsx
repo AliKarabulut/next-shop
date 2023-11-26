@@ -1,6 +1,6 @@
 import ProductCard from "@/components/cards/productCard";
 import SpecialOffer from "@/components/cards/specialOffer";
-import IntroSwiper from "@/components/swipers/introSwiper";
+import IntroSwiper from "@/components/swipers/intro-swiper";
 import prisma from "@/libs/prismadb";
 
 const getData = async () => {
