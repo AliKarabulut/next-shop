@@ -21,8 +21,8 @@ const Slider = () => {
 
   return (
     <div className="mt-8">
-      <DemoSwiper name="file" />
       <form onSubmit={submitHandler}>
+        <DemoSwiper name="file" />
         <div className="flex justify-between max-xl:flex-col mt-5 gap-4 w-full">
           <Quill />
         </div>

@@ -1,6 +1,7 @@
-import { writeFile } from "fs/promises";
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/libs/prismadb";
+import { UploadApiResponse } from "cloudinary";
+import CloudinaryImageUploader from "@/helpers/cloudinary-upload";
 
 export const POST = async (request: NextRequest) => {
   try {
@@ -8,8 +9,10 @@ export const POST = async (request: NextRequest) => {
     const description = data.get("description") as string;
     const file = data.get("file") as File;
 
-    if (!file) {
-      return NextResponse.json({ message: "An image must be selected" }, { status: 400 });
+    const imageResponse = await CloudinaryImageUploader(file, "slider") as UploadApiResponse
+    
+    if (imageResponse.status !== 200) {
+      return NextResponse.json({ message: imageResponse.message }, { status: imageResponse.status });
     }
 
     if (!description) {
@@ -24,25 +27,9 @@ export const POST = async (request: NextRequest) => {
       return NextResponse.json({ message: "A slider with this description already exists" }, { status: 400 });
     }
 
-    if (!file.type.startsWith("image/")) {
-      return NextResponse.json({ message: "The file must be an image" }, { status: 400 });
-    }
-
-    if (file.size > 1 * 1024 * 1024) {
-      return NextResponse.json({ message: "The image must be smaller than 1MB " }, { status: 400 });
-    }
-
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
-
-    const fileName = file.name.replace(/ /g, "-");
-    const publicPath = `public/images/slider/${fileName}`;
-    const dbPath = `images/slider/${fileName}`;
-
-    await writeFile(publicPath, buffer);
     const newImage = await prisma.image.create({
       data: {
-        urls: [dbPath],
+        urls: [imageResponse.url],
         main: true,
       },
     });
@@ -63,6 +50,7 @@ export const POST = async (request: NextRequest) => {
 
     return NextResponse.json({ message: "Slider added successfully", newSlider }, { status: 200 });
   } catch (err: any) {
+    console.log(err);
     return NextResponse.json({ message: "There was a problem creating the slider" }, { status: 500 });
   }
 };

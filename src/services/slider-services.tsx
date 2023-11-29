@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ToastPromise } from "@/utils/toast-promise";
+import { ToastPromise } from "@/helpers/toast-promise";
 
 export const getSliders = async (): Promise<any> => {
   const response = await axios.get("/api/product/slider");
