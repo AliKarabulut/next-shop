@@ -41,17 +41,17 @@ const DemoSwiperImageAdder = ({ name }: DemoSwiperImageAdderProps) => {
   };
 
   return (
-    <>
+    <div className={`relative mx-32 ${image.length > 0 ? "h-full " : "h-52 my-auto"}`}>
       {image.length > 0 ? (
-        <div className="relative h-full max-w-lg">
-          <IconButton className="ml-auto absolute -mr-6 right-0 cursor-pointer drop-shadow-lg rounded-none rounded-bl-2xl" onClick={deleteHandler}>
+        <div className="relative max-w-lg h-full">
+          <IconButton className="ml-auto absolute right-0 cursor-pointer drop-shadow-lg rounded-none rounded-bl-2xl rounded-br-2xl" onClick={deleteHandler}>
             <TrashIcon />
           </IconButton>
-          <Image src={URL.createObjectURL(image[0])} alt="Slide image" width={500} height={384} className="object-cover h-full w-fit" />
+          <Image src={URL.createObjectURL(image[0])} alt="Slide image" width={500} height={384} className="object-contain h-full" />
         </div>
       ) : (
         <div className="max-w-sm w-full relative flex items-center justify-center">
-          <div className="w-full flex items-center justify-center flex-col  text-center h-52 rounded-[40px] border-2 border-dashed border-admin-secondary-main">
+          <div className="w-full flex items-center justify-center flex-col text-center h-52 rounded-[40px] px-8 border-2 border-dashed border-admin-secondary-main">
             {!dragging ? (
               <>
                 <ImageIcon className="w-12 h-12 flex-shrink-0 text-admin-secondary-800" />
@@ -80,7 +80,7 @@ const DemoSwiperImageAdder = ({ name }: DemoSwiperImageAdderProps) => {
         onDragLeave={dragLeaveHandler}
         className={`opacity-0 left-0 top-0 absolute w-full h-full cursor-pointer ${image.length > 0 && "invisible"}`}
       />
-    </>
+    </div>
   );
 };
 
