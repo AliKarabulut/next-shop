@@ -41,7 +41,7 @@ const DemoSwiperImageAdder = ({ name }: DemoSwiperImageAdderProps) => {
   };
 
   return (
-    <div className={`relative mx-32 ${image.length > 0 ? "h-full " : "h-52 my-auto"}`}>
+    <div className={`relative ${image.length > 0 ? "h-full " : "h-52 "}`}>
       {image.length > 0 ? (
         <div className="relative max-w-lg h-full">
           <IconButton className="ml-auto absolute right-0 cursor-pointer drop-shadow-lg rounded-none rounded-bl-2xl rounded-br-2xl" onClick={deleteHandler}>
