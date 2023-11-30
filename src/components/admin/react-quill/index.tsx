@@ -1,36 +1,34 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useState } from "react";
-import "react-quill/dist/quill.snow.css";
 import DOMPurify from "dompurify";
+import { quillCssConverter } from "@/utils/quill-css-converter";
+import { useDebouncedCallback } from "use-debounce";
 const DynamicQuill = dynamic(() => import("react-quill"), { ssr: false });
+import "react-quill/dist/quill.snow.css";
 
-const Quill = () => {
-  const [value, setValue] = useState("");
-  const [content, setContent] = useState("");
+type QuillProps = {
+  onValue: (value: string) => void;
+};
 
-  const modules = useMemo(
-    () => ({
-      toolbar: [
-        ["bold", "italic", "underline", "strike"],
-        [{ size: ["small", false, "large", "huge"] }],
-        [{ header: 1 }, { header: 2 }],
-        [{ script: "sub" }, { script: "super" }],
-        [{ color: [] }, { background: [] }],
-      ],
-    }),
-    []
-  );
+const modules = {
+  toolbar: [
+    ["bold", "italic", "underline", "strike"],
+    [{ size: ["small", false, "large", "huge"] }],
+    [{ header: 1 }, { header: 2 }],
+    [{ script: "sub" }, { script: "super" }],
+    [{ color: [] }, { background: [] }],
+  ],
+};
 
-  useEffect(() => {
-    const sanitizedHTML = DOMPurify.sanitize(value);
-    setContent(sanitizedHTML);
-  }, [value]);
+const Quill = ({ onValue }: QuillProps) => {
+  const changeHandler = useDebouncedCallback((content: string) => {
+    const newContent = quillCssConverter(DOMPurify.sanitize(content));
+    onValue(newContent);
+  }, 500);
 
   return (
-    <div className="max-w-3xl w-full min-h-[114px] h-full">
-      <DynamicQuill theme="snow" value={value} onChange={setValue} modules={modules} className="bg-white rounded-lg" />
-      <input type="text" name="description" className="invisible" value={value} readOnly />
+    <div className="max-w-3xl w-full min-h-[114px] h-full mt-5">
+      <DynamicQuill theme="snow" onChange={changeHandler} modules={modules} className="bg-white rounded-lg" />
     </div>
   );
 };

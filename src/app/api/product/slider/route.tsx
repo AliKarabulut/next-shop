@@ -9,22 +9,21 @@ export const POST = async (request: NextRequest) => {
     const description = data.get("description") as string;
     const file = data.get("file") as File;
 
-    const imageResponse = await CloudinaryImageUploader(file, "slider") as UploadApiResponse
-    
-    if (imageResponse.status !== 200) {
-      return NextResponse.json({ message: imageResponse.message }, { status: imageResponse.status });
-    }
-
     if (!description) {
       return NextResponse.json({ message: "Description must be entered" }, { status: 400 });
     }
-
     const existingSlider = await prisma.slider.findUnique({
       where: { description },
     });
 
     if (existingSlider) {
       return NextResponse.json({ message: "A slider with this description already exists" }, { status: 400 });
+    }
+
+    const imageResponse = (await CloudinaryImageUploader(file, "slider")) as UploadApiResponse;
+
+    if (imageResponse.status !== 200) {
+      return NextResponse.json({ message: imageResponse.message }, { status: imageResponse.status });
     }
 
     const newImage = await prisma.image.create({
