@@ -28,7 +28,7 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
         <SwiperSlide key={index} className="bg-gradient-to-r from-grayLighter to-grayLight flex justify-between">
           <div dangerouslySetInnerHTML={{ __html: slide.description }} />
           <div className="relative h-full max-w-lg  w-full">
-            {slide.image.urls[0] && <Image src={`/${slide.image.urls[0]}`} alt={`Slide image ${index}`} fill />}
+            {slide.image.urls[0] && <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} fill />}
           </div>
         </SwiperSlide>
       ))}
