@@ -1,9 +1,6 @@
 "use client";
-import { Pagination, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-import DemoSwiperImageAdder from "./image-adder";
+import DemoSwiperImageAdder from "@/components/swipers/demo-swiper/image-adder";
 
 type DemoSwiperProps = {
   description?: string;
@@ -14,12 +11,12 @@ const DemoSwiper = ({ description, name }: DemoSwiperProps) => {
   console.log("DemoSwiper");
 
   return (
-    <Swiper modules={[Pagination, Navigation]} slidesPerView={1} pagination={{ clickable: true }} navigation className="h-96 max-w-[1536px] !px-0 !mx-0">
-      <SwiperSlide className="bg-gradient-to-r from-grayLighter to-grayLight !flex items-center px-32 gap-56">
+    <div className="bg-gradient-to-r from-grayLighter to-grayLight">
+      <div className="flex h-96 items-center justify-between xl:px-32 container mx-auto">
         <div className="" dangerouslySetInnerHTML={{ __html: description || "" }} />
         <DemoSwiperImageAdder name={name} />
-      </SwiperSlide>
-    </Swiper>
+      </div>
+    </div>
   );
 };
 
