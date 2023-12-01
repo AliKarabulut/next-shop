@@ -30,7 +30,7 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
       className="h-96 bg-gradient-to-r from-grayLighter to-grayLight"
     >
       {slides?.map((slide, index) => (
-        <SwiperSlide key={index} className=" !flex items-center justify-between px-32 gap-56 container mx-auto">
+        <SwiperSlide key={index} className="!flex items-center justify-between xl:px-32 container mx-auto">
           <div dangerouslySetInnerHTML={{ __html: slide.description }} />
           <div className="relative h-full max-w-lg w-full">
             {slide.image.urls[0] && <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} fill className="object-contain h-full" />}

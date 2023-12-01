@@ -41,13 +41,13 @@ const DemoSwiperImageAdder = ({ name }: DemoSwiperImageAdderProps) => {
   };
 
   return (
-    <div className={`relative ${image.length > 0 ? "h-full " : "h-52 "}`}>
+    <div className={`relative ${image.length > 0 ? "h-full max-w-lg w-full" : "h-52 "}`}>
       {image.length > 0 ? (
-        <div className="relative max-w-lg h-full">
+        <div className="relative h-full max-w-lg w-full">
           <IconButton className="ml-auto absolute right-0 cursor-pointer drop-shadow-lg rounded-none rounded-bl-2xl rounded-br-2xl" onClick={deleteHandler}>
             <TrashIcon />
           </IconButton>
-          <Image src={URL.createObjectURL(image[0])} alt="Slide image" width={500} height={384} className="object-contain h-full" />
+          <Image src={URL.createObjectURL(image[0])} alt="Slide image" fill className="object-contain h-full"  />
         </div>
       ) : (
         <div className="max-w-sm w-full relative flex items-center justify-center">
