@@ -21,6 +21,7 @@ type SwiperProps = {
 };
 
 const IntroSwiper = ({ slides }: SwiperProps) => {
+
   return (
     <Swiper modules={[Pagination, Navigation]} slidesPerView={1} pagination={{ clickable: true }} navigation className="h-96">
       {slides?.map((slide, index) => (

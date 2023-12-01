@@ -22,13 +22,13 @@ export const POST = async (request: NextRequest) => {
 
     const imageResponse = (await CloudinaryImageUploader(file, "slider")) as UploadApiResponse;
 
-    if (imageResponse.status !== 200) {
+    if (imageResponse.status === 400) {
       return NextResponse.json({ message: imageResponse.message }, { status: imageResponse.status });
     }
 
     const newImage = await prisma.image.create({
       data: {
-        urls: [imageResponse.url],
+        urls: [imageResponse.secure_url],
         main: true,
       },
     });
