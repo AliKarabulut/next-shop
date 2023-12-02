@@ -8,8 +8,6 @@ type DemoSwiperProps = {
 };
 
 const DemoSwiper = ({ description, name }: DemoSwiperProps) => {
-  console.log("DemoSwiper");
-
   return (
     <div className="bg-gradient-to-r from-grayLighter to-grayLight">
       <div className="flex h-96 items-center justify-between xl:px-32 container mx-auto">

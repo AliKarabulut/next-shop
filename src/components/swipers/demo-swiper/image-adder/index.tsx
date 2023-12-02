@@ -15,8 +15,6 @@ const DemoSwiperImageAdder = ({ name }: DemoSwiperImageAdderProps) => {
   const [dragging, setDragging] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  console.log("DemoSwiperImageAdder");
-
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const files = Array.from(e.target.files);
