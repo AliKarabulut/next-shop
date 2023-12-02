@@ -4,7 +4,7 @@ import { quillCssConverter } from "@/utils/quill-css-converter";
 import IconButton from "@/ui/icon-button";
 import DemoSwiper from "@/components/swipers/demo-swiper";
 import {useState } from "react";
-import {DraftEditor} from "@/components/admin/react-draft";
+import DraftEditor from "@/components/admin/react-draft";
 
 const Slider = () => {
   const [description, setDescription] = useState<string>("");
