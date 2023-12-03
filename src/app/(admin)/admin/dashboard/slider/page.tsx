@@ -4,7 +4,12 @@ import { quillCssConverter } from "@/utils/quill-css-converter";
 import IconButton from "@/ui/icon-button";
 import DemoSwiper from "@/components/swipers/demo-swiper";
 import {useState } from "react";
-import DraftEditor from "@/components/admin/react-draft";
+import dynamic from 'next/dynamic';
+
+const Ck5Editor = dynamic( () => {
+  return import( '@/components/admin/ck5editor' );
+}, { ssr: false } );
+
 
 const Slider = () => {
   const [description, setDescription] = useState<string>("");
@@ -22,7 +27,7 @@ const Slider = () => {
     <div className="mt-8">
       <form onSubmit={submitHandler}>
         <DemoSwiper name="file" description={description} />
-        <DraftEditor onValue={setDescription} />
+        <Ck5Editor onValue={setDescription} />
         <IconButton label="Upload" type="submit" className="bg-white opacity-100 shadow-md mt-4"></IconButton>
       </form>
     </div>
