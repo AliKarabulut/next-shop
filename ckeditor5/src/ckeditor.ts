@@ -12,11 +12,12 @@ import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { FontBackgroundColor, FontColor, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
-import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
+import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
+import { Indent } from '@ckeditor/ckeditor5-indent';
 import { List } from '@ckeditor/ckeditor5-list';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { SourceEditing } from '@ckeditor/ckeditor5-source-editing';
-import { SpecialCharacters, SpecialCharactersLatin } from '@ckeditor/ckeditor5-special-characters';
+import { Style } from '@ckeditor/ckeditor5-style';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
@@ -31,14 +32,14 @@ class Editor extends ClassicEditor {
 		FontBackgroundColor,
 		FontColor,
 		FontSize,
+		GeneralHtmlSupport,
 		Heading,
-		HorizontalLine,
+		Indent,
 		Italic,
 		List,
 		Paragraph,
 		SourceEditing,
-		SpecialCharacters,
-		SpecialCharactersLatin,
+		Style,
 		Subscript,
 		Superscript,
 		TextTransformation,
@@ -53,21 +54,23 @@ class Editor extends ClassicEditor {
 				'underline',
 				'subscript',
 				'superscript',
+				'|',
 				'fontColor',
 				'fontBackgroundColor',
-				'horizontalLine',
-				'|',
-				'heading',
 				'fontSize',
 				'sourceEditing',
 				'|',
 				'bulletedList',
 				'numberedList',
-				'specialCharacters',
+				'outdent',
+				'indent',
+				'|',
+				'heading',
+				'style',
+				'|',
 				'blockQuote',
 				'undo',
-				'redo',
-				'|'
+				'redo'
 			]
 		},
 		language: 'en'
