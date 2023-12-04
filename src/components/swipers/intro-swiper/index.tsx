@@ -31,9 +31,9 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
     >
       {slides?.map((slide, index) => (
         <SwiperSlide key={index}>
-          <div className="grid grid-cols-12 items-center xl:px-32 container mx-auto h-full w-full">
+          <div className="grid grid-cols-12 items-center xl:px-32 container mx-auto w-full">
             <div className="col-span-6 sm:col-span-8" dangerouslySetInnerHTML={{ __html: slide.description }} />
-            <div className="col-span-6 sm:col-span-4">
+            <div className="col-span-6 sm:col-span-4 h-96">
               {slide.image.urls[0] && (
                 <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} width={520} height={380} className="object-contain h-full w-fit" />
               )}
