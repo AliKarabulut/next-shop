@@ -15,14 +15,6 @@
   border-radius: 8px;
 }
 
-.ql-toolbar {
-  @apply !border-0 !border-b;
-}
-
-.ql-container {
-  @apply !border-0;
-}
-
 .swiper-pagination-bullet {
   @apply h-2 w-2 rounded-full bg-admin-primary-200 duration-500;
 }
@@ -51,18 +43,18 @@
   @apply text-base md:text-3xl lg:text-5xl font-bold text-lightDark ;
 }
 
+.boldTitle3 {
+  @apply text-base md:text-3xl lg:text-4xl font-bold text-lightDark ;
+}
+
 .subtitle {
   @apply text-base font-bold text-lightDark;
 }
 
 .boldSubtitle {
-  @apply text-sm md:text-base lg:text-lg font-bold text-blueLight;
+  @apply text-sm md:text-base lg:text-lg font-bold leading-10;
 }
 
 .text {
   @apply text-sm font-bold text-lightDark;
-}
-
-.lead {
-  @apply leading-10;
 }

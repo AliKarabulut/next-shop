@@ -21,7 +21,7 @@
 .swiper-pagination {
   @apply flex justify-center gap-3 my-2 -mt-5 relative z-50;
 }
-
+/* 
 .swiper-button-next,
 .swiper-button-prev {
   @apply opacity-0 duration-300 w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-lightDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
@@ -50,18 +50,26 @@
 
 .swiper:hover .swiper-button-disabled {
   @apply !opacity-90;
-}
+} */
 
 .title {
-  @apply text-4xl lg:text-5xl xl:text-6xl font-light text-lightDark;
+  @apply lg:text-6xl font-light text-lightDark tracking-wider;
 }
 
 .title2 {
-  @apply text-3xl lg:text-4xl xl:text-5xl font-light text-lightDark;
+  @apply text-base md:text-3xl lg:text-5xl font-light text-lightDark tracking-wider;
 }
 
 .boldTitle {
-  @apply text-4xl lg:text-5xl xl:text-6xl font-bold text-lightDark;
+  @apply text-5xl lg:text-6xl font-bold text-lightDark tracking-wider;
+}
+
+.boldTitle2 {
+  @apply text-base md:text-3xl lg:text-5xl font-bold text-lightDark;
+}
+
+.boldTitle3 {
+  @apply text-[1rem] md:text-[1.875rem] lg:text-[2.25rem] font-bold text-lightDark leading-[0px];
 }
 
 .subtitle {
@@ -69,7 +77,7 @@
 }
 
 .boldSubtitle {
-  @apply text-lg font-bold text-blueLight;
+  @apply text-sm md:text-base lg:text-lg font-bold;
 }
 
 .text {

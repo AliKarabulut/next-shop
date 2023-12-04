@@ -27,13 +27,17 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
       slidesPerView={1}
       pagination={{ clickable: true }}
       navigation
-      className="h-96 bg-gradient-to-r from-grayLighter to-grayLight"
+      className="h-96 py-2 bg-gradient-to-r from-grayLighter to-grayLight"
     >
       {slides?.map((slide, index) => (
-        <SwiperSlide key={index} className="!flex items-center justify-between xl:px-32 container mx-auto">
-          <div dangerouslySetInnerHTML={{ __html: slide.description }} />
-          <div className="relative h-full max-w-lg w-full">
-            {slide.image.urls[0] && <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} fill className="object-contain h-full" />}
+        <SwiperSlide key={index}>
+          <div className="grid grid-cols-12 items-center xl:px-32 container mx-auto h-full w-full">
+            <div className="col-span-6 sm:col-span-8" dangerouslySetInnerHTML={{ __html: slide.description }} />
+            <div className="col-span-6 sm:col-span-4">
+              {slide.image.urls[0] && (
+                <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} width={520} height={380} className="object-contain h-full w-fit" />
+              )}
+            </div>
           </div>
         </SwiperSlide>
       ))}
