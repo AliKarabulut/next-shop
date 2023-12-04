@@ -24,7 +24,7 @@ const ActionIcon = ({ children, quantity, price, className, dropDown }: ActionIc
       {dropDown && (
         <div
           className="hidden group-hover:block border-t-2 border-t-yellow border rounded-b-lg
-        text-blueDark  border-grayLighter drop-shadow-lg w-fit bg-white 
+        text-lightDark  border-grayLighter drop-shadow-lg w-fit bg-white 
           absolute top-8 -left-9 before:content-[''] before:absolute
           before:-top-2 before:left-1/2 before:-translate-x-1/2 
           before:border-x-[6px] before:border-x-transparent 
