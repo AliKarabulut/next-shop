@@ -51,3 +51,27 @@
 .swiper:hover .swiper-button-disabled {
   @apply !opacity-90;
 }
+
+.title {
+  @apply text-4xl lg:text-5xl xl:text-6xl font-light text-lightDark;
+}
+
+.title2 {
+  @apply text-3xl lg:text-4xl xl:text-5xl font-light text-lightDark;
+}
+
+.boldTitle {
+  @apply text-4xl lg:text-5xl xl:text-6xl font-bold text-lightDark;
+}
+
+.subtitle {
+  @apply text-base font-bold text-lightDark;
+}
+
+.boldSubtitle {
+  @apply text-lg font-bold text-blueLight;
+}
+
+.text {
+  @apply text-sm font-bold text-lightDark;
+}

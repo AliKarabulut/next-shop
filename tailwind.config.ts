@@ -42,7 +42,6 @@ const config: Config = {
         // Blue
         blue: "#007aff",
         blueTransparent: "#333e481a",
-        blueDark: "#333e48",
         blueLight: "#34bcec",
         blueGoogle: "#4285f4",
         blueFacebook: "#3b5998",
@@ -59,6 +58,7 @@ const config: Config = {
         black: "#000000",
 
         // Dark
+        lightDark: "#333e48",
         dark: "#231f20",
 
         "admin-primary-light": "#E3F2FD",
