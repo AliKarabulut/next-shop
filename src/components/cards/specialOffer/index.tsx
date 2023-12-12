@@ -23,7 +23,7 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
       className={`w-full rounded-3xl p-5 border-2 border-yellow relative ${className} flex flex-col items-center justify-evenly max-w-md text-lightDark`}
     >
       <span className="text-xl text-left w-full">Special Offer</span>
-      <div className="w-16 h-16 bg-yellow rounded-full flex justify-center items-center flex-col absolute top-5 right-5">
+      <div className="w-20 h-20 bg-yellow rounded-full flex justify-center items-center flex-col absolute top-5 right-5">
         <span className="text-xs">Save</span>
         <span className="text-xl font-bold">{production.discount}%</span>
       </div>
