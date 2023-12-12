@@ -28,12 +28,12 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
         <span className="text-xl font-bold">{production.discount}%</span>
       </div>
       <Image src={production.image.src} width={400} height={400} alt={production.name} className="object-contain max-h-96 h-full" />
-      <Link href={production.url} className="text-inherit text-lightDark hover:text-yellow font-bold text-sm -mb-3">
+      <Link href={production.url} className="text-inherit text-lightDark hover:text-yellow font-bold text-sm">
         {production.name}
       </Link>
       <div className="flex gap-4 items-center">
         <span className="text-redDark text-3xl">${production.price}</span>
-        <span className="text-lg text-grayDarker line-through">${production.price - production.discount}</span>
+        <span className="text-lg text-grayDarker line-through">${+production.price - production.discount}</span>
       </div>
       <ProgressBar max={60} value={6} />
       <HurryUp date={1702508624276} />
