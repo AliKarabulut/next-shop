@@ -10,6 +10,17 @@ const getData = async () => {
   return sliders;
 };
 
+const production = {
+  name: "Xbox Gamepad",
+  price: "100.00",
+  discount: 10,
+  url: "/",
+  image: {
+    src: "/products/xboxgamepad.png",
+    name: "Xbox Gamepad",
+  },
+};
+
 const Home = async () => {
   const sliders = await getData();
 
@@ -18,7 +29,7 @@ const Home = async () => {
       <IntroSwiper slides={sliders} />
       <section>
         <div className="container grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5  gap-8 mx-auto mt-20">
-          <SpecialOffer className="col-span-2 row-span-2" />
+          <SpecialOffer production={production} className="col-span-2 row-span-2" />
 
           {Array(10)
             .fill(0)
