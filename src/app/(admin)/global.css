@@ -28,23 +28,23 @@
 }
 
 .title {
-  @apply lg:text-6xl font-light text-lightDark tracking-wider;
+  @apply md:text-6xl font-light text-lightDark tracking-wider;
 }
 
 .title2 {
-  @apply text-base md:text-3xl lg:text-5xl font-light text-lightDark tracking-wider;
+  @apply text-base sm:text-3xl md:text-5xl font-light text-lightDark tracking-wider;
 }
 
 .boldTitle {
-  @apply text-5xl lg:text-6xl font-bold text-lightDark tracking-wider;
+  @apply text-5xl md:text-6xl font-bold text-lightDark tracking-wider;
 }
 
 .boldTitle2 {
-  @apply text-base md:text-3xl lg:text-5xl font-bold text-lightDark ;
+  @apply text-base sm:text-3xl md:text-5xl font-bold text-lightDark;
 }
 
 .boldTitle3 {
-  @apply text-base md:text-3xl lg:text-4xl font-bold text-lightDark ;
+  @apply text-[1rem] sm:text-[1.875rem] md:text-[2.25rem] font-bold text-lightDark leading-[0px];
 }
 
 .subtitle {
@@ -52,7 +52,7 @@
 }
 
 .boldSubtitle {
-  @apply text-sm md:text-base lg:text-lg font-bold leading-10;
+  @apply text-sm sm:text-base md:text-lg font-bold;
 }
 
 .text {

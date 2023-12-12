@@ -24,12 +24,12 @@
 /* 
 .swiper-button-next,
 .swiper-button-prev {
-  @apply opacity-0 duration-300 w-12 h-12 md:w-14 md:h-14 cursor-pointer bg-lightDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
+  @apply opacity-0 duration-300 w-12 h-12 sm:w-14 sm:h-14 cursor-pointer bg-lightDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
 }
 
 .swiper-button-next:after,
 .swiper-button-prev:after {
-  @apply content-[''] h-2 w-2 md:w-3 md:h-3 border-b-2 border-r-2 border-white  -translate-x-[0.0625rem] -translate-y-[0.0625rem] md:-translate-x-0.5 md:-translate-y-0.5;
+  @apply content-[''] h-2 w-2 sm:w-3 sm:h-3 border-b-2 border-r-2 border-white  -translate-x-[0.0625rem] -translate-y-[0.0625rem] sm:-translate-x-0.5 sm:-translate-y-0.5;
 }
 
 .swiper-button-next {
@@ -53,23 +53,23 @@
 } */
 
 .title {
-  @apply lg:text-6xl font-light text-lightDark tracking-wider;
+  @apply md:text-6xl font-light text-lightDark tracking-wider;
 }
 
 .title2 {
-  @apply text-base md:text-3xl lg:text-5xl font-light text-lightDark tracking-wider;
+  @apply text-base sm:text-3xl md:text-5xl font-light text-lightDark tracking-wider;
 }
 
 .boldTitle {
-  @apply text-5xl lg:text-6xl font-bold text-lightDark tracking-wider;
+  @apply text-5xl md:text-6xl font-bold text-lightDark tracking-wider;
 }
 
 .boldTitle2 {
-  @apply text-base md:text-3xl lg:text-5xl font-bold text-lightDark;
+  @apply text-base sm:text-3xl md:text-5xl font-bold text-lightDark;
 }
 
 .boldTitle3 {
-  @apply text-[1rem] md:text-[1.875rem] lg:text-[2.25rem] font-bold text-lightDark leading-[0px];
+  @apply text-[1rem] sm:text-[1.875rem] md:text-[2.25rem] font-bold text-lightDark leading-[0px];
 }
 
 .subtitle {
@@ -77,7 +77,7 @@
 }
 
 .boldSubtitle {
-  @apply text-sm md:text-base lg:text-lg font-bold;
+  @apply text-sm sm:text-base md:text-lg font-bold;
 }
 
 .text {
