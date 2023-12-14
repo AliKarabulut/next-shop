@@ -1,8 +1,8 @@
-type WatchProps = {
+type WatchIconProps = {
   className?: string;
 };
 
-const Watch: React.FC<WatchProps> = ({ className }) => (
+const WatchIcon = ({ className }: WatchIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"
@@ -22,4 +22,4 @@ const Watch: React.FC<WatchProps> = ({ className }) => (
   </svg>
 );
 
-export default Watch;
+export default WatchIcon;
