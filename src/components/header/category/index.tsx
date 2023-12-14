@@ -32,7 +32,7 @@ const CategoryList = () => {
         waitForTransition: true,
         disableOnInteraction: false,
       }}
-      className="sm:!-mx-2 w-full"
+      className="w-full"
     >
       {DummyMenuContent.map((badge, index) => (
         <SwiperSlide className="!h-10 !flex !items-center !w-auto first:pl-0 first:pr-0 mx-auto" key={index}>
