@@ -22,12 +22,14 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
     <div
       className={`w-full rounded-3xl p-5 border-2 border-yellow relative ${className} flex flex-col items-center justify-evenly max-w-md text-lightDark`}
     >
-      <span className="text-xl text-left w-full">Special Offer</span>
-      <div className="w-20 h-20 bg-yellow rounded-full flex justify-center items-center flex-col absolute top-5 right-5">
-        <span className="text-xs">Save</span>
-        <span className="text-xl font-bold">{production.discount}%</span>
+      <div className="flex justify-between w-full items-center">
+        <span className="text-xl text-left w-full">Special Offer</span>
+        <div className="w-20 h-20 shrink-0 bg-yellow rounded-full flex justify-center items-center flex-col">
+          <span className="text-xs">Save</span>
+          <span className="text-xl font-bold">{production.discount}%</span>
+        </div>
       </div>
-      <Image src={production.image.src} width={400} height={400} alt={production.name} className="object-contain max-h-96 h-full" />
+      <Image src={production.image.src} width={400} height={400} alt={production.name} className="object-contain max-h-96 h-fit" />
       <Link href={production.url} className="text-inherit text-lightDark hover:text-yellow font-bold text-sm">
         {production.name}
       </Link>
