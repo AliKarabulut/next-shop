@@ -36,7 +36,7 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
         <span className="text-lg text-grayDarker line-through">${+production.price - production.discount}</span>
       </div>
       <ProgressBar max={60} value={6} />
-      <HurryUp date={1702508624276} />
+      <HurryUp date={1702767824276} />
     </div>
   );
 };
