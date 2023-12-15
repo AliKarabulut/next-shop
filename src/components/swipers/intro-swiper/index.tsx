@@ -35,13 +35,7 @@ const IntroSwiper = ({ slides }: SwiperProps) => {
             <div className="w-1/2 sm:w-2/3" dangerouslySetInnerHTML={{ __html: slide.description }} />
             <div className="ml-auto h-full max-h-[26.25rem]">
               {slide.image.urls[0] && (
-                <Image
-                  src={slide.image.urls[0]}
-                  alt={`Slide image ${index}`}
-                  width={520}
-                  height={380}
-                  className="object-contain h-full w-fit"
-                />
+                <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} width={520} height={380} className="object-contain h-full w-fit" />
               )}
             </div>
           </div>

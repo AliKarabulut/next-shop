@@ -11,9 +11,9 @@ const DummyData = {
   discount: 20,
 };
 
-const ProductCard = () => {
+const ProductCard = ({ className }: { className: string }) => {
   return (
-    <div className="text-dark group overflow-hidden cursor-pointer relative">
+    <div className={`text-dark group overflow-hidden cursor-pointer relative ${className}`}>
       <div className="relative text-2xl mb-4 py-4">
         <Image src={DummyData.image} width={720} height={660} alt="phone" />
         <div className="absolute right-0 top-4 bg-gray-100 p-2 rounded-full">
