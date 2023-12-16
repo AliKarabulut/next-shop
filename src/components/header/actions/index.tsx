@@ -17,16 +17,16 @@ const ActionButtons = ({ className }: DropDownType) => {
   return (
     <div className={`flex gap-10 ${className}`}>
       <ActionIcon quantity={2}>
-        <GitCompareIcon size={24} />
+        <GitCompareIcon size={26} />
       </ActionIcon>
       <ActionIcon>
-        <HeartIcon size={24} />
+        <HeartIcon size={26} />
       </ActionIcon>
       <ActionIcon dropDown={DummyDropDown}>
-        <UserIcon size={24} />
+        <UserIcon size={26} />
       </ActionIcon>
       <ActionIcon quantity={4} price={110.0}>
-        <ShoppingBagIcon size={24} />
+        <ShoppingBagIcon size={26} />
       </ActionIcon>
     </div>
   )

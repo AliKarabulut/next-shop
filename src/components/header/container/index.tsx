@@ -1,46 +1,47 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Search from "../search";
-import ActionButtons from "../actions";
-import CategoryList from "../category";
+'use client'
+import React, { useState, useEffect } from 'react'
+import Search from '../search'
+import ActionButtons from '../actions'
+import CategoryList from '../category'
 
 const HeaderContainer = () => {
-  const [scrollY, setScrollY] = useState<number>(0);
-  const [isScrollSmall, setIsScrollSmall] = useState<boolean>(true);
+  const [scrollY, setScrollY] = useState<number>(0)
+  const [isScrollSmall, setIsScrollSmall] = useState<boolean>(true)
   useEffect(() => {
     const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
+      setScrollY(window.scrollY)
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
-    if (scrollY <= 32) {
-      setIsScrollSmall(true);
-    } else if (32 < scrollY && scrollY < 164) {
-      return;
-    } else if (scrollY >= 164) {
-      setIsScrollSmall(false);
+    if (scrollY <= 94) {
+      setIsScrollSmall(true)
+    } else if (scrollY > 94) {
+      setIsScrollSmall(false)
     }
-  }, [scrollY]);
+  }, [scrollY])
 
   return (
-    <div className={`w-full bg-white max-md:py-2.5 z-50 ${!isScrollSmall ? "!fixed top-[-150px] animate-open shadow-md " : ""}`}>
-      <div className={`container mx-auto flex flex-col gap-4 ${!isScrollSmall ? "md:py-2.5" : "md:pt-8"}`}>
-        <div className="flex justify-between w-full items-center gap-10">
-          <div className="text-3xl whitespace-nowrap">E commerce</div>
+    <div
+      className={`group/container z-50 w-full bg-white  max-md:pt-2.5 ${
+        !isScrollSmall ? '!fixed top-[-150px] animate-open shadow-md ' : ''
+      }`}>
+      <div className={`container mx-auto flex flex-col ${!isScrollSmall ? 'md:py-2.5' : 'gap-4 md:pt-8'}`}>
+        <div className="flex w-full items-center justify-between gap-10">
+          <div className="whitespace-nowrap text-3xl">E commerce</div>
           <Search />
           <ActionButtons className="max-md:hidden" />
         </div>
-        {isScrollSmall && <CategoryList />}
+        <CategoryList className={!isScrollSmall ? 'h-0 group-hover/container:mt-4 transition-all group-hover/container:h-10' : 'h-fit'} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeaderContainer;
+export default HeaderContainer
