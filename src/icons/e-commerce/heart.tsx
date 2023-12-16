@@ -1,24 +1,23 @@
-type TvIconProps = {
+type HeartIconProps = {
   className?: string
   size?: number
 }
 
-const TvIcon = ({ className, size = 20 }: TvIconProps) => (
+const HeartIcon = ({ className, size = 20 }: HeartIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    strokeWidth="1.5"
+    strokeWidth="1.3"
     stroke="currentColor"
     fill="none"
     strokeLinecap="round"
     strokeLinejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-    <path d="M16 3l-4 4l-4 -4" />
+    <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
   </svg>
 )
 
-export default TvIcon
+export default HeartIcon

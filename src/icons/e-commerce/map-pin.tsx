@@ -1,9 +1,9 @@
-type TvIconProps = {
+type MapPinIconProps = {
   className?: string
   size?: number
 }
 
-const TvIcon = ({ className, size = 20 }: TvIconProps) => (
+const MapPinIcon = ({ className, size = 20 }: MapPinIconProps) => (
   <svg
     {...{ className }}
     xmlns="http://www.w3.org/2000/svg"
@@ -16,9 +16,9 @@ const TvIcon = ({ className, size = 20 }: TvIconProps) => (
     strokeLinecap="round"
     strokeLinejoin="round">
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
-    <path d="M16 3l-4 4l-4 -4" />
+    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+    <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
   </svg>
 )
 
-export default TvIcon
+export default MapPinIcon

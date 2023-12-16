@@ -1,4 +1,6 @@
-import { TbMapPin, TbPhone, TbMail } from 'react-icons/tb'
+import MailIcon from '@/icons/admin/mail'
+import MapPinIcon from '@/icons/e-commerce/map-pin'
+import PhoneIcon from '@/icons/e-commerce/phone'
 
 const Footer = () => {
   return (
@@ -12,13 +14,13 @@ const Footer = () => {
           <address className="col-span-3 not-italic">
             <ul className="flex flex-col gap-2">
               <li className="flex items-center gap-3">
-                <TbMapPin className="shrink-0 text-xl" aria-hidden="true" /> Home Office
+                <MapPinIcon className="shrink-0 text-xl" aria-hidden="true" /> Home Office
               </li>
               <li className="flex items-center gap-3">
-                <TbPhone className="shrink-0 text-xl" aria-hidden="true" /> <a href="tel:05418632292">0541 863 29 92</a>
+                <PhoneIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="tel:05418632292">0541 863 29 92</a>
               </li>
               <li className="flex items-center gap-3">
-                <TbMail className="shrink-0 text-xl" aria-hidden="true" /> <a href="mailto:info@trendbox.io">karabulut.ali@hotmail.com</a>
+                <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="mailto:info@trendbox.io">karabulut.ali@hotmail.com</a>
               </li>
             </ul>
           </address>

@@ -1,36 +1,35 @@
-import ActionIcon from "./actionButton";
-import Link from "next/link";
-
-import { BsHeart, BsHandbag } from "react-icons/bs";
-import { IoIosGitCompare } from "react-icons/io";
-import { BiUser } from "react-icons/bi";
+import UserIcon from '@/icons/e-commerce/user'
+import ActionIcon from './actionButton'
+import HeartIcon from '@/icons/e-commerce/heart'
+import ShoppingBagIcon from '@/icons/e-commerce/shopping-bag'
+import GitCompareIcon from '@/icons/e-commerce/git-compare'
 
 const DummyDropDown = [
-  { title: "Login", link: "/" },
-  { title: "Register", link: "/" },
-];
+  { title: 'Login', link: '/' },
+  { title: 'Register', link: '/' },
+]
 
 type DropDownType = {
-  className?: string;
-};
+  className?: string
+}
 
 const ActionButtons = ({ className }: DropDownType) => {
   return (
     <div className={`flex gap-10 ${className}`}>
       <ActionIcon quantity={2}>
-        <IoIosGitCompare size={22} />
+        <GitCompareIcon size={24} />
       </ActionIcon>
       <ActionIcon>
-        <BsHeart size={22} />
+        <HeartIcon size={24} />
       </ActionIcon>
       <ActionIcon dropDown={DummyDropDown}>
-        <BiUser size={22} />
+        <UserIcon size={24} />
       </ActionIcon>
       <ActionIcon quantity={4} price={110.0}>
-        <BsHandbag size={22} />
+        <ShoppingBagIcon size={24} />
       </ActionIcon>
     </div>
-  );
-};
+  )
+}
 
-export default ActionButtons;
+export default ActionButtons
