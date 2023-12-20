@@ -15,7 +15,7 @@ type DropDownType = {
 
 const ActionButtons = ({ className }: DropDownType) => {
   return (
-    <div className={`flex gap-10 ${className}`}>
+    <div className={`flex gap-7 ${className}`}>
       <ActionIcon quantity={2}>
         <GitCompareIcon size={26} />
       </ActionIcon>

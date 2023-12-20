@@ -29,7 +29,7 @@ const HeaderContainer = () => {
 
   return (
     <div
-      className={`group/container z-50 w-full bg-white  max-md:pt-2.5 ${
+      className={`group/container z-50 w-full bg-white max-md:py-2.5 ${
         !isScrollSmall ? '!fixed top-[-150px] animate-open shadow-md ' : ''
       }`}>
       <div className={`container mx-auto flex flex-col ${!isScrollSmall ? 'md:py-2.5' : 'gap-4 md:pt-8'}`}>
@@ -38,7 +38,7 @@ const HeaderContainer = () => {
           <Search />
           <ActionButtons className="max-md:hidden" />
         </div>
-        <CategoryList className={!isScrollSmall ? 'h-0 group-hover/container:mt-4 transition-all group-hover/container:h-10' : 'h-fit'} />
+        <CategoryList className={!isScrollSmall ? 'h-0 transition-all group-hover/container:mt-4 group-hover/container:h-10' : 'h-fit'} />
       </div>
     </div>
   )

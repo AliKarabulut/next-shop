@@ -1,43 +1,57 @@
-import Image from "next/image";
-import { BsHeart, BsHandbag } from "react-icons/bs";
-import { AiOutlineEye } from "react-icons/ai";
-import Star from "@/ui/star";
+'use client'
+import Image from 'next/image'
+import Star from '@/ui/star'
+import HeartIcon from '@/icons/e-commerce/heart'
+import EyeIcon from '@/icons/e-commerce/eye'
 
 const DummyData = {
-  name: "Iphone Bilmem Kaç",
+  name: 'Iphone Bilmem Kaç',
   price: 550,
-  image: "/products/phone1.png",
-  colors: ["#ff3b30", "#fed700", "#dddddd", "#333e48"],
+  image: '/products/phone1.png',
+  image2: '/products/phone3.png',
+  colors: ['#ff3b30', '#fed700', '#dddddd', '#333e48'],
   discount: 20,
-};
+}
 
 const ProductCard = ({ className }: { className: string }) => {
   return (
-    <div className={`text-dark group overflow-hidden cursor-pointer relative ${className}`}>
-      <div className="relative text-2xl mb-4 py-4">
-        <Image src={DummyData.image} width={720} height={660} alt="phone" />
-        <div className="absolute right-0 top-4 bg-gray-100 p-2 rounded-full">
-          <BsHeart />
-        </div>
-        <div className="absolute text-3xl translate-x-12 group-hover:translate-x-0 duration-200 right-0 top-14 bg-gray-100 p-2 rounded-full">
-          <AiOutlineEye />
-        </div>
-        <div className="absolute bg-yellow translate-x-12 group-hover:translate-x-0 duration-200 delay-75 right-0 -bottom-4 bg-gray-100 p-2 rounded-full">
-          <BsHandbag />
+    <div className={`group relative cursor-pointer h-fit px-4 text-dark hover:z-10 ${className}`}>
+      <div className="relative mb-4 h-full max-h-48 py-4 text-2xl">
+        <Image
+          src={DummyData.image}
+          width={720}
+          height={660}
+          alt="phone"
+          className="object-contain transition-all duration-500 group-hover:opacity-0"
+        />
+        <Image
+          src={DummyData.image2}
+          width={720}
+          height={660}
+          alt="phone"
+          className="absolute left-0 top-4 h-full w-full object-contain opacity-0 transition-all duration-500 group-hover:opacity-100"
+        />
+        <div className="bg-gray-100 absolute -right-1 top-4 z-20 rounded-full border border-grayLighter p-2 shadow-md duration-200 hover:bg-red/50 hover:text-white">
+          <HeartIcon size={24} />
         </div>
       </div>
       <div>
-        <div className="capitalize font-medium text-base w-3/4 truncate mb-2">{DummyData.name}</div>
+        <div className="mb-2 w-3/4 truncate text-base font-medium capitalize">{DummyData.name}</div>
         <div className="flex items-center justify-between">
-          <div className="font-medium text-base">${DummyData.price}</div>
+          <div className="text-base font-medium">${DummyData.price}</div>
           <Star rate={4.3} />
         </div>
         {DummyData.discount && (
-          <div className="text-xs leading-none px-2.5 py-0.5 absolute text-white bg-green left-0 top-6">%{DummyData.discount}</div>
+          <div className="absolute left-0 top-6 bg-green px-2.5 py-0.5 text-xs leading-none text-white">%{DummyData.discount}</div>
         )}
       </div>
+      <div className="card absolute z-10 hidden border top-0 left-0 border-grayLight bg-transparent py-4 shadow-md w-full h-[calc(100%+20px)] group-hover:block">
+        <div className="w-full bg-white absolute bottom-0 h-6 flex justify-center gap-4">
+          <EyeIcon className='shrink-0 w-6 h-6'/>
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

@@ -1,33 +1,33 @@
-import { AiFillStar } from "react-icons/ai";
+import StarFilledIcon from '@/icons/e-commerce/star-filled'
 
 type StarProps = {
-  rate: number;
-};
+  rate: number
+}
 
 const Star = ({ rate }: StarProps) => {
-  const fullStars = Math.floor(rate);
-  const hasHalfStar = rate - fullStars;
+  const fullStars = Math.floor(rate)
+  const hasHalfStar = rate - fullStars
 
   return (
-    <div className="flex relative h-4 w-20">
+    <div className="relative flex h-4 w-20">
       <div className="flex">
         {[...Array(5)].map((_, index) => (
-          <AiFillStar key={index} className="w-4 h-4 text-blueLight" />
+          <StarFilledIcon key={index} className="text-grayDark/50" />
         ))}
       </div>
-      <div className="flex absolute">
+      <div className="absolute flex">
         {[...Array(fullStars)].map((_, index) => (
-          <AiFillStar key={index} className="text-yellow w-4 h-4" />
+          <StarFilledIcon key={index} className="text-yellow" />
         ))}
 
         {hasHalfStar && (
           <div className="h-4 overflow-hidden" style={{ width: `${16 * hasHalfStar}px` }}>
-            <AiFillStar className="text-yellow" />
+            <StarFilledIcon className="text-yellow" />
           </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Star;
+export default Star
