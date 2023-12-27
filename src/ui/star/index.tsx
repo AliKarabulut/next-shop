@@ -2,14 +2,15 @@ import StarFilledIcon from '@/icons/e-commerce/star-filled'
 
 type StarProps = {
   rate: number
+  className?: string
 }
 
-const Star = ({ rate }: StarProps) => {
+const Star = ({ rate,className }: StarProps) => {
   const fullStars = Math.floor(rate)
   const hasHalfStar = rate - fullStars
 
   return (
-    <div className="relative flex h-4 w-20">
+    <div className={`relative flex h-4 w-20 ${className}`}>
       <div className="flex">
         {[...Array(5)].map((_, index) => (
           <StarFilledIcon key={index} className="text-grayDark/50" />

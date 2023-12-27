@@ -20,7 +20,7 @@ const Footer = () => {
                 <PhoneIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="tel:05418632292">0541 863 29 92</a>
               </li>
               <li className="flex items-center gap-3">
-                <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="mailto:info@trendbox.io">karabulut.ali@hotmail.com</a>
+                <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="mailto:karabulut.ali@hotmail.com">karabulut.ali@hotmail.com</a>
               </li>
             </ul>
           </address>
