@@ -83,3 +83,7 @@
 .text {
   @apply text-sm font-bold text-lightDark;
 }
+
+.homeProductCard:nth-child(n+8){
+  @apply xl:hidden 2xl:block
+}
