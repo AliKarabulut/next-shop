@@ -1,17 +1,17 @@
 import MailIcon from '@/icons/admin/mail'
+import InstagramIcon from '@/icons/e-commerce/instagram'
 import MapPinIcon from '@/icons/e-commerce/map-pin'
 import PhoneIcon from '@/icons/e-commerce/phone'
 
 const Footer = () => {
   return (
-    <section className="bg-grayLighter mt-10">
-      <div className="container mx-auto py-16 text-sm">
+    <section className="mt-10 bg-grayLighter">
+      <div className="container mx-auto py-8 sm:py-16 text-sm">
         <div className="mb-6 grid grid-cols-6 items-center gap-8 md:mb-9 lg:grid-cols-12">
-          <h4 className="col-span-3 text-3xl lg:col-span-9">E-commerce</h4>
-          <div>İcons</div>
+          <h4 className="col-span-6 text-3xl lg:col-span-9">E-commerce</h4>
         </div>
         <div className="grid grid-cols-6 gap-8 lg:grid-cols-12">
-          <address className="col-span-3 not-italic">
+          <address className="col-span-6 not-italic">
             <ul className="flex flex-col gap-2">
               <li className="flex items-center gap-3">
                 <MapPinIcon className="shrink-0 text-xl" aria-hidden="true" /> Home Office
@@ -20,11 +20,18 @@ const Footer = () => {
                 <PhoneIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="tel:05418632292">0541 863 29 92</a>
               </li>
               <li className="flex items-center gap-3">
-                <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="mailto:karabulut.ali@hotmail.com">karabulut.ali@hotmail.com</a>
+                <MailIcon className="shrink-0 text-xl" aria-hidden="true" />{' '}
+                <a href="mailto:karabulut.ali@hotmail.com">karabulut.ali@hotmail.com</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <InstagramIcon />
+                <a href="https://www.instagram.com/knospak/" target="_blank">
+                  knospak
+                </a>
               </li>
             </ul>
           </address>
-          <div className="col-span-3">
+          <div className="col-span-6">
             <ul className="flex flex-col gap-2">
               <li>Privacy Policy</li>
               <li>Terms & Conditions</li>
@@ -32,14 +39,14 @@ const Footer = () => {
               <li>Shipping & Delivery</li>
             </ul>
           </div>
-          <div className="col-span-3">
+          <div className="col-span-6">
             <ul className="flex flex-col gap-2">
               <li>Store Location</li>
               <li>FAQs</li>
               <li>Orders Tracking</li>
             </ul>
           </div>
-          <div className="col-span-3">
+          <div className="col-span-6">
             <ul className="flex flex-col gap-2">
               <li className="flex w-full justify-between border-b border-grayLight">
                 <span>Monday - Friday</span>
