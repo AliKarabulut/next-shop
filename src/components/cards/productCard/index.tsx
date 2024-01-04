@@ -22,7 +22,7 @@ const ProductCard = ({ className }: { className: string }) => {
           width={720}
           height={660}
           alt="phone"
-          className="object-contain transition-all duration-500 group-hover:opacity-0"
+          className="object-contain h-full max-h-48 transition-all duration-500 group-hover:opacity-0"
         />
         <Image
           src={DummyData.image2}

@@ -30,7 +30,7 @@ const Home = async () => {
       <section>
         <div className="container mx-auto mt-20 grid grid-cols-4 sm:grid-cols-6 gap-4 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12">
           <SpecialOffer production={production} className="col-span-4 row-span-2 mx-auto sm:mx-0" />
-          {Array(10)
+          {Array(8)
             .fill(0)
             .map((_, index) => (
               <ProductCard key={index} className="col-span-2" />

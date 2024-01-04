@@ -4,7 +4,7 @@ import PhoneIcon from '@/icons/e-commerce/phone'
 
 const Footer = () => {
   return (
-    <section className="bg-grayLighter">
+    <section className="bg-grayLighter mt-10">
       <div className="container mx-auto py-16 text-sm">
         <div className="mb-6 grid grid-cols-6 items-center gap-8 md:mb-9 lg:grid-cols-12">
           <h4 className="col-span-3 text-3xl lg:col-span-9">E-commerce</h4>
