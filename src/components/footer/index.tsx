@@ -6,12 +6,10 @@ import PhoneIcon from '@/icons/e-commerce/phone'
 const Footer = () => {
   return (
     <section className="mt-10 bg-grayLighter">
-      <div className="container mx-auto py-8 sm:py-16 text-sm">
-        <div className="mb-6 grid grid-cols-6 items-center gap-8 md:mb-9 lg:grid-cols-12">
-          <h4 className="col-span-6 text-3xl lg:col-span-9">E-commerce</h4>
-        </div>
+      <div className="container mx-auto py-16 text-sm">
+        <h4 className="mb-6 text-3xl md:mb-9">E-commerce</h4>
         <div className="grid grid-cols-6 gap-8 lg:grid-cols-12">
-          <address className="col-span-6 not-italic">
+          <address className="col-span-3 not-italic">
             <ul className="flex flex-col gap-2">
               <li className="flex items-center gap-3">
                 <MapPinIcon className="shrink-0 text-xl" aria-hidden="true" /> Home Office
@@ -31,7 +29,7 @@ const Footer = () => {
               </li>
             </ul>
           </address>
-          <div className="col-span-6">
+          <div className="col-span-6 sm:col-span-3">
             <ul className="flex flex-col gap-2">
               <li>Privacy Policy</li>
               <li>Terms & Conditions</li>
@@ -39,14 +37,14 @@ const Footer = () => {
               <li>Shipping & Delivery</li>
             </ul>
           </div>
-          <div className="col-span-6">
+          <div className="col-span-6 sm:col-span-3">
             <ul className="flex flex-col gap-2">
               <li>Store Location</li>
               <li>FAQs</li>
               <li>Orders Tracking</li>
             </ul>
           </div>
-          <div className="col-span-6">
+          <div className="col-span-6 sm:col-span-3">
             <ul className="flex flex-col gap-2">
               <li className="flex w-full justify-between border-b border-grayLight">
                 <span>Monday - Friday</span>
