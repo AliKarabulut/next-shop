@@ -10,7 +10,7 @@ const PhoneIcon = ({ className, size = 20 }: PhoneIconProps) => (
     width={size}
     height={size}
     viewBox="0 0 24 24"
-    strokeWidth="1.5"
+    strokeWidth="1.3"
     stroke="currentColor"
     fill="none"
     strokeLinecap="round"

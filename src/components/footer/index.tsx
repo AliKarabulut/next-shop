@@ -1,5 +1,5 @@
 import MailIcon from '@/icons/admin/mail'
-import InstagramIcon from '@/icons/e-commerce/instagram'
+import LinkedInIcon from '@/icons/e-commerce/linkedin'
 import MapPinIcon from '@/icons/e-commerce/map-pin'
 import PhoneIcon from '@/icons/e-commerce/phone'
 
@@ -9,25 +9,20 @@ const Footer = () => {
       <div className="container mx-auto py-16 text-sm">
         <h4 className="mb-6 text-3xl md:mb-9">E-commerce</h4>
         <div className="grid grid-cols-6 gap-8 lg:grid-cols-12">
-          <address className="col-span-3 not-italic">
-            <ul className="flex flex-col gap-2">
-              <li className="flex items-center gap-3">
-                <MapPinIcon className="shrink-0 text-xl" aria-hidden="true" /> Home Office
-              </li>
-              <li className="flex items-center gap-3">
-                <PhoneIcon className="shrink-0 text-xl" aria-hidden="true" /> <a href="tel:05418632292">0541 863 29 92</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <MailIcon className="shrink-0 text-xl" aria-hidden="true" />{' '}
-                <a href="mailto:karabulut.ali@hotmail.com">karabulut.ali@hotmail.com</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <InstagramIcon />
-                <a href="https://www.instagram.com/knospak/" target="_blank">
-                  knospak
-                </a>
-              </li>
-            </ul>
+          <address className="col-span-3 flex flex-col gap-2 not-italic">
+            <div className="flex items-center gap-3">
+              <MapPinIcon className="shrink-0 text-xl" aria-hidden="true" /> Home Office
+            </div>
+            <a href="tel:05418632292" className="flex items-center gap-3">
+              <PhoneIcon className="shrink-0 text-xl" aria-hidden="true" /> <span>0541 863 29 92</span>
+            </a>
+            <a href="mailto:karabulut.ali@hotmail.com" className="flex items-center gap-3">
+              <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <span>karabulut.ali@hotmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/karabulutali/" target="_blank" className="flex items-center gap-3">
+              <LinkedInIcon />
+              <span>Ali Karabulut</span>
+            </a>
           </address>
           <div className="col-span-6 sm:col-span-3">
             <ul className="flex flex-col gap-2">
@@ -62,7 +57,13 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="w-full bg-white py-5 text-center text-sm leading-6">2023 Created by Ali Karabulut. Front End Developer</div>
+      <div className="w-full bg-white py-5 text-center text-sm leading-6">
+        2023 Created by{' '}
+        <a href="https://www.linkedin.com/in/karabulutali/" target="_blank" className="underline">
+          Ali Karabulut
+        </a>
+        . Front End Developer
+      </div>
     </section>
   )
 }
