@@ -17,26 +17,26 @@ const DummyData = {
 const ProductCard = ({ className }: { className: string }) => {
   return (
     <div className={`group relative h-fit cursor-pointer px-4 text-dark hover:z-10 ${className}`}>
-      <div className="relative mb-4 h-full max-h-48 py-4 text-2xl ">
+      <div className="relative mb-2 mt-4 h-full text-2xl sm:my-4 ">
         <Image
           src={DummyData.image}
           width={720}
           height={660}
           alt="phone"
-          className="h-full max-h-48 object-contain transition-all duration-500 group-hover:opacity-0"
+          className="h-full object-contain transition-all duration-500 group-hover:opacity-0"
         />
         <Image
           src={DummyData.image2}
           width={720}
           height={660}
           alt="phone"
-          className="absolute left-0 top-4 h-full w-full object-contain opacity-0 transition-all duration-500 group-hover:opacity-100"
+          className="absolute left-0 top-0 h-full w-full object-contain opacity-0 transition-all duration-500 group-hover:opacity-100"
         />
-        <div className="bg-gray-100 invisible absolute -right-1 top-3 z-20 rounded-full border border-grayLighter p-2 opacity-0 shadow-md duration-300 hover:bg-yellow group-hover:visible group-hover:opacity-100">
+        <div className="bg-gray-100 invisible absolute -right-1 top-0 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-grayLighter pt-0.5 opacity-0 shadow-md duration-300 hover:border-yellow hover:bg-yellow group-hover:visible group-hover:opacity-100">
           <HeartIcon size={24} />
         </div>
         {DummyData?.discount && (
-          <div className="absolute -left-1 top-4 flex h-10 w-10 flex-col items-center justify-center rounded-full bg-yellow pt-0.5 text-sm font-semibold ">
+          <div className="absolute -left-1 top-0 flex h-10 w-10 flex-col items-center justify-center rounded-full bg-yellow pt-0.5 text-sm font-semibold ">
             {DummyData.discount}%
           </div>
         )}
