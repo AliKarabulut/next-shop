@@ -34,8 +34,8 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
           {production.name}
         </Link>
         <div className="flex items-center gap-4">
-          <span className="text-3xl text-redDark">${production.price}</span>
-          <span className="text-lg text-grayDarker line-through">${+production.price - production.discount}</span>
+          <span className="text-3xl text-redDark">${+production.price * (100-production.discount)/100}</span>
+          <span className="text-lg text-grayDarker line-through">${production.price}</span>
         </div>
       </div>
       <ProgressBar max={60} value={6} />

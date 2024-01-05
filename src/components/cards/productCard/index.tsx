@@ -11,6 +11,7 @@ const DummyData = {
   image2: '/products/phone3.png',
   colors: ['#ff3b30', '#fed700', '#dddddd', '#333e48'],
   discount: 20,
+  rate: 4.3,
 }
 
 const ProductCard = ({ className }: { className: string }) => {
@@ -22,7 +23,7 @@ const ProductCard = ({ className }: { className: string }) => {
           width={720}
           height={660}
           alt="phone"
-          className="object-contain h-full max-h-48 transition-all duration-500 group-hover:opacity-0"
+          className="h-full max-h-48 object-contain transition-all duration-500 group-hover:opacity-0"
         />
         <Image
           src={DummyData.image2}
@@ -42,7 +43,10 @@ const ProductCard = ({ className }: { className: string }) => {
       </div>
       <div>
         <div className="mb-2 w-3/4 truncate text-base font-medium capitalize">{DummyData.name}</div>
-        <Star rate={4.3}/>
+        <div className="flex items-center gap-1">
+          <Star rate={DummyData.rate} />
+          <span className="leading-0 text-xs">{DummyData.rate}</span>
+        </div>
         <div className="flex items-center gap-2">
           {DummyData?.discount ? (
             <>
