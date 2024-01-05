@@ -7,7 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,html.css}": "prettier --write",
+    "src/**/*.js": "eslint"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^40.1.0",
@@ -21,6 +26,7 @@
     "cloudinary": "^1.41.0",
     "dompurify": "^3.0.6",
     "hamburger-react": "^2.5.0",
+    "husky": "^8.0.3",
     "next": "^14.0.4",
     "prettier": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.5.9",
