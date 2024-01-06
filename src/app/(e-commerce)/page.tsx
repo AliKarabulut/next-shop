@@ -33,16 +33,16 @@ const tabs = [
 
 const Home = async () => {
   const sliders = await getData()
-  let date = new Date();
-  date.setDate(date.getDate() + 1);
- 
+  let date = new Date()
+  date.setDate(date.getDate() + 1)
+
   return (
     <main>
       <IntroSwiper slides={sliders} />
       <section>
         <TabMenu tabs={tabs} className="container mx-auto mb-4 mt-16 flex justify-end" />
         <div className="container mx-auto grid grid-cols-4 gap-4 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12">
-          <SpecialOffer production={production} className="col-span-4 row-span-2 mx-auto sm:mx-0" date={"date"}/>
+          <SpecialOffer production={production} className="col-span-4 row-span-2 mx-auto sm:mx-0" date={'dates'} />
           {Array(8)
             .fill(0)
             .map((_, index) => (
