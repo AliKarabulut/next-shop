@@ -11,8 +11,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "src/**/*.{js,html.css}": "prettier --write",
-    "src/**/*.js": "eslint"
+    "src/**/*.{js,html,css}": "prettier --write",
+    "src/**/*.{js,ts}": "eslint"
   },
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^40.1.0",
