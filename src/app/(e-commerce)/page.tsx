@@ -33,7 +33,7 @@ const tabs = [
 
 const Home = async () => {
   const sliders = await getData()
-  let date = new Date()
+  const date = new Date()
   date.setDate(date.getDate() + 1)
 
   return (
