@@ -6,7 +6,8 @@
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
-    }
+    },
+    "project": "./tsconfig.json" // Add this line
   },
   "plugins": ["@typescript-eslint"],
   "rules": {
