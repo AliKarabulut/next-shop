@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import HurryUpBox from "./hurry-up-box";
 
 type HurryUpProps = {
-  date: number;
+  date: Date;
 };
 
 const HurryUp: React.FC<HurryUpProps> = ({ date }) => {

@@ -1,5 +1,5 @@
-import UserIcon from '@/icons/e-commerce/user'
 import ActionIcon from './actionButton'
+import UserIcon from '@/icons/e-commerce/user'
 import HeartIcon from '@/icons/e-commerce/heart'
 import ShoppingBagIcon from '@/icons/e-commerce/shopping-bag'
 import GitCompareIcon from '@/icons/e-commerce/git-compare'
@@ -25,7 +25,7 @@ const ActionButtons = ({ className }: DropDownType) => {
       <ActionIcon dropDown={DummyDropDown}>
         <UserIcon size={26} />
       </ActionIcon>
-      <ActionIcon quantity={4} price={110.0}>
+      <ActionIcon quantity={4}>
         <ShoppingBagIcon size={26} />
       </ActionIcon>
     </div>

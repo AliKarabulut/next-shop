@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 type SpecialOfferProps = {
+  date: Date
   className?: string
   production: {
     name: string
@@ -17,7 +18,7 @@ type SpecialOfferProps = {
   }
 }
 
-const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
+const SpecialOffer = ({ className, production, date }: SpecialOfferProps) => {
   return (
     <div
       className={`relative w-full rounded-3xl border-2 border-yellow p-5 ${className} flex max-w-md flex-col items-center justify-between text-lightDark`}>
@@ -34,12 +35,12 @@ const SpecialOffer = ({ className, production }: SpecialOfferProps) => {
           {production.name}
         </Link>
         <div className="flex items-center gap-4">
-          <span className="text-3xl text-redDark">${+production.price * (100-production.discount)/100}</span>
+          <span className="text-3xl text-redDark">${(+production.price * (100 - production.discount)) / 100}</span>
           <span className="text-lg text-grayDarker line-through">${production.price}</span>
         </div>
       </div>
       <ProgressBar max={60} value={6} />
-      <HurryUp date={1702767824276} />
+      <HurryUp date={date} />
     </div>
   )
 }
