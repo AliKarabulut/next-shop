@@ -1,13 +1,18 @@
-import prisma from "@/libs/prismadb";
-import { NextRequest, NextResponse } from "next/server";
+import prisma from '@/libs/prismadb'
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { NextResponse } from 'next/server'
 
-export const GET = async (request: NextRequest) => {
+export const GET = async () => {
   try {
-    const categories = await prisma.category.findMany();
-    return NextResponse.json(categories);
-  } catch (err: any) {
-    return NextResponse.json({ message: "Kategoriler getirilirken bir sorun oluştu" }, { status: 500 });
-  }
-};
+    const categories = await prisma.category.findMany()
+    return NextResponse.json(categories)
+  } catch (err: unknown) {
+    if (err instanceof PrismaClientKnownRequestError) {
+      return NextResponse.json({ message: 'PrismaClientKnownRequestError', err }, { status: 500 })
+    }
 
-export const dynamic = "force-dynamic";
+    return NextResponse.json({ message: 'POST Err', err }, { status: 500 })
+  }
+}
+
+export const dynamic = 'force-dynamic'
