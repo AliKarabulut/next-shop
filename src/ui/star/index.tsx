@@ -12,18 +12,18 @@ const Star = ({ rate, className = '' }: StarProps) => {
   return (
     <div className={`relative flex h-4 ${className}`}>
       <div className="flex items-center ">
-        {[...Array(5)].map((_, index) => (
-          <StarFilledIcon key={index} className="text-grayDark/50 shrink-0" />
+        {Array.from({ length: 5 }, (_, index) => (
+          <StarFilledIcon key={index} className="shrink-0 text-grayDark/50" />
         ))}
       </div>
       <div className="absolute flex items-center">
-        {[...Array(fullStars)].map((_, index) => (
-          <StarFilledIcon key={index} className="text-yellow shrink-0" />
+        {Array.from({ length: fullStars }, (_, index) => (
+          <StarFilledIcon key={index} className="shrink-0 text-yellow" />
         ))}
 
         {hasHalfStar && (
-          <div className="h-4 overflow-hidden flex items-center" style={{ width: `${16 * hasHalfStar}px` }}>
-            <StarFilledIcon className="text-yellow shrink-0" />
+          <div className="flex h-4 items-center overflow-hidden" style={{ width: `${16 * hasHalfStar}px` }}>
+            <StarFilledIcon className="shrink-0 text-yellow" />
           </div>
         )}
       </div>

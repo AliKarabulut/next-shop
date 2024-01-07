@@ -19,7 +19,11 @@ const Footer = () => {
             <a href="mailto:karabulut.ali@hotmail.com" className="flex items-center gap-3">
               <MailIcon className="shrink-0 text-xl" aria-hidden="true" /> <span>karabulut.ali@hotmail.com</span>
             </a>
-            <a href="https://www.linkedin.com/in/karabulutali/" target="_blank" className="flex items-center gap-3">
+            <a
+              href="https://www.linkedin.com/in/karabulutali/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3">
               <LinkedInIcon />
               <span>Ali Karabulut</span>
             </a>
@@ -59,7 +63,7 @@ const Footer = () => {
       </div>
       <div className="w-full bg-white py-5 text-center text-sm leading-6">
         2023 Created by{' '}
-        <a href="https://www.linkedin.com/in/karabulutali/" target="_blank" className="underline">
+        <a href="https://www.linkedin.com/in/karabulutali/" target="_blank" rel="noopener noreferrer" className="underline">
           Ali Karabulut
         </a>
         . Front End Developer
