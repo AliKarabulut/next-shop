@@ -19,7 +19,7 @@ type Product = {
 
 type HandlerProps = {
   name: string
-  data: Product
+  data: string
 }
 
 const NewProduct = () => {
