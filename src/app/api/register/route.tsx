@@ -1,24 +1,39 @@
-import prisma from "@/libs/prismadb"
-import { NextRequest, NextResponse } from "next/server"
+import prisma from '@/libs/prismadb'
+import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
+import { NextRequest, NextResponse } from 'next/server'
 
-export const POST = async (request:NextRequest) => {
-    try {
-        const body = await request.json();
-        const {email,password,firstName,lastName} = body;
+type RequestBodyProps = {
+  email: string
+  password: string
+  firstName: string
+  lastName: string
+}
 
-        const newUser = await prisma.user.create({
-            data: {
-                email,
-                password,
-                firstName,
-                lastName,
-            }
-        })
+export const POST = async (request: NextRequest) => {
+  try {
+    const body = (await request.json()) as RequestBodyProps
 
-        return NextResponse.json(newUser);
-
-    } catch(err:any) {
-        if (err.code === 'P2002') return NextResponse.json({ message: "E-mail ile kayıt olunmuş" }, { status: 200 });
-        return NextResponse.json({message: "POST Error", err}, {status: 500})
+    if (!body.email || !body.password || !body.firstName || !body.lastName) {
+      return NextResponse.json({ message: 'Eksik bilgi' }, { status: 400 })
     }
+
+    const { email, password, firstName, lastName } = body
+
+    const newUser = await prisma.user.create({
+      data: {
+        email,
+        password,
+        firstName,
+        lastName,
+      },
+    })
+
+    return NextResponse.json(newUser)
+  } catch (err: unknown) {
+    if (err instanceof PrismaClientKnownRequestError) {
+      if (err.code === 'P2002') NextResponse.json({ message: 'E-mail ile kayıt olunmuş' }, { status: 200 })
+      NextResponse.json({ message: 'Prisma Error', err }, { status: 500 })
+    }
+    return NextResponse.json({ message: 'POST Error', err }, { status: 500 })
+  }
 }
