@@ -1,35 +1,35 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 interface VariationOptionsProps {
-  onSubmit: (data: { variation: string; options: string[] }) => void;
+  onSubmit: (data: { variation: string; options: string[] }) => void
 }
 
-const VariationOptions: React.FC<VariationOptionsProps> = ({ onSubmit }) => {
-  const [variation, setVariation] = useState("");
-  const [options, setOptions] = useState("");
+const VariationOptions = ({ onSubmit }: VariationOptionsProps) => {
+  const [variation, setVariation] = useState('')
+  const [options, setOptions] = useState('')
 
   const handleVariationChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setVariation(event.target.value);
-  };
+    setVariation(event.target.value)
+  }
 
   const handleOptionsChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setOptions(event.target.value);
-  };
+    setOptions(event.target.value)
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+    event.preventDefault()
 
     // Split the options string into an array of options
-    const optionsArray = options.split(",");
+    const optionsArray = options.split(',')
 
     // Prepare the data to be sent in the POST request
     const data = {
       variation,
       options: optionsArray,
-    };
+    }
 
     // Call the onSubmit callback with the data
-    onSubmit(data);
-  };
+    onSubmit(data)
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -43,7 +43,7 @@ const VariationOptions: React.FC<VariationOptionsProps> = ({ onSubmit }) => {
       </div>
       <button type="submit">Create Variation Options</button>
     </form>
-  );
-};
+  )
+}
 
-export default VariationOptions;
+export default VariationOptions
