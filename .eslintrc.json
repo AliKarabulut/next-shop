@@ -1,28 +1,41 @@
 {
+  "extends": ["next/core-web-vitals", "plugin:@next/next/recommended", "prettier", "plugin:prettier/recommended",  "plugin:tailwindcss/recommended"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 2021,
-    "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": "./tsconfig.json"
+    "ecmaVersion": 2021,
+    "sourceType": "module"
   },
-  "env": {
-    "browser": true,
-    "es2021": true
-  },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "plugins": ["import", "@typescript-eslint", "prettier"],
   "rules": {
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "warn",
-    "@typescript-eslint/no-unsafe-assignment": "error",
-    "@typescript-eslint/no-unsafe-call": "error",
-    "@typescript-eslint/consistent-type-assertions": "error",
-    "react/react-in-jsx-scope": "off"
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/no-contradicting-classname": "error",
+    "tailwindcss/enforces-shorthand": "error",
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "group": "external",
+            "pattern": "@/**",
+            "position": "after"
+          }
+        ]
+      }
+    ]
   },
   "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    },
     "react": {
       "version": "detect"
     }
