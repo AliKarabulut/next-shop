@@ -4,7 +4,7 @@ import PhoneIcon from '@/icons/phone'
 const HeaderTopMenu = () => {
   return (
     <section id="header-top-menu">
-      <div className="header-container">
+      <div className="header-top-container">
         <address className="contact-info">
           <a href="tel:05418632292" className="contact-item" aria-label="Phone number">
             <PhoneIcon className="contact-icon" aria-hidden="true" /> <span>0541 863 29 92</span>

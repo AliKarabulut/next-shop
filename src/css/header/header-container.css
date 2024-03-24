@@ -1,0 +1,13 @@
+@layer components{
+    .header-container {
+        @apply container flex flex-col gap-4
+    }
+
+    .header-brand{
+        @apply whitespace-nowrap text-3xl
+    }
+
+    .header-sub-wrapper{
+        @apply flex w-full items-center justify-between gap-10
+    }
+}

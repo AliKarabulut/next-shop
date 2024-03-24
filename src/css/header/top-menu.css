@@ -1,9 +1,9 @@
 @layer components {
-  .header-container {
+  .header-top-container {
     @apply container hidden items-center justify-between text-sm md:flex py-1.5;
   }
   .contact-info {
-    @apply flex items-center gap-2;
+    @apply flex items-center gap-2 not-italic;
   }
 
   .separator {

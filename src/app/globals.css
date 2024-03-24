@@ -1,6 +1,8 @@
 @import '../css/footer.css';
+@import '../css/header/header-container.css';
 @import '../css/header/top-menu.css';
 @import '../css/header/category.css';
+@import '../css/header/action.css';
 
 @tailwind base;
 @tailwind components;

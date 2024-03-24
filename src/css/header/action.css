@@ -1,0 +1,33 @@
+@layer components {
+  .action-container {
+    @apply flex gap-7;
+  }
+
+  .action-wrapper {
+    @apply relative flex w-fit cursor-pointer items-center gap-2 duration-300;
+  }
+
+  .action-quantity {
+    @apply absolute -bottom-2.5 left-3.5 flex size-5 items-center justify-center rounded-full bg-yellow text-sm font-medium duration-300 group-hover:opacity-50;
+  }
+
+  .action-price {
+    @apply text-sm font-bold;
+  }
+
+  .action-dropdown {
+    @apply absolute left-1/2 top-8 z-50 hidden w-fit -translate-x-1/2 animate-opacityFast rounded-b-lg border-t-2 border-t-yellow bg-white text-lightDark opacity-0 drop-shadow-lg;
+  }
+
+  .action-dropdown::before {
+    @apply absolute -top-2 left-1/2 -translate-x-1/2 border-x-[6px] border-b-[6px] border-x-transparent border-b-yellow content-[''];
+  }
+
+  .action-dropdown::after {
+    @apply absolute -top-4 left-1/2 h-4 w-full -translate-x-1/2 content-[''];
+  }
+
+  .action-dropdown-item {
+    @apply block px-4 py-2 text-sm last:rounded-b-lg hover:bg-grayLight;
+  }
+}
