@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 
 import Footer from '@/components/footer'
+import Header from '@/components/header'
 
 const nunito = Nunito_Sans({ weight: ['200', '300', '400', '500', '700', '900'], subsets: ['latin'] })
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <Header />
         {children}
         <Footer />
       </body>

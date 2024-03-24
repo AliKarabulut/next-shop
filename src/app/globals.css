@@ -1,4 +1,6 @@
 @import '../css/footer.css';
+@import '../css/header/top-menu.css';
+
 
 @tailwind base;
 @tailwind components;
