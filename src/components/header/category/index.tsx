@@ -11,6 +11,7 @@ import HeadphonesIcon from '@/icons/headphones'
 import PhoneIcon from '@/icons/phone'
 import TvIcon from '@/icons/tv'
 import WatchIcon from '@/icons/watch'
+import cn from '@/utils/cn'
 
 type CategoryListType = {
   className?: string
@@ -37,7 +38,7 @@ const CategoryList = ({ className }: CategoryListType) => {
         waitForTransition: true,
         disableOnInteraction: false,
       }}
-      className={`w-full ${className}`}>
+      className={cn('w-full', className)}>
       {DummyMenuContent.map((badge, index) => (
         <SwiperSlide className="swiper-slide" key={index}>
           <CategoryItem name={badge.name} href={badge.href} icon={badge.icon} />

@@ -7,7 +7,7 @@
   }
 
   .search-input {
-    @apply w-full outline-0 focus:outline-0;
+    @apply w-full outline-0 focus:outline-0 leading-none;
   }
 
   .search-button {
@@ -15,7 +15,7 @@
   }
 
   .search-bar {
-    @apply absolute top-14 z-50 w-full cursor-pointer rounded-b-lg bg-white py-1 shadow-md;
+    @apply absolute top-14 z-50 w-full cursor-pointer rounded-b-lg bg-white py-1 shadow-md min-w-[468px] left-1/2 -translate-x-1/2;
   }
 
   .search-bar li {

@@ -1,13 +1,25 @@
-@layer components{
-    .header-container {
-        @apply container flex flex-col gap-4
-    }
+@layer components {
+  .header-wrapper {
+    @apply z-50 w-full bg-white transition-all duration-500;
+  }
 
-    .header-brand{
-        @apply whitespace-nowrap text-3xl
-    }
+  .header-container {
+    @apply container flex flex-col gap-4 py-4;
+  }
 
-    .header-sub-wrapper{
-        @apply flex w-full items-center justify-between gap-10
-    }
+  .header-brand {
+    @apply whitespace-nowrap text-3xl;
+  }
+
+  .header-sub-wrapper {
+    @apply flex w-full items-center justify-between gap-10;
+  }
+
+  .header-wrapper.scrolled {
+    @apply fixed -top-32 shadow-md;
+  }
+
+  .header-wrapper.upscrolled {
+    @apply fixed top-0;
+  }
 }

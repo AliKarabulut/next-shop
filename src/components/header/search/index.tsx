@@ -27,11 +27,15 @@ const Search = () => {
           </Combobox.Button>
         </div>
         <Combobox.Options className="search-bar dropdown-border">
-          {filteredPeople.map(person => (
-            <Combobox.Option key={person} value={person} className={({ active }) => `${active ? 'bg-yellow/20' : ''}`}>
-              {person}
-            </Combobox.Option>
-          ))}
+          {filteredPeople.length > 0 ? (
+            filteredPeople.map(person => (
+              <Combobox.Option key={person} value={person} className={({ active }) => `${active ? 'bg-yellow/20' : ''}`}>
+                {person}
+              </Combobox.Option>
+            ))
+          ) : (
+            <li>No results found for your search</li>
+          )}
         </Combobox.Options>
       </div>
     </Combobox>

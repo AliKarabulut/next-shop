@@ -17,9 +17,6 @@ type DropDownType = {
 const HeaderActionGroup = ({ className }: DropDownType) => {
   return (
     <div className={cn('action-container', className)}>
-      <ActionButton quantity={2}>
-        <GitCompareIcon size={26} />
-      </ActionButton>
       <ActionButton>
         <HeartIcon size={26} />
       </ActionButton>

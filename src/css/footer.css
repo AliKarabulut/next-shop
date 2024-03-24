@@ -8,7 +8,7 @@
   }
 
   .footer-brand {
-    @apply text-3xl font-medium mb-4 sm:mb-8;
+    @apply text-3xl mb-4 sm:mb-8;
   }
 
   .footer-sections,

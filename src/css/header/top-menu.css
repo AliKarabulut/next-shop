@@ -1,9 +1,15 @@
 @layer components {
   .header-top-container {
-    @apply container hidden items-center justify-between text-sm md:flex py-1.5;
+    @apply container flex items-center justify-between pt-1.5 text-sm;
   }
+
+  .contact-info,
+  .temperature {
+    @apply hidden md:flex;
+  }
+
   .contact-info {
-    @apply flex items-center gap-2 not-italic;
+    @apply items-center gap-2 not-italic;
   }
 
   .separator {
@@ -11,6 +17,6 @@
   }
 
   .campaign-text {
-    @apply text-center;
+    @apply text-center max-md:w-full;
   }
 }
