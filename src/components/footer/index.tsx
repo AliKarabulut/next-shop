@@ -1,7 +1,7 @@
-import MailIcon from '@/icons/admin/mail'
-import LinkedInIcon from '@/icons/e-commerce/linkedin'
-import MapPinIcon from '@/icons/e-commerce/map-pin'
-import PhoneIcon from '@/icons/e-commerce/phone'
+import MailIcon from '@/icons/mail'
+import LinkedInIcon from '@/icons/linkedin'
+import MapPinIcon from '@/icons/map-pin'
+import PhoneIcon from '@/icons/phone'
 
 const Footer = () => {
   return (
