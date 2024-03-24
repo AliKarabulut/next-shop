@@ -1,5 +1,5 @@
 @layer components {
-  .swiper-slide {
+  .category-swiper-slide {
     @apply mx-auto !flex !h-10 !w-auto !items-center first:ml-0 last:mr-0;
   }
 
@@ -11,11 +11,11 @@
     @apply mr-2.5 shrink-0;
   }
 
-  .swiper-slide:first-child .category-item {
+  .category-swiper-slide:first-child .category-item {
     @apply pl-0;
   }
 
-  .swiper-slide:last-child .category-item {
+  .category-swiper-slide:last-child .category-item {
     @apply pr-0;
   }
 }

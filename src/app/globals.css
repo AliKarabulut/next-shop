@@ -4,6 +4,7 @@
 @import '../css/header/top-menu.css';
 @import '../css/header/category.css';
 @import '../css/header/action.css';
+@import '../css/home-swiper.css';
 
 @tailwind base;
 @tailwind components;

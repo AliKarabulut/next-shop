@@ -40,7 +40,7 @@ const CategoryList = ({ className }: CategoryListType) => {
       }}
       className={cn('w-full', className)}>
       {DummyMenuContent.map((badge, index) => (
-        <SwiperSlide className="swiper-slide" key={index}>
+        <SwiperSlide className="category-swiper-slide" key={index}>
           <CategoryItem name={badge.name} href={badge.href} icon={badge.icon} />
         </SwiperSlide>
       ))}
