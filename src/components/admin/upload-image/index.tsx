@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { ChangeEvent, useState } from 'react'
 
 const UploadImage = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedImages, setSelectedImages] = useState<File[]>([])
   const [previewImages, setPreviewImages] = useState<string[]>([])
 
