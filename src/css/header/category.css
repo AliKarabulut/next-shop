@@ -1,0 +1,17 @@
+@layer components {
+  .swiper-slide {
+    @apply mx-auto !flex !h-10 !w-auto !items-center first:ml-0 last:mr-0;
+  }
+
+  .category-item {
+    @apply flex w-fit items-center px-4 py-1 text-sm font-light;
+  }
+
+  .category-item svg {
+    @apply mr-2.5 shrink-0;
+  }
+
+  .swiper-slide:first-child .category-item {
+    @apply pl-0;
+  }
+}

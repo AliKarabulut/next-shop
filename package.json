@@ -28,6 +28,7 @@
     ]
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@prisma/client": "^5.11.0",
     "@reduxjs/toolkit": "^2.2.2",
     "classnames": "^2.5.1",
