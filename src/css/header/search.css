@@ -1,24 +1,32 @@
 @layer components {
   .search-container {
-    @apply relative w-full max-w-xl;
+    @apply absolute z-10 w-full max-w-xl bg-white sm:relative;
   }
   .search-input-container {
     @apply relative flex w-full overflow-hidden rounded-full border-2 border-yellow pl-4 text-sm placeholder:text-grayDark;
   }
 
   .search-input {
-    @apply w-full outline-0 focus:outline-0 leading-none;
+    @apply w-full leading-none outline-0 focus:outline-0;
   }
 
   .search-button {
-    @apply h-full bg-yellow px-4 py-2;
+    @apply h-full bg-yellow px-4 py-1.5 sm:py-2;
   }
 
   .search-bar {
-    @apply absolute top-14 z-50 w-full cursor-pointer rounded-b-lg bg-white py-1 shadow-md min-w-[468px] left-1/2 -translate-x-1/2;
+    @apply absolute left-1/2 z-50 w-full -translate-x-1/2 cursor-pointer rounded-b-lg bg-white py-1 shadow-md top-14 sm:min-w-[468px];
   }
 
   .search-bar li {
     @apply px-4 py-1;
+  }
+
+  .mobile-search {
+    @apply max-sm:top-11 max-sm:invisible;
+  }
+
+  .mobile-search.opened {
+    @apply max-sm:visible;
   }
 }

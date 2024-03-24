@@ -1,6 +1,6 @@
 @layer components {
   .action-container {
-    @apply flex gap-7;
+    @apply flex gap-3 sm:gap-7;
   }
 
   .action-wrapper {
