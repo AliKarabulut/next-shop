@@ -1,0 +1,59 @@
+@layer components {
+  .site-footer {
+    @apply bg-grayLighter;
+  }
+
+  .footer-container {
+    @apply container py-16;
+  }
+
+  .footer-brand {
+    @apply text-3xl font-medium mb-4 sm:mb-8;
+  }
+
+  .footer-sections,
+  .footer-nav {
+    @apply grid grid-cols-12 gap-4 sm:gap-8 text-sm;
+  }
+
+  .contact-section,
+  .opening-hours-section {
+    @apply col-span-12 sm:col-span-6 lg:col-span-3 not-italic;
+  }
+
+  .footer-nav{
+    @apply col-span-12 lg:col-span-6;
+  }
+
+  .nav-section {
+    @apply col-span-12 sm:col-span-6;
+  }
+
+  .contact-item {
+    @apply flex items-center gap-2;
+  }
+
+  .section-title {
+    @apply mb-3 text-lg font-medium;
+  }
+
+  footer ul {
+    @apply space-y-2;
+  }
+
+  .opening-hours-section {
+    @apply sm:row-start-1 sm:col-start-7 lg:row-start-auto lg:col-start-auto;
+  }
+
+  .opening-hours-item {
+    @apply flex justify-between border-b border-grayLight;
+  }
+
+  .footer-credits {
+    @apply bg-white text-center py-5;
+  }
+
+  .footer-credits a {
+    @apply text-lightDark underline;
+  }
+}
