@@ -1,0 +1,24 @@
+@layer components {
+  .search-container {
+    @apply relative w-full max-w-xl;
+  }
+  .search-input-container {
+    @apply relative flex w-full overflow-hidden rounded-full border-2 border-yellow pl-4 text-sm placeholder:text-grayDark;
+  }
+
+  .search-input {
+    @apply w-full outline-0 focus:outline-0;
+  }
+
+  .search-button {
+    @apply h-full bg-yellow px-4 py-2;
+  }
+
+  .search-bar {
+    @apply absolute top-14 z-50 w-full cursor-pointer rounded-b-lg bg-white py-1 shadow-md;
+  }
+
+  .search-bar li {
+    @apply px-4 py-1;
+  }
+}

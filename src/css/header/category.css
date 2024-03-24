@@ -14,4 +14,8 @@
   .swiper-slide:first-child .category-item {
     @apply pl-0;
   }
+
+  .swiper-slide:last-child .category-item {
+    @apply pr-0;
+  }
 }

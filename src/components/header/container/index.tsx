@@ -1,5 +1,6 @@
 import CategoryList from '@/components/header/category'
 import HeaderActionGroup from '@/components/header/actions'
+import Search from '@/components/header/search'
 
 const HeaderContainer = () => {
   return (
@@ -7,6 +8,7 @@ const HeaderContainer = () => {
       <div className="header-container">
         <div className="header-sub-wrapper">
           <div className="header-brand">E commerce</div>
+          <Search />
           <HeaderActionGroup />
         </div>
         <CategoryList />

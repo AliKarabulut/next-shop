@@ -12,12 +12,12 @@ type ActionIconProps = {
 
 const ActionButton = ({ children, quantity, price, className, dropDown }: ActionIconProps) => {
   return (
-    <div className={cn('action-wrapper group', className)}>
+    <button className={cn('action-wrapper actionIcon group', className)}>
       {children}
       {quantity && <div className="action-quantity">{quantity < 9 ? quantity : '+9'}</div>}
       {price && <div className="action-price">${price}</div>}
       {dropDown && (
-        <div className="action-dropdown group-hover:block">
+        <div className="action-dropdown dropdown-border group-hover:block">
           {dropDown.map((item, index) => (
             <Link href={item.link} key={index} className="action-dropdown-item">
               {item.title}
@@ -25,7 +25,7 @@ const ActionButton = ({ children, quantity, price, className, dropDown }: Action
           ))}
         </div>
       )}
-    </div>
+    </button>
   )
 }
 
