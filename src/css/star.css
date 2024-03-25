@@ -1,0 +1,25 @@
+@layer components {
+  .star-container {
+    @apply relative flex h-4;
+  }
+
+  .star {
+    @apply shrink-0;
+  }
+
+  .star-wrapper {
+    @apply flex items-center;
+  }
+
+  .star-yellow {
+    @apply text-yellow;
+  }
+
+  .star-gray {
+    @apply text-grayDark/50;
+  }
+
+  .half-star {
+    @apply h-4 overflow-hidden;
+  }
+}
