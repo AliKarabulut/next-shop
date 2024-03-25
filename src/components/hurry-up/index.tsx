@@ -34,9 +34,9 @@ const HurryUp = ({ date }: HurryUpProps) => {
   }, [date, timeLeft])
 
   return (
-    <div className="mt-2 flex flex-col items-center justify-center gap-3">
-      <div className="text-sm">Hurry Up! Offer ends in</div>
-      <div className="flex gap-1">
+    <div className="hurry-up-container">
+      <div className="hurry-up-title">Hurry Up! Offer ends in</div>
+      <div className="hurry-up-box-container">
         {timeLeft.days > 0 && <HurryUpBox name="days" number={timeLeft.days} />}
         <HurryUpBox name="hours" number={timeLeft.hours} />
         <HurryUpBox name="minutes" number={timeLeft.minutes} />

@@ -1,0 +1,57 @@
+@layer components {
+  .product-card {
+    @apply relative h-fit cursor-pointer px-4 text-dark hover:z-10;
+  }
+
+  .product-image-container {
+    @apply relative mb-2 mt-4 h-full text-2xl sm:my-4;
+  }
+
+  .product-firs-image {
+    @apply h-full object-contain transition-all duration-500 ;
+  }
+
+  .product-second-image {
+    @apply absolute left-0 top-0 size-full object-contain opacity-0 transition-all duration-500;
+  }
+
+  .heart-icon-wrapper {
+    @apply invisible absolute -right-1 top-0 z-20 flex size-10 items-center justify-center rounded-full border border-grayLighter pt-0.5 opacity-0 shadow-md duration-300 hover:border-yellow hover:bg-yellow;
+  }
+
+  .product-discount {
+    @apply absolute -left-1 top-0 flex size-10 flex-col items-center justify-center rounded-full bg-yellow pt-0.5 text-sm font-semibold;
+  }
+
+  .product-name {
+    @apply mb-2 w-3/4 truncate text-base font-medium capitalize;
+  }
+
+  .product-rate {
+    @apply flex items-center gap-1;
+  }
+
+  .product-price {
+    @apply flex items-center gap-2;
+  }
+
+  .price-discount {
+    @apply text-lg text-redDark;
+  }
+
+  .price-original {
+    @apply text-xs text-grayDark line-through;
+  }
+
+  .price-Without-discount {
+    @apply text-lg font-medium;
+  }
+
+  .view-button-container {
+    @apply absolute inset-0 -bottom-8 z-10 hidden w-full rounded-lg border border-grayLight bg-transparent shadow-md;
+  }
+
+  .view-button {
+    @apply absolute bottom-0 flex h-fit w-full items-center justify-center gap-0.5 rounded-lg bg-white py-2 text-xs font-medium text-grayDark hover:text-yellow;
+  }
+}

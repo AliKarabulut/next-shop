@@ -1,0 +1,17 @@
+@layer components {
+  .progress-bar-container {
+    @apply w-full text-sm text-lightDark;
+  }
+
+  .progress-bar-labels {
+    @apply mb-1 flex justify-between;
+  }
+
+  .progress-bar-background {
+    @apply bg-grayLight h-4 rounded-[10px];
+  }
+
+  .progress-bar-fill {
+    @apply h-full rounded-[10px] bg-yellow;
+  }
+}
