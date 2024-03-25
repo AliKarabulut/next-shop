@@ -9,7 +9,7 @@ const ProgressBar = ({ max, value }: ProgressBarProps) => {
   const width = (value / max) * 100
 
   return (
-    <div className="progress-bar-container ">
+    <section className="progress-bar-container">
       <div className="progress-bar-labels">
         <span>
           Already Sold: <strong>{value}</strong>
@@ -19,9 +19,14 @@ const ProgressBar = ({ max, value }: ProgressBarProps) => {
         </span>
       </div>
       <div className="progress-bar-background">
-        <div style={{ width: `${width}%` }} className="progress-bar-fill"></div>
+        <div
+          role="progressbar"
+          aria-valuenow={value}
+          aria-valuemax={max}
+          style={{ width: `${width}%` }}
+          className="progress-bar-fill"></div>
       </div>
-    </div>
+    </section>
   )
 }
 

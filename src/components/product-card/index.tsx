@@ -18,17 +18,17 @@ const DummyData = {
 
 const ProductCard = ({ className }: { className: string }) => {
   return (
-    <div className={cn('product-card group', className)}>
-      <div className="product-image-container">
+    <article className={cn('product-card group', className)}>
+      <figure className="product-image-container">
         <Image src={DummyData.image} width={720} height={660} alt="phone" className="product-firs-image group-hover:opacity-0" />
         <Image src={DummyData.image2} width={720} height={660} alt="phone" className="product-second-image group-hover:opacity-100" />
         <div className="heart-icon-wrapper group-hover:visible group-hover:opacity-100">
           <HeartIcon size={24} />
         </div>
-        {DummyData?.discount && <div className="product-discount">{DummyData.discount}%</div>}
-      </div>
-      <div>
-        <div className="product-name">{DummyData.name}</div>
+        {DummyData?.discount && <figcaption className="product-discount">{DummyData.discount}%</figcaption>}
+      </figure>
+      <section>
+        <h3 className="product-name">{DummyData.name}</h3>
         <div className="product-rate">
           <Star rate={DummyData.rate} />
           <span className="leading-0 text-xs">{DummyData.rate}</span>
@@ -43,14 +43,14 @@ const ProductCard = ({ className }: { className: string }) => {
             <div className="price-Without-discount">${DummyData.price.toFixed(2)}</div>
           )}
         </div>
-      </div>
+      </section>
       <div className="view-button-container group-hover:block">
-        <div className="view-button">
+        <button className="view-button">
           <EyeIcon className="shrink-0 stroke-2 transition-all" />
           <p className="transition-all">View</p>
-        </div>
+        </button>
       </div>
-    </div>
+    </article>
   )
 }
 

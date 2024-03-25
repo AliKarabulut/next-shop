@@ -1,0 +1,17 @@
+@layer components {
+  .home-product-grid {
+    @apply container mx-auto grid grid-cols-4 gap-4 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12;
+  }
+
+  .home-special-offer {
+    @apply col-span-4 row-span-2 mx-auto sm:mx-0;
+  }
+
+  .home-product-card {
+    @apply col-span-2;
+  }
+
+  .home-product-card:nth-child(n+8){
+    @apply xl:hidden 2xl:block
+  }
+}

@@ -5,12 +5,19 @@
 @import '../css/header/category.css';
 @import '../css/header/action.css';
 @import '../css/home-swiper.css';
+@import '../css/home-page.css';
 @import '../css/product-card.css';
 @import '../css/star.css';
 @import '../css/hurry-up.css';
 @import '../css/progress-bar.css';
-
+@import '../css/special-offer.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+main {
+  @apply space-y-10;
+  min-height: calc(100vh - 558px);
+  min-height: calc(100dvh - 558px);
+}

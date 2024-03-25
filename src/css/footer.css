@@ -1,6 +1,6 @@
 @layer components {
   .site-footer {
-    @apply bg-grayLighter;
+    @apply bg-grayLighter mt-10;
   }
 
   .footer-container {

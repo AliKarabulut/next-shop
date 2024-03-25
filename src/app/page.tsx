@@ -27,17 +27,17 @@ const Home = async () => {
   date.setDate(date.getDate() + 1)
 
   return (
-    <main className="h-[3000px]">
+    <>
       <HeaderSwiper slides={sliders} />
-      <div className="container mx-auto grid grid-cols-4 gap-4 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12">
-        <SpecialOffer production={production} className="col-span-4 row-span-2 mx-auto sm:mx-0" date={date} />
+      <div className="home-product-grid">
+        <SpecialOffer production={production} className="home-special-offer" date={date} />
         {Array(8)
           .fill(0)
           .map((_, index) => (
-            <ProductCard key={index} className="homeProductCard col-span-2" />
+            <ProductCard key={index} className="home-product-card" />
           ))}
       </div>
-    </main>
+    </>
   )
 }
 
