@@ -18,7 +18,7 @@ const DummyData = {
 
 const ProductCard = ({ className }: { className: string }) => {
   return (
-    <article className={cn('product-card group', className)}>
+    <article className={cn('product-card group', className)} tabIndex={0}>
       <figure className="product-image-container">
         <Image src={DummyData.image} width={720} height={660} alt="phone" className="product-firs-image group-hover:opacity-0" />
         <Image src={DummyData.image2} width={720} height={660} alt="phone" className="product-second-image group-hover:opacity-100" />
