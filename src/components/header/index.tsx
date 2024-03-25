@@ -3,7 +3,7 @@ import HeaderContainer from '@/components/header/container'
 
 const Header = () => {
   return (
-    <header>
+    <header className="site-header">
       <HeaderTopMenu />
       <HeaderContainer />
     </header>

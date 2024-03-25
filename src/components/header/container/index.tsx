@@ -35,20 +35,16 @@ const HeaderContainer = () => {
   }, [])
 
   return (
-    <>
-      <div className="relative h-32">
-        <div className={cn('header-wrapper group/container', { scrolled: isScrolled, upscrolled: isUpScroll })}>
-          <div className="header-container group/container">
-            <div className="header-sub-wrapper">
-              <div className="header-brand">E commerce</div>
-              <Search />
-              <HeaderActionGroup />
-            </div>
-            <CategoryList />
-          </div>
+    <div className={cn('header-wrapper group/container', { scrolled: isScrolled, upscrolled: isUpScroll })}>
+      <div className="header-container group/container">
+        <div className="header-sub-wrapper">
+          <div className="header-brand">E commerce</div>
+          <Search />
+          <HeaderActionGroup />
         </div>
+        <CategoryList />
       </div>
-    </>
+    </div>
   )
 }
 

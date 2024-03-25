@@ -1,10 +1,14 @@
 @layer components {
+  .site-header {
+    @apply h-[152px];
+  }
+
   .header-wrapper {
     @apply z-50 w-full bg-white transition-all duration-500;
   }
 
   .header-container {
-    @apply container flex flex-col gap-2 sm:gap-4 py-4;
+    @apply container flex flex-col gap-2 py-3 sm:gap-4;
   }
 
   .header-brand {
@@ -12,7 +16,7 @@
   }
 
   .header-sub-wrapper {
-    @apply flex w-full items-center justify-between gap-3 sm:gap-10 relative;
+    @apply relative flex w-full items-center justify-between gap-3 sm:gap-10;
   }
 
   .header-wrapper.scrolled {
