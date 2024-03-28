@@ -1,6 +1,6 @@
 @layer components {
   .home-product-grid {
-    @apply container mx-auto grid grid-cols-4 gap-4 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12;
+    @apply container grid grid-cols-4 gap-4 sm:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12;
   }
 
   .home-special-offer {
