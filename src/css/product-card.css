@@ -16,11 +16,11 @@
   }
 
   .heart-icon-wrapper {
-    @apply invisible absolute -right-1 top-0 z-20 flex size-10 items-center justify-center rounded-full border border-grayLighter pt-0.5 opacity-0 shadow-md duration-300 hover:border-yellow hover:bg-yellow;
+    @apply invisible absolute -right-1 top-0 z-20 flex size-10 items-center justify-center rounded-full border border-lighter-gray pt-0.5 opacity-0 shadow-md duration-300 hover:border-site-yellow hover:bg-site-yellow;
   }
 
   .product-discount {
-    @apply absolute -left-1 top-0 flex size-10 flex-col items-center justify-center rounded-full bg-yellow pt-0.5 text-sm font-semibold;
+    @apply absolute -left-1 top-0 flex size-10 flex-col items-center justify-center rounded-full bg-site-yellow pt-0.5 text-sm font-semibold;
   }
 
   .product-name {
@@ -36,11 +36,11 @@
   }
 
   .price-discount {
-    @apply text-lg text-redDark;
+    @apply text-lg text-site-red;
   }
 
   .price-original {
-    @apply text-xs text-grayDark line-through;
+    @apply text-xs text-dark-gray line-through;
   }
 
   .price-Without-discount {
@@ -48,10 +48,10 @@
   }
 
   .view-button-container {
-    @apply absolute inset-0 -bottom-8 z-10 hidden w-full rounded-lg border border-grayLight bg-transparent shadow-md;
+    @apply absolute inset-0 -bottom-8 z-10 hidden w-full rounded-lg border border-light-gray bg-transparent shadow-md;
   }
 
   .view-button {
-    @apply absolute bottom-0 flex h-fit w-full items-center justify-center gap-0.5 rounded-lg bg-white py-2 text-xs font-medium text-grayDark hover:text-yellow;
+    @apply absolute bottom-0 flex h-fit w-full items-center justify-center gap-0.5 rounded-lg bg-white py-2 text-xs font-medium text-dark-gray hover:text-site-yellow;
   }
 }

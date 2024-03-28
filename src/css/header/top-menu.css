@@ -13,7 +13,7 @@
   }
 
   .separator {
-    @apply mx-2 h-0.5 w-[14px] rotate-90 text-yellow;
+    @apply mx-2 h-0.5 w-[14px] rotate-90 text-site-yellow;
   }
 
   .campaign-text {

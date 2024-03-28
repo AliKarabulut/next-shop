@@ -1,6 +1,6 @@
 @layer components {
   .special-offer {
-    @apply relative flex w-full max-w-md flex-col items-center justify-between rounded-3xl border-2 border-yellow p-5 text-lightDark;
+    @apply relative flex w-full max-w-md flex-col items-center justify-between rounded-3xl border-2 border-site-yellow p-5 text-light-dark;
   }
 
   .offer-header {
@@ -12,7 +12,7 @@
   }
 
   .discount-badge {
-    @apply flex size-20 shrink-0 flex-col items-center justify-center rounded-full bg-yellow;
+    @apply flex size-20 shrink-0 flex-col items-center justify-center rounded-full bg-site-yellow;
   }
 
   .special-offer-product-image {
@@ -24,7 +24,7 @@
   }
 
   .special-offer-product-name {
-    @apply text-sm font-bold text-lightDark hover:text-yellow;
+    @apply text-sm font-bold text-light-dark hover:text-site-yellow;
   }
 
   .special-offer-product-price {
@@ -32,10 +32,10 @@
   }
 
   .special-offer-price-discount {
-    @apply text-3xl text-redDark;
+    @apply text-3xl text-site-red;
   }
 
   .special-offer-price-original {
-    @apply text-lg text-grayDarker line-through;
+    @apply text-lg text-darker-gray line-through;
   }
 }

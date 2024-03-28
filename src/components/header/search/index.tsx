@@ -37,7 +37,7 @@ const Search = () => {
           <Combobox.Options className="search-bar dropdown-border">
             {filteredPeople.length > 0 ? (
               filteredPeople.map(person => (
-                <Combobox.Option key={person} value={person} className={({ active }) => `${active ? 'bg-yellow/20' : ''}`}>
+                <Combobox.Option key={person} value={person} className={({ active }) => `${active ? 'bg-site-yellow/20' : ''}`}>
                   {person}
                 </Combobox.Option>
               ))

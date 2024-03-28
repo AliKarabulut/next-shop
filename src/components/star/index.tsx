@@ -19,12 +19,12 @@ const Star = ({ rate, className = '' }: StarProps) => {
       </div>
       <div className="star-wrapper absolute">
         {Array.from({ length: fullStars }, (_, index) => (
-          <StarFilledIcon key={index} className="star star-yellow" />
+          <StarFilledIcon key={index} className="star star-site-yellow" />
         ))}
 
         {hasHalfStar && (
           <div className="star-wrapper half-star" style={{ width: `${16 * hasHalfStar}px` }}>
-            <StarFilledIcon className="star star-yellow" />
+            <StarFilledIcon className="star star-site-yellow" />
           </div>
         )}
       </div>

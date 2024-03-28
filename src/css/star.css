@@ -11,12 +11,12 @@
     @apply flex items-center;
   }
 
-  .star-yellow {
-    @apply text-yellow;
+  .star-site-yellow {
+    @apply text-site-yellow;
   }
 
   .star-gray {
-    @apply text-grayDark/50;
+    @apply text-dark-gray/50;
   }
 
   .half-star {

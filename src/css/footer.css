@@ -1,6 +1,6 @@
 @layer components {
   .site-footer {
-    @apply bg-grayLighter mt-10;
+    @apply bg-lighter-gray mt-10;
   }
 
   .footer-container {
@@ -46,7 +46,7 @@
   }
 
   .opening-hours-item {
-    @apply flex justify-between border-b border-grayLight;
+    @apply flex justify-between border-b border-light-gray;
   }
 
   .footer-credits {
@@ -54,6 +54,6 @@
   }
 
   .footer-credits a {
-    @apply text-lightDark underline;
+    @apply text-light-dark underline;
   }
 }

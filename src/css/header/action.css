@@ -8,7 +8,7 @@
   }
 
   .action-quantity {
-    @apply absolute -bottom-2.5 left-3.5 flex size-5 items-center justify-center rounded-full bg-yellow text-sm font-medium leading-[0px] duration-300 group-hover:opacity-50;
+    @apply absolute -bottom-2.5 left-3.5 flex size-5 items-center justify-center rounded-full bg-site-yellow text-sm font-medium leading-[0px] duration-300 group-hover:opacity-50;
   }
 
   .action-price {
@@ -16,14 +16,14 @@
   }
 
   .action-dropdown {
-    @apply absolute left-1/2 top-8 z-50 hidden w-fit -translate-x-1/2 animate-opacityFast text-lightDark opacity-0;
+    @apply absolute left-1/2 top-8 z-50 hidden w-fit -translate-x-1/2 animate-opacityFast text-light-dark opacity-0;
   }
 
   .dropdown-border {
-    @apply border-t-2 border-t-yellow bg-white rounded-b-lg drop-shadow-lg;
+    @apply border-t-2 border-t-site-yellow bg-white rounded-b-lg drop-shadow-lg;
   }
   .dropdown-border::before {
-    @apply absolute -top-2 left-1/2 -translate-x-1/2 border-x-[6px] border-b-[6px] border-x-transparent border-b-yellow content-[''];
+    @apply absolute -top-2 left-1/2 -translate-x-1/2 border-x-[6px] border-b-[6px] border-x-transparent border-b-site-yellow content-[''];
   }
 
   .dropdown-border::after {
@@ -31,7 +31,7 @@
   }
 
   .action-dropdown-item {
-    @apply block px-4 py-2 text-sm last:rounded-b-lg hover:bg-grayLight;
+    @apply block px-4 py-2 text-sm last:rounded-b-lg hover:bg-light-gray;
   }
 
   .action-wrapper:active svg {

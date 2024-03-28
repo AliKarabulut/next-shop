@@ -3,7 +3,7 @@
     @apply absolute z-10 w-full max-w-xl bg-white sm:relative;
   }
   .search-input-container {
-    @apply relative flex w-full overflow-hidden rounded-full border-2 border-yellow pl-4 text-sm placeholder:text-grayDark;
+    @apply relative flex w-full overflow-hidden rounded-full border-2 border-site-yellow pl-4 text-sm placeholder:text-dark-gray;
   }
 
   .search-input {
@@ -11,7 +11,7 @@
   }
 
   .search-button {
-    @apply h-full bg-yellow px-4 py-1.5 sm:py-2;
+    @apply h-full bg-site-yellow px-4 py-1.5 sm:py-2;
   }
 
   .search-bar {

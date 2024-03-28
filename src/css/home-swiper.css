@@ -1,5 +1,5 @@
 .home-swiper-wrapper {
-  @apply h-[26.25rem] bg-gradient-to-r from-grayLighter to-grayLight py-2;
+  @apply h-[26.25rem] bg-gradient-to-r from-lighter-gray to-light-gray py-2;
 }
 
 .home-swiper-container {
@@ -19,11 +19,11 @@
 }
 
 .swiper-pagination-bullet {
-  @apply h-2 w-2 rounded-full bg-grayDark duration-500;
+  @apply h-2 w-2 rounded-full bg-dark-gray duration-500;
 }
 
 .swiper-pagination-bullet-active {
-  @apply w-8 bg-yellow;
+  @apply w-8 bg-site-yellow;
 }
 
 .swiper-pagination {
@@ -32,7 +32,7 @@
 /* 
       .swiper-button-next,
       .swiper-button-prev {
-        @apply opacity-0 duration-300 w-12 h-12 sm:w-14 sm:h-14 cursor-pointer bg-lightDark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
+        @apply opacity-0 duration-300 w-12 h-12 sm:w-14 sm:h-14 cursor-pointer bg-light-dark flex items-center justify-center rounded-full absolute top-1/2 -translate-y-1/2  z-50;
       }
       
       .swiper-button-next:after,
@@ -48,7 +48,7 @@
       }
       
       .swiper-button-disabled {
-        @apply cursor-not-allowed bg-grayDarker;
+        @apply cursor-not-allowed bg-darker-gray;
       }
       
       .swiper:hover .swiper-button-prev,
@@ -61,27 +61,27 @@
       } */
 
 .title {
-  @apply font-light tracking-wider text-lightDark md:text-6xl;
+  @apply font-light tracking-wider text-light-dark md:text-6xl;
 }
 
 .title2 {
-  @apply text-base font-light tracking-wider text-lightDark sm:text-3xl md:text-5xl;
+  @apply text-base font-light tracking-wider text-light-dark sm:text-3xl md:text-5xl;
 }
 
 .boldTitle {
-  @apply text-5xl font-bold tracking-wider text-lightDark md:text-6xl;
+  @apply text-5xl font-bold tracking-wider text-light-dark md:text-6xl;
 }
 
 .boldTitle2 {
-  @apply text-base font-bold text-lightDark sm:text-3xl md:text-5xl;
+  @apply text-base font-bold text-light-dark sm:text-3xl md:text-5xl;
 }
 
 .boldTitle3 {
-  @apply text-[1rem] font-bold leading-[0px] text-lightDark sm:text-[1.875rem] md:text-[2.25rem];
+  @apply text-[1rem] font-bold leading-[0px] text-light-dark sm:text-[1.875rem] md:text-[2.25rem];
 }
 
 .subtitle {
-  @apply text-base font-bold text-lightDark;
+  @apply text-base font-bold text-light-dark;
 }
 
 .boldSubtitle {
@@ -89,5 +89,5 @@
 }
 
 .text {
-  @apply text-sm font-bold text-lightDark;
+  @apply text-sm font-bold text-light-dark;
 }
