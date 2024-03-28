@@ -75,26 +75,6 @@ export const NewPasswordScheme = z
     path: ['confirmPassword'],
   })
 
-export const TodoSchema = z.object({
-  title: z
-    .string()
-    .min(1, {
-      message: 'Title is required',
-    })
-    .max(200, {
-      message: 'Title cannot exceed 200 characters',
-    }),
-  description: z
-    .string()
-    .min(1, {
-      message: 'Description is required',
-    })
-    .max(500, {
-      message: 'Description cannot exceed 500 characters',
-    }),
-  priority: z.enum(['low', 'medium', 'high']),
-})
-
 export const BooleanSchema = z.object({
   value: z.boolean(),
 })

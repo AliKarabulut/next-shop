@@ -6,7 +6,7 @@ import { useSession } from 'next-auth/react'
 import { changeEmail } from '@/actions/change-email'
 import Button from '@/components/button'
 // import UserInformationList from '@/components/user-information-list'
-import { useCurrentUser } from '@/services/get-user-client'
+import { useCurrentUser } from '@/services/get-user-from-client'
 import SwitchComponent from '@/components/switch'
 import { toggleTwoFactor } from '@/actions/toggle-two-factor'
 
@@ -45,39 +45,39 @@ const Profile = () => {
         {/* {user && Object.entries(user).map(([key, value]) => <UserInformationList key={key} name={key} value={value} />)} */}
         {user ? (
           <>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Id:</span>
-              <span className=" bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30 inline-flex items-center truncate  rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+              <span className=" dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/30">
                 {user.id}
               </span>
             </li>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Name:</span>
-              <span className=" bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30 inline-flex items-center truncate  rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+              <span className=" dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/30">
                 {user.name}
               </span>
             </li>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Email:</span>
               <div className="flex flex-wrap items-center justify-end gap-2">
-                <span className="bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30 inline-flex items-center truncate  rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+                <span className="dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/30">
                   {user.email}
                 </span>
               </div>
             </li>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Image:</span>
-              <span className=" bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30 inline-flex items-center truncate  rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+              <span className=" dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/30">
                 {user.image ? 'Set' : 'Not set'}
               </span>
             </li>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Role:</span>
-              <span className=" bg-purple-50 text-purple-700 ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30 inline-flex items-center truncate  rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset">
+              <span className=" dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:ring-purple-400/30">
                 {user.role}
               </span>
             </li>
-            <li className="border-gray-100 flex items-center justify-between gap-6 border-b py-3 ">
+            <li className="flex items-center justify-between gap-6 border-b border-gray-100 py-3 ">
               <span className="font-medium first-letter:capitalize ">Is 2FA Activated?:</span>
               <div className="flex items-center gap-2">
                 {/* <span className=" inline-flex items-center truncate rounded-md bg-purple-50 px-2 py-1 text-xs font-medium  text-purple-700 ring-1 ring-inset ring-purple-700/10 dark:bg-darkModeNeutral-600 dark:text-darkModeNeutral-50 dark:ring-purple-400/30">
