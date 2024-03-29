@@ -23,7 +23,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     }
     return (
       <div>
-        <label htmlFor={name} className="text-gray-900 dark:text-darkModeNeutral-100 block text-sm font-medium leading-6">
+        <label htmlFor={name} className="dark:text-darkModeNeutral-100 block text-sm font-medium leading-6 text-gray-900">
           {label}
         </label>
         <div className={cn('mt-2', { relative: type === 'password' })}>
@@ -36,7 +36,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             required={required}
             {...props}
             className={cn(
-              'text-gray-900 ring-gray-300 placeholder:text-gray-400 dark:bg-darkModeNeutral-200 dark:text-darkModeNeutral-50 dark:focus:ring-darkModeNeutral-50 block w-full rounded-md border-0 px-4 py-1.5 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
+              'dark:bg-darkModeNeutral-200 dark:text-darkModeNeutral-50 dark:focus:ring-darkModeNeutral-50 block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
               {
                 'pr-9': type === 'password',
               },
@@ -51,7 +51,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           )}
         </div>
         {error && (
-          <div className="text-red-600 mt-2 text-sm" id={`${name}-error`}>
+          <div className="mt-2 text-sm text-red-600" id={`${name}-error`}>
             {error}
           </div>
         )}

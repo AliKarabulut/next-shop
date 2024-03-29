@@ -26,16 +26,16 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(({ name, label, srO
           checked={checked}
           onChange={onChange}
           {...props}
-          className="border-gray-300 dark:border-darkModeNeutral-50 dark:bg-darkModeNeutral-100 dark:text-darkModeNeutral-50 size-4  rounded text-indigo-600 focus:ring-indigo-600 dark:ring-0 dark:focus:ring-neutral-300"
+          className="dark:border-darkModeNeutral-50 dark:bg-darkModeNeutral-100 dark:text-darkModeNeutral-50 size-4 rounded  border-gray-300 text-indigo-600 focus:ring-indigo-600 dark:ring-0 dark:focus:ring-neutral-300"
         />
         <label
           htmlFor={name}
-          className={`text-gray-900 dark:text-darkModeNeutral-50 ml-3 block text-sm leading-6 ${srOnly ? 'sr-only' : ''}`}>
+          className={`dark:text-darkModeNeutral-50 ml-3 block text-sm leading-6 text-gray-900 ${srOnly ? 'sr-only' : ''}`}>
           {label}
         </label>
       </div>
       {withLine && checked && (
-        <div className="bg-gray-200 dark:bg-darkModeNeutral-100 pointer-events-none absolute inset-x-0 top-1/2 h-px" />
+        <div className="dark:bg-darkModeNeutral-100 pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gray-200" />
       )}
     </>
   )
