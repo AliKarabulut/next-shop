@@ -44,7 +44,7 @@ const ResetPasswordForm = () => {
 
   return (
     <FormContainer title="Forgot Your Password">
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="Email address" type="email" {...register('email')} error={errors.email?.message} />
         <div>
           {error && <FormError message={error} />}

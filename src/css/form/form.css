@@ -1,0 +1,17 @@
+@layer components {
+  .form-container {
+  }
+
+  .form-title {
+  }
+
+  .form-wrapper {
+  }
+
+  .form-container form {
+  }
+
+  .form-auth-actions {
+    @apply flex items-center justify-end;
+  }
+}

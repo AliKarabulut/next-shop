@@ -8,7 +8,7 @@ type InputProps = {
   label: string
   name: string
   id?: string
-  type?: 'text' | 'email' | 'password' | 'number'
+  type?: 'text' | 'email' | 'password' | 'number' | 'tel'
   error?: string
   autoComplete?: string
   required?: boolean
@@ -23,10 +23,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     }
     return (
       <div>
-        <label htmlFor={name} className="dark:text-darkModeNeutral-100 block text-sm font-medium leading-6 text-gray-900">
+        <label htmlFor={name} className="input-label">
           {label}
         </label>
-        <div className={cn('mt-2', { relative: type === 'password' })}>
+        <div className={cn('input-wrapper', { relative: type === 'password' })}>
           <input
             id={id ?? name}
             ref={ref}
@@ -35,23 +35,18 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             autoComplete={autoComplete ?? name}
             required={required}
             {...props}
-            className={cn(
-              'dark:bg-darkModeNeutral-200 dark:text-darkModeNeutral-50 dark:focus:ring-darkModeNeutral-50 block w-full rounded-md border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6',
-              {
-                'pr-9': type === 'password',
-              },
-            )}
+            className={cn({
+              'if-password': type === 'password',
+            })}
           />
           {type === 'password' && (
-            <div
-              className="absolute right-3 top-1/2 size-5 -translate-y-1/2 cursor-pointer text-[#999999]"
-              onClick={togglePasswordVisibility}>
+            <div className="form-password-icon" onClick={togglePasswordVisibility}>
               {showPassword ? <EyeIcon /> : <EyeIcon />}
             </div>
           )}
         </div>
         {error && (
-          <div className="mt-2 text-sm text-red-600" id={`${name}-error`}>
+          <div className="input-error" id={`${name}-error`}>
             {error}
           </div>
         )}

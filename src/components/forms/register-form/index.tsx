@@ -50,7 +50,7 @@ const RegisterForm = () => {
   }
   return (
     <FormContainer title="Register">
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="Name" type="text" {...register('name')} error={errors.name?.message} />
         <Input label="Email address" type="email" {...register('email')} error={errors.email?.message} />
         <Input label="Password" type="password" {...register('password')} error={errors.password?.message} />
@@ -61,10 +61,8 @@ const RegisterForm = () => {
           {...register('confirmPassword')}
           error={errors.confirmPassword?.message}
         />
-        <div className="flex items-center justify-between">
-          <div className="text-sm leading-6">
-            <Button href="/login" label="Do you have an account? &nbsp;" variant="ghost" className="w-fit leading-6" />
-          </div>
+        <div className="form-auth-actions">
+          <Button href="/login" label="Do you have an account? &nbsp;" variant="ghost" />
         </div>
         <div>
           {error && <FormError message={error} />}

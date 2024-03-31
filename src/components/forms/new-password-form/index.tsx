@@ -49,7 +49,7 @@ const NewPasswordForm = () => {
 
   return (
     <FormContainer title="New Password">
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="Password" type="password" {...register('password')} error={errors.password?.message} />
         <Input
           label="Repeat Password"

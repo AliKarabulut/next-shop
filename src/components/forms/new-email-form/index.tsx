@@ -18,7 +18,7 @@ const NewEmailForm = () => {
   const [isPending, startTransition] = useTransition()
   const [error, setError] = useState<string>('')
   const [success, setSuccess] = useState<string>('')
-  const { update } = useSession()
+  const { update, data } = useSession()
   const searchParams = useSearchParams()
   const token = searchParams.get('token')
 
@@ -41,7 +41,7 @@ const NewEmailForm = () => {
         if (data?.error) {
           setError(data.error)
         } else if (data?.success) {
-          update()
+          update({ ...data, email: value.email })
           setSuccess(data.success)
         }
       })
@@ -50,7 +50,7 @@ const NewEmailForm = () => {
 
   return (
     <FormContainer title="New Email">
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <Input label="Email" type="email" {...register('email')} error={errors.email?.message} />
         <div>
           {error && <FormError message={error} />}

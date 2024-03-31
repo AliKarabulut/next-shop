@@ -15,12 +15,11 @@ type ButtonProps = {
 
 const Button = ({ href, label, type = 'submit', onClick, className, children, disabled, variant = 'primary', ...props }: ButtonProps) => {
   const buttonClass = cn(
-    'flex w-full justify-center transition-all gap-3 rounded-md dark:text-darkModeNeutral-50 px-3 py-1.5 text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2',
+    'button-base',
     {
-      'opacity-50': disabled,
-      'bg-indigo-600 dark:bg-darkModeNeutral-600 dark:focus-visible:outline-darkModeNeutral-600 dark:hover:bg-darkModeNeutral-500 shadow-sm hover:bg-indigo-500 focus-visible:outline-indigo-600':
-        variant === 'primary',
-      'text-indigo-600 hover:text-indigo-500': variant === 'ghost',
+      'button-disabled': disabled,
+      'button-primary': variant === 'primary',
+      'button-ghost': variant === 'ghost',
     },
     className,
   )

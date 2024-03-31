@@ -11,6 +11,15 @@
 @import '../css/hurry-up.css';
 @import '../css/progress-bar.css';
 @import '../css/special-offer.css';
+@import '../css/avatar.css';
+@import '../css/button.css';
+@import '../css/switch.css';
+@import '../css/form/checkbox.css';
+@import '../css/form/form-messages.css';
+@import '../css/form/form.css';
+@import '../css/form/input.css';
+@import '../css/form/login-provider.css';
+@import '../css/form/seperator.css';
 
 @tailwind base;
 @tailwind components;

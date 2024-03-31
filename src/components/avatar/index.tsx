@@ -24,16 +24,14 @@ const Avatar = ({ src, name, alt }: AvatarProps) => {
         <Image
           width={32}
           height={32}
-          className="size-8 rounded-full object-cover"
+          className="avatar-image"
           src={src}
           alt={alt ? alt : name || 'avatar'}
           title={name || 'avatar'}
           aria-placeholder={alt ? alt : name || 'avatar'}
         />
       ) : (
-        <div className="dark:bg-darkModeNeutral-500 dark:text-darkModeNeutral-50 flex size-8 items-center justify-center rounded-full bg-blue-500 text-white">
-          {name && getInitials(name)}
-        </div>
+        <div className="avatar-name ">{name && getInitials(name)}</div>
       )}
     </>
   )

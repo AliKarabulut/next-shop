@@ -1,0 +1,9 @@
+@layer components {
+  .avatar-image {
+    @apply size-8 rounded-full object-cover;
+  }
+
+  .avatar-name {
+    @apply bg-site-yellow flex size-8 items-center justify-center rounded-full text-black;
+  }
+}

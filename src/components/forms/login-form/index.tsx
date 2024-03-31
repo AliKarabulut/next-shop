@@ -8,7 +8,7 @@ import { useSearchParams } from 'next/navigation'
 import { LoginSchema } from '@/schemas'
 import Button from '@/components/button'
 import Input from '@/components/input'
-// import Checkbox from '@/components/checkbox'
+import Checkbox from '@/components/checkbox'
 import { login } from '@/actions/login'
 import LoginProvider from '@/components/login-providers'
 import FormError from '@/components/form-error'
@@ -54,15 +54,15 @@ const LoginForm = () => {
   }
   return (
     <FormContainer title="Sign In To Your Account">
-      <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         {showTwoFactor ? (
           <Input label="Two Factor Code" type="number" {...register('code')} error={errors.code?.message} />
         ) : (
           <>
             <Input label="Email address" type="email" {...register('email')} error={errors.email?.message} />
             <Input label="Password" type="password" {...register('password')} error={errors.password?.message} />
-            <div className="flex items-center justify-end">
-              {/* <Checkbox label="Remember me" {...register('rememberMe')} /> */}
+            <div className="form-auth-actions">
+              <Checkbox label="Remember me" {...register('rememberMe')} />
               <Button href="/reset-password" label="Forgot password" variant="ghost" className="w-fit leading-6" />
             </div>
           </>

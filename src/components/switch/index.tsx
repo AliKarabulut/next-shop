@@ -22,26 +22,25 @@ const SwitchComponent = ({ name, onChange, falseIcon, trueIcon, initialValue, di
   }
 
   return (
-    <div className="flex h-full items-center">
+    <div className="switch-wrapper">
       <Switch
         checked={enabled}
         onChange={(e: boolean) => {
           changeHandler(e)
         }}
         disabled={disabled}
-        className={cn(
-          'relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white/75',
-          {
-            'bg-indigo-600 dark:bg-teal-700': enabled,
-            'dark:bg-darkModeNeutral-600 bg-teal-700': !enabled,
-          },
-        )}>
+        className={cn('switch', {
+          'switch-enabled': enabled,
+          'switch-disabled': !enabled,
+        })}>
         <span className="sr-only">{name}</span>
 
         <span
           aria-hidden="true"
-          className={`${enabled ? 'translate-x-4' : 'translate-x-0'}
-            dark:bg-darkModeNeutral-50 pointer-events-none inline-block size-4 rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}>
+          className={cn('switch-button', {
+            enabled: enabled,
+            disabled: !enabled,
+          })}>
           {falseIcon && trueIcon && enabled ? trueIcon : falseIcon}
         </span>
       </Switch>
