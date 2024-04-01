@@ -14,4 +14,8 @@
   .form-auth-actions {
     @apply flex items-center justify-end;
   }
+
+  .form-verification-container {
+    @apply flex items-center justify-center
+  }
 }

@@ -37,12 +37,12 @@ const NewEmailForm = () => {
     setError('')
     setSuccess('')
     startTransition(() => {
-      newEmail(value, token).then(data => {
-        if (data?.error) {
-          setError(data.error)
-        } else if (data?.success) {
-          update({ ...data, email: value.email })
-          setSuccess(data.success)
+      newEmail(value, token).then(res => {
+        if (res?.error) {
+          setError(res.error)
+        } else if (res?.success) {
+          update({ ...data?.user, email: value.email })
+          setSuccess(res.success)
         }
       })
     })
