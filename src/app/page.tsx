@@ -25,7 +25,7 @@ const Home = async () => {
 
   const date = new Date()
   date.setDate(date.getDate() + 1)
-
+  console.log('object')
   return (
     <>
       <HeaderSwiper slides={sliders} />
