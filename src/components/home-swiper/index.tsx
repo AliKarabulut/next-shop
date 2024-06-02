@@ -7,14 +7,8 @@ type SwiperProps = {
   slides: {
     id: string
     description: string
-    imageId: string
-    image: {
-      id: string
-      urls: string[]
-      main: boolean
-      optionId: string | null
-      sliderId: string | null
-    }
+    imageUrl: string
+    imageAlt?: string
   }[]
 }
 
@@ -31,9 +25,15 @@ const HomeSwiper = ({ slides }: SwiperProps) => {
           <div className="home-swiper-container">
             <div className="home-swiper-description" dangerouslySetInnerHTML={{ __html: slide.description }} />
             <div className="home-swiper-image-wrapper">
-              {slide.image.urls[0] && (
-                <Image src={slide.image.urls[0]} alt={`Slide image ${index}`} width={520} height={380} className="home-swiper-image" />
-              )}
+              {
+                <Image
+                  src={slide.imageUrl}
+                  alt={slide.imageAlt ?? `Slide image ${index}`}
+                  width={520}
+                  height={380}
+                  className="home-swiper-image"
+                />
+              }
             </div>
           </div>
         </SwiperSlide>

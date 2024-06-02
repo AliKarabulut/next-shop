@@ -4,9 +4,7 @@ import SpecialOffer from '@/components/special-offer'
 import ProductCard from '@/components/product-card'
 
 const getData = async () => {
-  const sliders = await prisma.slider.findMany({
-    include: { image: true },
-  })
+  const sliders = await prisma.slider.findMany()
   return sliders
 }
 const production = {
@@ -25,7 +23,6 @@ const Home = async () => {
 
   const date = new Date()
   date.setDate(date.getDate() + 1)
-  console.log('object')
   return (
     <>
       <HeaderSwiper slides={sliders} />

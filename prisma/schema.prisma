@@ -48,8 +48,6 @@ model Image {
   urls        String[]
   main        Boolean    @default(false)
   variantId   String?    @db.ObjectId
-  sliderId    String?    @db.ObjectId
-  slider      Slider?
   Product     Product?   @relation(fields: [productId], references: [id])
   productId   String?    @db.ObjectId
   inventoryId String?    @db.ObjectId
@@ -58,48 +56,10 @@ model Image {
 model Slider {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
   description String @unique
-  imageId     String @unique @db.ObjectId
-  image       Image  @relation(fields: [imageId], references: [id])
   order       Int    @default(0)
+  imageUrl   String
+  imageAlt   String
 }
-
-// model Comment {
-//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-//   userId    String   @db.ObjectId
-//   user      User     @relation(fields: [userId], references: [id])
-//   optionId  String   @db.ObjectId
-//   content   String
-//   approved  Boolean  @default(false)
-//   createdAt DateTime @default(now())
-//   Product   Product? @relation(fields: [productId], references: [id])
-//   productId String?  @db.ObjectId
-// }
-
-// model Coupon {
-//   id         String    @id @default(auto()) @map("_id") @db.ObjectId
-//   code       String    @unique
-//   rate       Float
-//   startDate  DateTime
-//   endDate    DateTime
-//   categoryId String?   @db.ObjectId
-//   category   Category? @relation(fields: [categoryId], references: [id])
-//   optionId   String?   @db.ObjectId
-//   productId  String?   @db.ObjectId
-//   product    Product?  @relation(fields: [productId], references: [id])
-// }
-
-// model Question {
-//   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-//   userId    String   @db.ObjectId
-//   user      User     @relation(fields: [userId], references: [id])
-//   productId String   @db.ObjectId
-//   product   Product  @relation(fields: [productId], references: [id])
-//   content   String
-//   answer    String?
-//   approved  Boolean  @default(false)
-//   createdAt DateTime @default(now())
-// }
-
 // AUTH
 
 model Account {
