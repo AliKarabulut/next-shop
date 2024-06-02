@@ -35,7 +35,7 @@ const NewVerificationForm = () => {
       router.push('/login')
       return
     }
-  }, [token, error, success])
+  }, [token, error, success]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     onSubmit()
