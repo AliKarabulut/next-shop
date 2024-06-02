@@ -11,8 +11,15 @@ export default auth(req => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthRoute)
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname)
   const isAuthRoute = authRoutes.includes(nextUrl.pathname)
+  // const isAdminRoute = adminRoutes.includes(nextUrl.pathname)
 
   if (isApiAuthRoute) return
+
+  // rolebased bug should fix
+  // if (isAdminRoute) {
+  //   console.log(req.auth)
+  //   return
+  // }
 
   if (isAuthRoute) {
     if (isLoggedIn) {

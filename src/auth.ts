@@ -24,6 +24,11 @@ export const {
     },
   },
   callbacks: {
+    authorized: ({ request, auth }) => {
+      console.log('authorized', request, auth)
+      return true
+    },
+
     async signIn({ user, account }) {
       if (!user.id) return false
       if (account?.provider !== 'credentials') return true
