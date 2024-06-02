@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Combobox } from '@headlessui/react'
+import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions, ComboboxButton } from '@headlessui/react'
 
 import SearchIcon from '@/icons/search'
 import XIcon from '@/icons/x'
@@ -29,22 +29,22 @@ const Search = () => {
       <Combobox value={selectedPerson} onChange={setSelectedPerson}>
         <div className={cn('search-container mobile-search', { opened: isSearchOpen })}>
           <div className="search-input-container">
-            <Combobox.Input onChange={event => setQuery(event.target.value)} className="search-input" placeholder="Search..." />
-            <Combobox.Button type="submit" className="search-button">
+            <ComboboxInput onChange={event => setQuery(event.target.value)} className="search-input" placeholder="Search..." />
+            <ComboboxButton type="submit" className="search-button">
               <SearchIcon />
-            </Combobox.Button>
+            </ComboboxButton>
           </div>
-          <Combobox.Options className="search-bar dropdown-border">
+          <ComboboxOptions className="search-bar dropdown-border">
             {filteredPeople.length > 0 ? (
               filteredPeople.map(person => (
-                <Combobox.Option key={person} value={person} className={({ active }) => `${active ? 'bg-site-yellow/20' : ''}`}>
+                <ComboboxOption key={person} value={person} className={({ focus }) => `${focus ? 'bg-site-yellow/20' : ''}`}>
                   {person}
-                </Combobox.Option>
+                </ComboboxOption>
               ))
             ) : (
               <li>No results found for your search</li>
             )}
-          </Combobox.Options>
+          </ComboboxOptions>
         </div>
       </Combobox>
     </>
