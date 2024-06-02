@@ -32,7 +32,7 @@ const HeaderContainer = () => {
     return () => {
       window.removeEventListener('scroll', checkScroll)
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={cn('header-wrapper group/container', { scrolled: isScrolled, upscrolled: isUpScroll })}>

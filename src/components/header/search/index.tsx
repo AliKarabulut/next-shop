@@ -28,7 +28,7 @@ const Search = () => {
 
       <Combobox value={selectedPerson} onChange={setSelectedPerson}>
         <div className={cn('search-container mobile-search', { opened: isSearchOpen })}>
-          <div className="search-input-container ">
+          <div className="search-input-container">
             <Combobox.Input onChange={event => setQuery(event.target.value)} className="search-input" placeholder="Search..." />
             <Combobox.Button type="submit" className="search-button">
               <SearchIcon />
