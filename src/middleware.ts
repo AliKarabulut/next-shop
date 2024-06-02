@@ -11,15 +11,8 @@ export default auth(req => {
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthRoute)
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname)
   const isAuthRoute = authRoutes.includes(nextUrl.pathname)
-  // const isAdminRoute = adminRoutes.includes(nextUrl.pathname)
 
   if (isApiAuthRoute) return
-
-  // rolebased bug should fix
-  // if (isAdminRoute) {
-  //   console.log(req.auth)
-  //   return
-  // }
 
   if (isAuthRoute) {
     if (isLoggedIn) {
@@ -34,5 +27,5 @@ export default auth(req => {
 })
 
 export const config = {
-  matcher: ['/((?!api|_next|_next/static|_next/image|images|_vercel.*\\..*).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 }
