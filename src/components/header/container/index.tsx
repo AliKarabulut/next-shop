@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
 
 import CategoryList from '@/components/header/category'
 import HeaderActionGroup from '@/components/header/actions'
@@ -38,7 +39,9 @@ const HeaderContainer = () => {
     <div className={cn('header-wrapper group/container', { scrolled: isScrolled, upscrolled: isUpScroll })}>
       <div className="header-container group/container">
         <div className="header-sub-wrapper">
-          <div className="header-brand">E commerce</div>
+          <Link href="/" className="header-brand">
+            E-commerce
+          </Link>
           <Search />
           <HeaderActionGroup />
         </div>
