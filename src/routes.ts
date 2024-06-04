@@ -1,4 +1,4 @@
-export const publicRoutes = ['/', '/new-verification']
+export const publicRoutes = ['/', '/new-verification', '/single-product']
 export const authRoutes = ['/login', '/register', '/reset-password', '/new-password']
 export const privateRoutes = ['/profile']
 export const apiAuthRoute = '/api/auth'
