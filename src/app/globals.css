@@ -27,6 +27,6 @@
 
 main {
   @apply space-y-10;
-  min-height: calc(100vh - 558px);
-  min-height: calc(100dvh - 558px);
+  min-height: calc(100vh - 598px);
+  min-height: calc(100dvh - 598px);
 }
