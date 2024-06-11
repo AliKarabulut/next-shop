@@ -1,0 +1,8 @@
+@layer components {
+  .base-product-wrapper .swiper-wrapper {
+    @apply gap-4;
+  }
+  .base-product-wrapper .swiper-slide {
+    @apply h-full !w-auto cursor-pointer border;
+  }
+}

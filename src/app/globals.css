@@ -20,6 +20,7 @@
 @import '../css/form/input.css';
 @import '../css/form/login-provider.css';
 @import '../css/form/seperator.css';
+@import '../css/base-product.css';
 
 @tailwind base;
 @tailwind components;
