@@ -41,20 +41,15 @@ const ImageZoom: React.FC<ImageZoomProps> = ({ image }: ImageZoomProps) => {
   }, [])
 
   return (
-    <div ref={baseProductRef} id="base-product" className="group absolute inset-0">
+    <section id="single-product-image" className="group relative h-[600px] w-full" ref={baseProductRef}>
       <Image width={400} height={600} className="object-contain" alt={image.alt} src={image.src} />
-      <div
-        ref={zoomAreaRef}
-        id="zoom-area"
-        className={cn(
-          'invisible absolute flex size-1/3 cursor-crosshair items-center justify-center bg-white opacity-0 transition-opacity duration-300 group-hover:visible group-hover:opacity-40',
-        )}></div>
+      <div ref={zoomAreaRef} id="zoom-area" className="zoom-area group-hover:visible group-hover:opacity-40"></div>
       <div
         ref={zoomedArea}
-        id="zoomed-image"
-        className="invisible absolute inset-0 bg-blue-100 bg-[length:1200px_1800px] bg-no-repeat opacity-0 transition-opacity delay-300 duration-200 group-hover:visible group-hover:opacity-100 sm:translate-x-[110%]"
+        id="zoomed-area"
+        className="zoomed-area group-hover:visible group-hover:opacity-100"
         style={{ backgroundImage: `url(${image.src})` }}></div>
-    </div>
+    </section>
   )
 }
 

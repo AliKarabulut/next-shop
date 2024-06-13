@@ -1,0 +1,29 @@
+@layer components {
+  .product-image-galleryr .swiper-wrapper {
+    @apply gap-4;
+  }
+  .product-image-gallery .swiper-slide {
+    @apply h-full w-auto cursor-pointer;
+  }
+  .navigation-button {
+    @apply absolute top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 shadow-md transition-all hover:bg-site-yellow/70;
+  }
+  .navigation-button.prev-button {
+    @apply left-2;
+  }
+  .navigation-button.prev-button svg {
+    @apply ml-[2.5px];
+  }
+  .navigation-button.next-button {
+    @apply right-2;
+  }
+  .navigation-button.prev-button svg {
+    @apply mr-[2.5px];
+  }
+  .zoom-area {
+    @apply invisible absolute flex size-1/3 cursor-crosshair items-center justify-center bg-white opacity-0 transition-opacity duration-300;
+  }
+  .zoomed-area {
+    @apply invisible absolute inset-0 bg-blue-100 bg-[length:1200px_1800px] bg-no-repeat opacity-0 transition-opacity delay-300 duration-200 sm:translate-x-[110%];
+  }
+}

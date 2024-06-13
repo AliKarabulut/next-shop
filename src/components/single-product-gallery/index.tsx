@@ -7,6 +7,7 @@ import Image from 'next/image'
 import ImageZoom from '@/components/image-zoom'
 import ChevronRightIcon from '@/icons/chevron-right'
 import ChevronLeftIcon from '@/icons/chevron-left'
+import cn from '@/utils/cn'
 
 const images = [
   {
@@ -59,24 +60,17 @@ const images = [
   },
 ]
 
-const BaseProduct = () => {
+const SingleProductGallery = () => {
   const [image, setImage] = useState(images[0])
 
   const setZoomImageUrl = (image: { src: string; alt: string }) => {
     setImage(image)
   }
   return (
-    <div className="base-product-wrapper ml-40 mt-40 w-[400px]">
-      <div className="relative h-[600px] w-full rounded-lg border bg-red-100">
-        <ImageZoom image={image} />
-        <div className="prev-button absolute left-2 top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 shadow-md transition-all hover:bg-site-yellow/70">
-          <ChevronLeftIcon className="mr-[2.5px]" />
-        </div>
-        <div className="next-button absolute right-2 top-1/2 flex size-8 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-white/20 shadow-md transition-all hover:bg-site-yellow/70">
-          <ChevronRightIcon className="ml-[2.5px]" />
-        </div>
-      </div>
+    <section id="product-image-gallery" className="product-image-gallery w-[400px]">
+      <ImageZoom image={image} />
       <Swiper
+        id="product-image-slider"
         modules={[Navigation]}
         slidesPerView="auto"
         loop={true}
@@ -96,9 +90,11 @@ const BaseProduct = () => {
                 <Image
                   src={image.src}
                   alt={image.alt ?? `Slide image ${index}`}
-                  width={40}
-                  height={60}
-                  className="h-full object-contain"
+                  width={70}
+                  height={105}
+                  className={cn('h-full object-contain', {
+                    'active-image': image.src === image.src,
+                  })}
                   onClick={() => setZoomImageUrl(image)}
                   onMouseOver={() => setZoomImageUrl(image)}
                 />
@@ -107,8 +103,8 @@ const BaseProduct = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+    </section>
   )
 }
 
-export default BaseProduct
+export default SingleProductGallery

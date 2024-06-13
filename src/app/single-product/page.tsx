@@ -1,9 +1,9 @@
-import BaseProduct from '@/components/single-product-gallery/base-product'
+import SingleProductGallery from '@/components/single-product-gallery'
 
 const SingleProduct = () => {
   return (
-    <div>
-      <BaseProduct />
+    <div className="container">
+      <SingleProductGallery />
     </div>
   )
 }
