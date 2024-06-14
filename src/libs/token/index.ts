@@ -2,11 +2,11 @@ import crypto from 'crypto'
 
 import { v4 as uuid } from 'uuid'
 
-import client from '@/libs/prismadb'
-import { getVerificationTokenByEmail } from '@/libs/verification-token'
-import { getPassordResetTokenByEmail } from '@/libs/password-reset-token'
-import { getTwoFactorTokenByEmail } from '@/libs/two-factor-token/'
 import { getEmailChangeTokenByEmail } from '@/libs/email-change-token'
+import { getPassordResetTokenByEmail } from '@/libs/password-reset-token'
+import client from '@/libs/prismadb'
+import { getTwoFactorTokenByEmail } from '@/libs/two-factor-token/'
+import { getVerificationTokenByEmail } from '@/libs/verification-token'
 
 export const generateVerificationToken = async (email: string, oldEmail?: string) => {
   try {

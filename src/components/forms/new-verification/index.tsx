@@ -1,14 +1,13 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { useCallback, useEffect, useState } from 'react'
 import BeatLoader from 'react-spinners/BeatLoader'
-import { useEffect, useState, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
 
-import Button from '@/components/button'
 import { newVerification } from '@/actions/new-verification'
+import Button from '@/components/button'
+import FormContainer from '@/components/form-container'
 import FormError from '@/components/form-error'
 import FormSuccess from '@/components/form-success'
-import FormContainer from '@/components/form-container'
 
 const NewVerificationForm = () => {
   const [error, setError] = useState<string>('')

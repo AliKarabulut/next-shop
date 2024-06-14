@@ -1,7 +1,7 @@
 import ActionButton from '@/components/header/actions/action-button'
-import UserIcon from '@/icons/user'
 import HeartIcon from '@/icons/heart'
 import ShoppingBagIcon from '@/icons/shopping-bag'
+import UserIcon from '@/icons/user'
 import cn from '@/utils/cn'
 
 const DummyDropDown = [

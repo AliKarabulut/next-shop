@@ -1,9 +1,9 @@
 'use server'
 import { z } from 'zod'
 
-import { EmailSchema } from '@/schemas'
-import { getUserAccounts, getUserByEmail } from '@/libs/user'
 import { generateEmailChangeToken } from '@/libs/token'
+import { getUserAccounts, getUserByEmail } from '@/libs/user'
+import { EmailSchema } from '@/schemas'
 
 export const changeEmail = async (values: z.infer<typeof EmailSchema>) => {
   const validateValues = EmailSchema.safeParse(values)

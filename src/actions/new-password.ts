@@ -1,11 +1,11 @@
 'use server'
-import { z } from 'zod'
 import bcrypt from 'bcryptjs'
+import { z } from 'zod'
 
-import { NewPasswordScheme } from '@/schemas'
 import { getPassordResetTokenByToken } from '@/libs/password-reset-token'
-import { getUserByEmail } from '@/libs/user'
 import client from '@/libs/prismadb'
+import { getUserByEmail } from '@/libs/user'
+import { NewPasswordScheme } from '@/schemas'
 
 export const newPassword = async (values: z.infer<typeof NewPasswordScheme>, token: string | null) => {
   if (!token) {

@@ -1,6 +1,6 @@
 'use client'
-import { useState } from 'react'
 import { Switch } from '@headlessui/react'
+import { useState } from 'react'
 
 import cn from '@/utils/cn'
 

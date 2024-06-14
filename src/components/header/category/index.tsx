@@ -1,7 +1,7 @@
 'use client'
-import { Scrollbar, Autoplay } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
+import { Autoplay, Scrollbar } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 import CategoryItem from '@/components/header/category/category-item'
 import CameraIcon from '@/icons/camera'

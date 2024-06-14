@@ -1,5 +1,5 @@
-import HeaderTopMenu from '@/components/header/top-menu'
 import HeaderContainer from '@/components/header/container'
+import HeaderTopMenu from '@/components/header/top-menu'
 
 const Header = () => {
   return (

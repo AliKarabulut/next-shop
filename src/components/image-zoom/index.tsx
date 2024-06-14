@@ -1,8 +1,6 @@
 'use client'
-import { useRef, useEffect } from 'react'
 import Image from 'next/image'
-
-import cn from '@/utils/cn'
+import { useEffect, useRef } from 'react'
 
 type ImageZoomProps = {
   image: {

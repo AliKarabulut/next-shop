@@ -1,16 +1,16 @@
 'use server'
-import { z } from 'zod'
-import { AuthError } from 'next-auth'
 import bcrypt from 'bcryptjs'
+import { AuthError } from 'next-auth'
+import { z } from 'zod'
 
-import client from '@/libs/prismadb'
-import { LoginSchema } from '@/schemas'
 import { signIn } from '@/auth'
-import { DEFAULT_LOGIN_REDIRECT } from '@/routes'
+import client from '@/libs/prismadb'
 import { generateTwoFactorToken, generateVerificationToken } from '@/libs/token'
-import { getUserByEmail } from '@/libs/user'
-import { getTwoFactorTokenByEmail } from '@/libs/two-factor-token'
 import { getTwoFactorConfirmationByUserId } from '@/libs/two-factor-confirmation'
+import { getTwoFactorTokenByEmail } from '@/libs/two-factor-token'
+import { getUserByEmail } from '@/libs/user'
+import { DEFAULT_LOGIN_REDIRECT } from '@/routes'
+import { LoginSchema } from '@/schemas'
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
   const validateValues = LoginSchema.safeParse(values)

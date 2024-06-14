@@ -1,5 +1,3 @@
-import React from 'react'
-
 type EyeIconProps = {
   className?: string
   size?: number

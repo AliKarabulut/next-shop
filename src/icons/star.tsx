@@ -1,5 +1,3 @@
-import React from 'react'
-
 type StarIconProps = {
   className?: string
   size?: number

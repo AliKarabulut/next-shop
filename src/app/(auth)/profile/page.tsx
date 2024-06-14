@@ -5,9 +5,9 @@ import toast from 'react-hot-toast'
 import { changeEmail } from '@/actions/change-email'
 import Button from '@/components/button'
 // import UserInformationList from '@/components/user-information-list'
-import { useCurrentUser } from '@/services/get-user-from-client'
-import SwitchComponent from '@/components/switch'
 import { toggleTwoFactor } from '@/actions/toggle-two-factor'
+import SwitchComponent from '@/components/switch'
+import { useCurrentUser } from '@/services/get-user-from-client'
 
 export const dynamic = 'force-dynamic'
 

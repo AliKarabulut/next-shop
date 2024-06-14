@@ -1,11 +1,11 @@
+import type { Metadata } from 'next'
+import { SessionProvider } from 'next-auth/react'
 import { Nunito_Sans } from 'next/font/google'
 import './globals.css'
-import { SessionProvider } from 'next-auth/react'
-import type { Metadata } from 'next'
 
+import { auth } from '@/auth'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import { auth } from '@/auth'
 
 const nunito = Nunito_Sans({ weight: ['200', '300', '400', '500', '700', '900'], subsets: ['latin'] })
 

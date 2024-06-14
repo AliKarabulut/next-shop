@@ -1,11 +1,11 @@
 'use server'
-import { z } from 'zod'
 import bcrypt from 'bcryptjs'
+import { z } from 'zod'
 
 import client from '@/libs/prismadb'
-import { RegisterSchema } from '@/schemas'
-import { getUserByEmail } from '@/libs/user'
 import { generateVerificationToken } from '@/libs/token'
+import { getUserByEmail } from '@/libs/user'
+import { RegisterSchema } from '@/schemas'
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const validateValues = RegisterSchema.safeParse(values)

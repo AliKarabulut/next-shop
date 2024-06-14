@@ -1,9 +1,9 @@
 'use server'
 import { z } from 'zod'
 
-import { BooleanSchema } from '@/schemas'
 import getUserInformation from '@/actions/get-user-information'
 import client from '@/libs/prismadb'
+import { BooleanSchema } from '@/schemas'
 
 export const toggleTwoFactor = async (values: z.infer<typeof BooleanSchema>) => {
   const validateValues = BooleanSchema.safeParse(values)

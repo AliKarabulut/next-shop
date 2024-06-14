@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { Pagination, Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 type SwiperProps = {

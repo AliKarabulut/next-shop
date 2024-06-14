@@ -1,17 +1,17 @@
 'use client'
-import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { useState, useTransition } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { useState, useTransition } from 'react'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
 
-import { NewPasswordScheme } from '@/schemas'
-import Button from '@/components/button'
-import Input from '@/components/input'
 import { newPassword } from '@/actions/new-password'
+import Button from '@/components/button'
+import FormContainer from '@/components/form-container'
 import FormError from '@/components/form-error'
 import FormSuccess from '@/components/form-success'
-import FormContainer from '@/components/form-container'
+import Input from '@/components/input'
+import { NewPasswordScheme } from '@/schemas'
 
 const NewPasswordForm = () => {
   const [isPending, startTransition] = useTransition()

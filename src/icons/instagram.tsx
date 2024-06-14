@@ -1,5 +1,3 @@
-import React from 'react'
-
 type InstagramIconProps = {
   className?: string
   size?: number

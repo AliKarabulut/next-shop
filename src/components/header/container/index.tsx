@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 
-import CategoryList from '@/components/header/category'
 import HeaderActionGroup from '@/components/header/actions'
+import CategoryList from '@/components/header/category'
 import Search from '@/components/header/search'
 import cn from '@/utils/cn'
 

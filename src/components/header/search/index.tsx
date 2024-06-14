@@ -1,6 +1,6 @@
 'use client'
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from '@headlessui/react'
 import { useState } from 'react'
-import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions, ComboboxButton } from '@headlessui/react'
 
 import SearchIcon from '@/icons/search'
 import XIcon from '@/icons/x'

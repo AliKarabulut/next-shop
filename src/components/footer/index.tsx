@@ -1,5 +1,5 @@
-import MailIcon from '@/icons/mail'
 import LinkedInIcon from '@/icons/linkedin'
+import MailIcon from '@/icons/mail'
 import MapPinIcon from '@/icons/map-pin'
 import PhoneIcon from '@/icons/phone'
 

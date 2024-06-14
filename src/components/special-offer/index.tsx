@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ProgressBar from '@/components/progress-bar'
 import HurryUp from '@/components/hurry-up'
+import ProgressBar from '@/components/progress-bar'
 import cn from '@/utils/cn'
 
 type SpecialOfferProps = {

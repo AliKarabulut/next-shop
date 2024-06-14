@@ -1,11 +1,11 @@
 'use server'
-import { z } from 'zod'
 import bcrypt from 'bcryptjs'
+import { z } from 'zod'
 
-import { ChangePasswordScheme } from '@/schemas'
-import { getUserById } from '@/libs/user'
-import client from '@/libs/prismadb'
 import getUserInformation from '@/actions/get-user-information'
+import client from '@/libs/prismadb'
+import { getUserById } from '@/libs/user'
+import { ChangePasswordScheme } from '@/schemas'
 
 export const changePassword = async (values: z.infer<typeof ChangePasswordScheme>) => {
   const validateValues = ChangePasswordScheme.safeParse(values)

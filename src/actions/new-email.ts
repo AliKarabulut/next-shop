@@ -1,11 +1,11 @@
 'use server'
 import { z } from 'zod'
 
-import { EmailSchema } from '@/schemas'
-import client from '@/libs/prismadb'
 import { getEmailChangeTokenByToken } from '@/libs/email-change-token'
-import { getUserByEmail } from '@/libs/user'
+import client from '@/libs/prismadb'
 import { generateVerificationToken } from '@/libs/token'
+import { getUserByEmail } from '@/libs/user'
+import { EmailSchema } from '@/schemas'
 
 export const newEmail = async (value: z.infer<typeof EmailSchema>, token: string | null) => {
   if (!token) {

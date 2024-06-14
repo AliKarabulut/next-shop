@@ -2,8 +2,8 @@
 import Image from 'next/image'
 
 import Star from '@/components/star'
-import HeartIcon from '@/icons/heart'
 import EyeIcon from '@/icons/eye'
+import HeartIcon from '@/icons/heart'
 import cn from '@/utils/cn'
 
 const DummyData = {

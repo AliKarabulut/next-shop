@@ -1,7 +1,7 @@
-import prisma from '@/libs/prismadb'
 import HeaderSwiper from '@/components/home-swiper'
-import SpecialOffer from '@/components/special-offer'
 import ProductCard from '@/components/product-card'
+import SpecialOffer from '@/components/special-offer'
+import prisma from '@/libs/prismadb'
 
 const getData = async () => {
   const sliders = await prisma.slider.findMany()
