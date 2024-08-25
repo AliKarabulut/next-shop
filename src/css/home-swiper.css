@@ -8,7 +8,7 @@
   }
 
   .home-swiper-description {
-    @apply flex w-min max-w-lg flex-col gap-1 text-light-dark sm:w-auto;
+    @apply flex w-min max-w-56 flex-col gap-1 hyphens-auto text-light-dark sm:w-auto sm:max-w-lg;
   }
 
   .home-swiper-image-wrapper {
