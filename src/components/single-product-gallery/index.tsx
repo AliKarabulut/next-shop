@@ -1,12 +1,10 @@
 'use client'
+import Image from 'next/image'
+import { useState } from 'react'
 import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { useState } from 'react'
-import Image from 'next/image'
 
 import ImageZoom from '@/components/image-zoom'
-import ChevronRightIcon from '@/icons/chevron-right'
-import ChevronLeftIcon from '@/icons/chevron-left'
 import cn from '@/utils/cn'
 
 const images = [
