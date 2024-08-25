@@ -13,7 +13,6 @@ type SwiperProps = {
 }
 
 const HomeSwiper = ({ slides }: SwiperProps) => {
-  console.log(slides)
   return (
     <Swiper
       modules={[Pagination, Navigation, Autoplay]}
