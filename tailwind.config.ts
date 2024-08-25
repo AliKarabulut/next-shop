@@ -7,6 +7,7 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     './src/ui/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+
   theme: {
     container: {
       center: true,
@@ -63,5 +64,22 @@ const config: Config = {
     },
   },
   plugins: [],
+  safelist: [
+    'font-bold',
+    'text-blue-400',
+    'text-dynmic-xs',
+    'text-dynmic-sm',
+    'text-dynmic-base',
+    'text-dynmic-lg',
+    'text-dynmic-xl',
+    'text-dynmic-2xl',
+    'text-dynmic-3xl',
+    'text-dynmic-4xl',
+    'text-dynmic-5xl',
+    'text-dynmic-6xl',
+    'text-dynmic-7xl',
+    'text-dynmic-8xl',
+    'text-dynmic-9xl',
+  ],
 }
 export default config
