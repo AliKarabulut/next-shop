@@ -55,7 +55,7 @@ model Image {
 
 model Slider {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
-  description String @unique
+  description String
   order       Int    @default(0)
   imageUrl   String
   imageAlt   String
