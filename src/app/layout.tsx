@@ -10,8 +10,8 @@ import Header from '@/components/header'
 const nunito = Nunito_Sans({ weight: ['200', '300', '400', '500', '700', '900'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'E-commerce',
-  description: 'E-commerce',
+  title: 'Next Shop',
+  description: 'E-commerce website built with Next.js 14',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

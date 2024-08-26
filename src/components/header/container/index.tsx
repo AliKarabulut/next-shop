@@ -40,7 +40,7 @@ const HeaderContainer = () => {
       <div className="header-container group/container">
         <div className="header-sub-wrapper">
           <Link href="/" className="header-brand">
-            E-commerce
+            Next Shop
           </Link>
           <Search />
           <HeaderActionGroup />
