@@ -46,6 +46,7 @@ const config: Config = {
         open: 'open .5s ease forwards',
         opacityFast: 'opacity .3s ease forwards ',
         opacitySlow: 'opacity .5s ease forwards ',
+        pop: 'pop .5s ease alternate',
       },
       keyframes: {
         open: {
@@ -55,6 +56,11 @@ const config: Config = {
         opacity: {
           '0%,': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        pop: {
+          '0%,': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(0.9)' },
+          '100%': { transform: 'scale(1)' },
         },
       },
       transitionProperty: {
