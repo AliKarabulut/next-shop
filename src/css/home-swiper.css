@@ -1,35 +1,33 @@
-@layer components {
-  .home-swiper-wrapper {
-    @apply h-[23rem] bg-gradient-to-r from-lighter-gray to-light-gray py-2 sm:h-[26.25rem];
-  }
+.home-swiper-wrapper {
+  @apply h-[23rem] bg-gradient-to-r from-lighter-gray to-light-gray py-2 sm:h-[26.25rem];
+}
 
-  .home-swiper-container {
-    @apply container flex size-full items-center justify-between gap-2 !pr-0 xl:!px-32;
-  }
+.home-swiper-container {
+  @apply container flex size-full items-center justify-between gap-2 !pr-0 xl:!px-32;
+}
 
-  .home-swiper-description {
-    @apply flex w-min max-w-56 flex-col gap-1 hyphens-auto text-light-dark sm:w-auto sm:max-w-lg;
-  }
+.home-swiper-description {
+  @apply flex w-min max-w-56 flex-col gap-1 hyphens-auto text-light-dark sm:w-auto sm:max-w-lg;
+}
 
-  .home-swiper-image-wrapper {
-    @apply ml-auto h-full max-h-[26.25rem];
-  }
+.home-swiper-image-wrapper {
+  @apply ml-auto h-full max-h-[26.25rem];
+}
 
-  .home-swiper-image {
-    @apply h-full w-fit object-contain;
-  }
+.home-swiper-image {
+  @apply h-full w-fit object-contain;
+}
 
-  .swiper-pagination-bullet {
-    @apply h-2 w-2 rounded-full bg-dark-gray duration-500;
-  }
+.swiper-pagination-bullet {
+  @apply h-2 w-2 rounded-full bg-dark-gray duration-500;
+}
 
-  .swiper-pagination-bullet-active {
-    @apply w-8 bg-site-yellow;
-  }
+.swiper-pagination-bullet-active {
+  @apply w-8 bg-site-yellow;
+}
 
-  .swiper-pagination {
-    @apply relative z-50 my-2 -mt-5 flex justify-center gap-3;
-  }
+.swiper-pagination {
+  @apply relative z-50 my-2 -mt-5 flex justify-center gap-3;
 }
 
 .up-text {
