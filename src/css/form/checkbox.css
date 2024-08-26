@@ -1,9 +1,9 @@
 @layer components {
   .checkbox-label {
-    @apply relative flex cursor-pointer select-none items-center gap-1 text-sm;
+    @apply relative flex cursor-pointer select-none items-center gap-1.5 text-sm;
   }
   .checkmark {
-    @apply relative left-0 top-0 size-[13px] rounded-[4px] bg-neutral-100 transition-all after:absolute after:left-1/2 after:top-1/2 after:hidden after:h-[0.5em] after:w-[0.25em] after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:border-b-2 after:border-r-2 after:border-site-red after:content-[''];
+    @apply relative left-0 top-0 size-[13px] rounded-[4px] bg-neutral-200 transition-all after:absolute after:left-1/2 after:top-1/2 after:hidden after:h-[0.5em] after:w-[0.25em] after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:border-b-2 after:border-r-2 after:border-site-red after:content-[''];
   }
   .checkbox-label input {
     @apply absolute size-0 cursor-pointer opacity-0;

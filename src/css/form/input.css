@@ -1,17 +1,19 @@
 @layer components {
   .input-label {
+    @apply text-sm font-medium;
   }
   .input-wrapper {
+    @apply relative flex bg-red-50;
   }
 
   .input-wrapper input {
+    @apply w-full rounded-md border border-gray-300 px-4 py-1.5 text-sm focus:outline-none;
   }
   .form-password-icon {
+    @apply absolute right-2 top-2;
   }
 
   .input-error {
-  }
-
-  .if-input {
+    @apply rounded-lg bg-red-50 px-2 py-1 text-sm text-red-500;
   }
 }

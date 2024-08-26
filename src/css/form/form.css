@@ -1,21 +1,25 @@
 @layer components {
   .form-container {
+    @apply mx-auto max-w-lg bg-white p-6 text-light-dark shadow-sm shadow-site-red/20 max-sm:pt-0 sm:mt-8 sm:rounded-lg sm:shadow-md;
   }
 
   .form-title {
+    @apply mb-6 text-center text-dynmic-3xl font-medium;
   }
 
   .form-wrapper {
+    @apply flex flex-col gap-4;
   }
 
   .form-container form {
+    @apply flex flex-col gap-2;
   }
 
   .form-auth-actions {
-    @apply flex items-center justify-end;
+    @apply my-5 flex items-center justify-between text-sm;
   }
 
   .form-verification-container {
-    @apply flex items-center justify-center
+    @apply flex items-center justify-center;
   }
 }
