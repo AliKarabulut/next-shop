@@ -63,7 +63,7 @@ const LoginForm = () => {
             <Input label="Password" type="password" {...register('password')} error={errors.password?.message} />
             <div className="form-auth-actions">
               <Checkbox label="Remember me" {...register('rememberMe')} />
-              <Button href="/reset-password" label="Forgot password" variant="ghost" className="w-fit p-0" />
+              <Button href="/reset-password" label="Forgot password" variant="ghost" className="w-fit p-0 font-normal" />
             </div>
           </>
         )}
