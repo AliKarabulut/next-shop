@@ -22,7 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
       setShowPassword(!showPassword)
     }
     return (
-      <div>
+      <div className="relative">
         <label htmlFor={name} className="input-label">
           {label}
         </label>
@@ -40,9 +40,9 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             })}
           />
           {type === 'password' && (
-            <div className="form-password-icon" onClick={togglePasswordVisibility}>
+            <button type="button" className="form-password-icon" onClick={togglePasswordVisibility}>
               {showPassword ? <EyeIcon /> : <EyeIcon />}
-            </div>
+            </button>
           )}
         </div>
         {error && (
