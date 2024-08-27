@@ -34,10 +34,10 @@ const Search = () => {
               <SearchIcon />
             </ComboboxButton>
           </div>
-          <ComboboxOptions className="search-bar dropdown-border">
+          <ComboboxOptions className="search-bar dropdown-border" as="ul">
             {filteredPeople.length > 0 ? (
               filteredPeople.map(person => (
-                <ComboboxOption key={person} value={person} className={({ focus }) => `${focus ? 'bg-site-yellow/20' : ''}`}>
+                <ComboboxOption key={person} as="li" value={person} className={({ focus }) => `${focus ? 'bg-site-yellow/20' : ''}`}>
                   {person}
                 </ComboboxOption>
               ))
