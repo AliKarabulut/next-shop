@@ -7,7 +7,7 @@
   }
 
   .input-wrapper input {
-    @apply w-full rounded-md border border-gray-300 px-4 py-1.5 text-sm focus:outline-none;
+    @apply w-full rounded-md border border-gray-300 px-4 py-1.5 text-sm;
   }
   .form-password-icon {
     @apply absolute right-2 top-2;

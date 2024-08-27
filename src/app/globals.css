@@ -32,3 +32,9 @@ main {
   min-height: calc(100vh - 598px);
   min-height: calc(100dvh - 598px);
 }
+a:focus,
+button:focus,
+input:focus,
+label:has(> input:focus) {
+  @apply outline-site-yellow/50;
+}

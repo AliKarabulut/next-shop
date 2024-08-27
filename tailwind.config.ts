@@ -42,6 +42,11 @@ const config: Config = {
         'light-dark': '#333e48',
         dark: '#231f20',
       },
+      zIndex: {
+        1: '1',
+        2: '2',
+        3: '3',
+      },
       animation: {
         open: 'open .5s ease forwards',
         opacityFast: 'opacity .3s ease forwards ',
