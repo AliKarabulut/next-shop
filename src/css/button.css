@@ -1,10 +1,9 @@
 @layer components {
   .button-base {
-    @apply relative flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-site-yellow px-4 py-2 text-sm font-medium;
+    @apply relative flex w-full cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-md bg-site-yellow px-4 py-2 text-sm font-medium;
   }
   .button-disabled {
-  }
-  .button-primary {
+    @apply cursor-not-allowed bg-site-yellow/70 text-transparent;
   }
   .button-ghost {
     @apply bg-transparent;

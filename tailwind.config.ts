@@ -47,6 +47,7 @@ const config: Config = {
         opacityFast: 'opacity .3s ease forwards ',
         opacitySlow: 'opacity .5s ease forwards ',
         pop: 'pop .5s ease alternate',
+        'loading-spinner': 'loading-spinner 1s ease-in-out infinite',
       },
       keyframes: {
         open: {
@@ -61,6 +62,11 @@ const config: Config = {
           '0%,': { transform: 'scale(1)' },
           '50%': { transform: 'scale(0.9)' },
           '100%': { transform: 'scale(1)' },
+        },
+        'loading-spinner': {
+          '0%,': { transform: 'scale(1)', opacity: '1' },
+          '20%': { transform: 'scale(1.5)', opacity: '0.5' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
       transitionProperty: {

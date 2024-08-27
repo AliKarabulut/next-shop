@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import ButtonLoadingAnimation from '@/components/button-loading-animation'
 import cn from '@/utils/cn'
 
 type ButtonProps = {
@@ -33,6 +34,7 @@ const Button = ({ href, label, type = 'submit', onClick, className, children, di
     <button type={type} onClick={onClick} className={buttonClass} disabled={disabled} {...props}>
       {children}
       {label}
+      {disabled && <ButtonLoadingAnimation />}
     </button>
   )
 }
