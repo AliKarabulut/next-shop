@@ -3,7 +3,7 @@ type CheckIconProps = {
   size?: number
 }
 
-const CheckIcon = ({ className, size = 24 }: CheckIconProps) => {
+const CheckIcon = ({ className, size = 20 }: CheckIconProps) => {
   return (
     <svg
       className={className}
@@ -11,7 +11,7 @@ const CheckIcon = ({ className, size = 24 }: CheckIconProps) => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      strokeWidth="2"
+      strokeWidth="1.6"
       stroke="currentColor"
       fill="none"
       strokeLinecap="round"

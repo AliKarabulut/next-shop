@@ -21,6 +21,7 @@
 @import '../css/form/login-provider.css';
 @import '../css/form/seperator.css';
 @import '../css/product-gallery.css';
+@import '../css/loading-spinner.css';
 
 @tailwind base;
 @tailwind components;

@@ -61,7 +61,7 @@ const RegisterForm = () => {
           {...register('confirmPassword')}
           error={errors.confirmPassword?.message}
         />
-        <div className="form-auth-actions">
+        <div className="form-auth-actions my-3">
           <Button href="/login" label="Do you have an account? &nbsp;" variant="ghost" />
         </div>
         <div>

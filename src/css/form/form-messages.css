@@ -1,10 +1,13 @@
 @layer components {
   .form-message-container {
+    @apply mb-2 flex w-full items-center justify-center gap-1 rounded-md px-2 py-1 text-xs font-light;
   }
 
   .form-success-message {
+    @apply bg-green-100 text-green-700;
   }
 
   .form-error-message {
+    @apply bg-red-100 text-red-700;
   }
 }
