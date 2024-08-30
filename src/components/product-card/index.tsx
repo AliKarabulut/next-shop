@@ -1,11 +1,11 @@
 'use client'
+import Image from 'next/image'
+import Link from 'next/link'
+
 import Star from '@/components/star'
 import EyeIcon from '@/icons/eye'
 import HeartIcon from '@/icons/heart'
 import cn from '@/utils/cn'
-import Image from 'next/image'
-
-import Link from 'next/link'
 
 const DummyData = {
   name: 'Iphone Bilmem Kaç',

@@ -8,7 +8,7 @@
     "ecmaVersion": 2021,
     "sourceType": "module"
   },
-  "plugins": ["import", "@typescript-eslint", "prettier"],
+  "plugins": ["import", "@typescript-eslint", "prettier", "unused-imports"],
   "rules": {
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-explicit-any": "error",
@@ -16,6 +16,16 @@
     "tailwindcss/no-custom-classname": "off",
     "tailwindcss/no-contradicting-classname": "error",
     "tailwindcss/enforces-shorthand": "error",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
     "import/order": [
       "warn",
       {
