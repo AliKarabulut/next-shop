@@ -8,7 +8,7 @@
   }
 
   .product-firs-image {
-    @apply h-full object-contain transition-all duration-500 ;
+    @apply h-full object-contain transition-all duration-500;
   }
 
   .product-second-image {
@@ -47,11 +47,7 @@
     @apply text-lg font-medium;
   }
 
-  .view-button-container {
-    @apply absolute inset-0 -bottom-8 z-10 hidden w-full rounded-lg border border-light-gray bg-transparent shadow-md;
-  }
-
   .view-button {
-    @apply absolute bottom-0 flex h-fit w-full items-center justify-center gap-0.5 rounded-lg bg-white py-2 text-xs font-medium text-dark-gray hover:text-site-yellow;
+    @apply invisible bottom-0 -mt-9 flex h-fit w-full items-center justify-center gap-0.5 rounded-lg bg-white py-2 text-xs font-medium text-dark-gray opacity-0 before:invisible before:absolute before:inset-0 before:-bottom-8 before:z-10 before:w-full before:rounded-lg before:border before:border-light-gray before:bg-transparent before:shadow-md hover:text-site-yellow;
   }
 }

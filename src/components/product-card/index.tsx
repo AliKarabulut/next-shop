@@ -1,10 +1,11 @@
 'use client'
-import Image from 'next/image'
-
 import Star from '@/components/star'
 import EyeIcon from '@/icons/eye'
 import HeartIcon from '@/icons/heart'
 import cn from '@/utils/cn'
+import Image from 'next/image'
+
+import Link from 'next/link'
 
 const DummyData = {
   name: 'Iphone Bilmem Kaç',
@@ -44,12 +45,12 @@ const ProductCard = ({ className }: { className: string }) => {
           )}
         </div>
       </section>
-      <div className="view-button-container group-hover:block">
-        <button className="view-button">
-          <EyeIcon className="shrink-0 stroke-2 transition-all" />
-          <p className="transition-all">View</p>
-        </button>
-      </div>
+      <Link
+        href="#"
+        className="view-button group-hover:visible group-hover:opacity-100 group-hover:before:visible group-hover:before:opacity-100">
+        <EyeIcon className="shrink-0 translate-y-8 stroke-2" />
+        <span className="translate-y-8">View</span>
+      </Link>
     </article>
   )
 }
