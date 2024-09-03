@@ -36,21 +36,35 @@ model Product {
   id                    String      @id @default(auto()) @map("_id") @db.ObjectId
   name                  String      @unique
   brand                 String
-  description           String
+  variations            Variation[]
   categoryId            String      @db.ObjectId
-  featureId             String      @db.ObjectId
-  images                Image[]
+  category              Category    @relation(fields: [categoryId], references: [id])
 }
 
+model Variation {
+  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  product         Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId       String    @db.ObjectId
+  options         String[]
+  price           Float
+  stock           Int
+  discountPrice   Float?
+  discountStart   DateTime?
+  discountEnd     DateTime?
+  discountRate    Int?
+  images          String[]
+}
 
-model Image {
-  id          String     @id @default(auto()) @map("_id") @db.ObjectId
-  urls        String[]
-  main        Boolean    @default(false)
-  variantId   String?    @db.ObjectId
-  Product     Product?   @relation(fields: [productId], references: [id])
-  productId   String?    @db.ObjectId
-  inventoryId String?    @db.ObjectId
+model Option {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String  @unique
+  type        String
+}
+
+model Category {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String  @unique
+  products    Product[]
 }
 
 model Slider {
