@@ -28,7 +28,7 @@
     ]
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.2.0",
+    "@auth/prisma-adapter": "^2.11.1",
     "@headlessui/react": "^2.0.4",
     "@hookform/resolvers": "^3.4.2",
     "@prisma/client": "^5.14.0",
@@ -39,7 +39,7 @@
     "lint-staged": "^15.2.5",
     "next": "^14.2.35",
     "next-auth": "^5.0.0-beta.19",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^7.0.12",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^12.1.5",
     "prettier-plugin-tailwindcss": "^0.6.1",
