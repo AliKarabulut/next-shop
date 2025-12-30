@@ -39,7 +39,7 @@
     "lint-staged": "^15.2.5",
     "next": "^14.2.35",
     "next-auth": "^5.0.0-beta.30",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^7.0.11",
     "postcss-import": "^16.1.0",
     "postcss-nesting": "^12.1.5",
     "prettier-plugin-tailwindcss": "^0.6.1",
